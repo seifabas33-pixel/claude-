@@ -169,23 +169,37 @@ document.querySelectorAll('.project-card').forEach(card => {
   });
 });
 
-// ===== CONTACT FORM → WHATSAPP =====
+// ===== CONTACT FORM → WHATSAPP / EMAIL =====
 const form = document.getElementById('contactForm');
 const successMsg = document.getElementById('formSuccess');
+const emailBtn = document.getElementById('emailBtn');
+
+const projectMap = {
+  villas: 'Larimar Villas',
+  suites: 'Larimar Suites',
+  l3: 'Larimar 3',
+  all: 'All Projects'
+};
+
+function buildEnquiry() {
+  const data = Object.fromEntries(new FormData(form));
+  const project = projectMap[data.interest] || data.interest || 'Not specified';
+  return { data, project };
+}
+
+function finishForm() {
+  form.reset();
+  successMsg.classList.remove('hidden');
+}
+
+// WhatsApp (form submit)
 form.addEventListener('submit', e => {
   e.preventDefault();
   const btn = form.querySelector('button[type="submit"]');
   btn.innerHTML = '<span class="btn-spinner"></span> Opening WhatsApp...';
   btn.disabled = true;
 
-  const data = Object.fromEntries(new FormData(form));
-  const projectMap = {
-    villas: 'Larimar Villas',
-    suites: 'Larimar Suites',
-    l3: 'Larimar 3',
-    all: 'All Projects'
-  };
-  const project = projectMap[data.interest] || data.interest || 'Not specified';
+  const { data, project } = buildEnquiry();
   const waNumber = form.dataset.waNumber || '201035299659';
   const agentName = form.dataset.agentName || 'Moaz';
   const msg = [
@@ -200,11 +214,31 @@ form.addEventListener('submit', e => {
 
   setTimeout(() => {
     window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
-    form.reset();
-    btn.classList.add('hidden');
-    successMsg.classList.remove('hidden');
+    btn.innerHTML = 'Send via WhatsApp';
+    btn.disabled = false;
+    finishForm();
   }, 1000);
 });
+
+// Email (mailto)
+if (emailBtn) {
+  emailBtn.addEventListener('click', () => {
+    const { data, project } = buildEnquiry();
+    const agentEmail = form.dataset.email || 'm.moamen@larimar-resort.com';
+    const subject = `Property Enquiry — ${project}`;
+    const body = [
+      `Hello, I'm interested in a property at Larimar Port Ghalib.`,
+      ``,
+      `Name: ${data.name || '-'}`,
+      `Phone: ${data.phone || '-'}`,
+      `Email: ${data.email || '-'}`,
+      `Interested in: ${project}`,
+      data.message ? `Message: ${data.message}` : '',
+    ].filter(Boolean).join('\n');
+    window.location.href = `mailto:${agentEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    finishForm();
+  });
+}
 
 // Input focus animation
 document.querySelectorAll('.contact-form input, .contact-form select, .contact-form textarea').forEach(input => {
