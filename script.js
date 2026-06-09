@@ -1,83 +1,62 @@
-const activities = [
-  { name: "Morning Yoga", time: "08:00", location: "Beach Deck" },
-  { name: "Aqua Gym", time: "10:30", location: "Main Pool" },
-  { name: "Darts Tournament", time: "12:00", location: "Garden Arena" },
-  { name: "Kids Mini Disco", time: "16:30", location: "Family Stage" },
-  { name: "Sunset Dance Class", time: "18:00", location: "Terrace" },
-  { name: "Evening Show", time: "21:00", location: "Theater" }
-];
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
 
-const introScreen = document.getElementById("intro-screen");
-const appShell = document.getElementById("app-shell");
-const joinButtons = document.querySelectorAll(".join-button");
-const changeModeButton = document.getElementById("change-mode");
-const tabButtons = document.querySelectorAll(".tab-button");
-const panels = document.querySelectorAll(".tab-panel");
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navMobile = document.getElementById('navMobile');
+navToggle.addEventListener('click', () => {
+  navMobile.classList.toggle('open');
+});
 
-function activateTab(tabId) {
-  tabButtons.forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.tab === tabId);
+// Close mobile nav on link click
+navMobile.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => navMobile.classList.remove('open'));
+});
+
+// Scroll animations
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
   });
-  panels.forEach((panel) => {
-    panel.classList.toggle("active", panel.id === tabId);
+}, { threshold: 0.12 });
+
+document.querySelectorAll(
+  '.project-card, .lifestyle-item, .invest-point, .contact-card, .stat'
+).forEach(el => {
+  el.classList.add('fade-up');
+  observer.observe(el);
+});
+
+// Contact form
+const form = document.getElementById('contactForm');
+const successMsg = document.getElementById('formSuccess');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const btn = form.querySelector('button[type="submit"]');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  setTimeout(() => {
+    form.reset();
+    btn.classList.add('hidden');
+    successMsg.classList.remove('hidden');
+  }, 1200);
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   });
-}
-
-joinButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    activateTab(button.dataset.role);
-    introScreen.classList.add("hidden");
-    appShell.classList.remove("hidden");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-});
-
-changeModeButton.addEventListener("click", () => {
-  appShell.classList.add("hidden");
-  introScreen.classList.remove("hidden");
-});
-
-for (const button of tabButtons) {
-  button.addEventListener("click", () => activateTab(button.dataset.tab));
-}
-
-const activityForm = document.getElementById("activity-form");
-const guestResult = document.getElementById("guest-result");
-
-activities.forEach((activity) => {
-  const card = document.createElement("article");
-  card.className = "activity-card";
-  card.innerHTML = `
-    <strong>${activity.name}</strong>
-    <p>${activity.time} • ${activity.location}</p>
-    <label>
-      <input type="checkbox" name="activity" value="${activity.name}" />
-      Join this activity
-    </label>
-  `;
-  activityForm.appendChild(card);
-});
-
-document.getElementById("submit-activities").addEventListener("click", () => {
-  const selected = [...document.querySelectorAll('input[name="activity"]:checked')].map((input) => input.value);
-
-  if (selected.length === 0) {
-    guestResult.textContent = "Please choose at least one activity to continue.";
-    return;
-  }
-
-  guestResult.textContent = `Great choice! You joined: ${selected.join(", ")}.`;
-});
-
-const workerForm = document.getElementById("worker-form");
-const workerResult = document.getElementById("worker-result");
-
-workerForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const formData = new FormData(workerForm);
-  const name = formData.get("fullName");
-  const email = formData.get("email");
-
-  workerResult.textContent = `Welcome ${name}! Your worker profile was created using ${email}.`;
-  workerForm.reset();
 });
