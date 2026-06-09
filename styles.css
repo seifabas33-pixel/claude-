@@ -462,6 +462,8 @@ ul { list-style: none; }
 }
 .project-img-l3 {
   background: linear-gradient(160deg, #05A8C1 0%, #025B88 60%, #184C72 100%);
+  background-size: cover;
+  background-position: center;
 }
 .project-badge {
   position: relative;
