@@ -198,7 +198,11 @@ ul { list-style: none; }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--dark-blue) 40%, #0a3a5c 100%);
+  background:
+    linear-gradient(135deg, rgba(2,91,136,0.82) 0%, rgba(24,76,114,0.78) 45%, rgba(10,58,92,0.85) 100%),
+    url('https://larimar-resort.com/wp-content/uploads/2026/01/01_79-Photo-1024x576.jpg');
+  background-size: cover;
+  background-position: center;
 }
 .hero-bg::after {
   content: '';
