@@ -5,10 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moaz Moamen | Larimar Port Ghalib — Sales Agent</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="loader.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+
+  <!-- ===== LOADING SCREEN ===== -->
+  <div id="loader" class="loader">
+    <canvas id="loaderCanvas" class="loader-canvas"></canvas>
+    <div class="loader-content">
+      <div class="loader-logo-wrap">
+        <img src="https://larimar-resort.com/wp-content/uploads/2024/09/larimar-logo.png" alt="Larimar" class="loader-larimar-logo" />
+      </div>
+      <div class="loader-divider"></div>
+      <div class="loader-larimar-monogram loader-monogram">
+        <div class="loader-larimar-monogram-ring">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="150" height="150" class="ring-svg">
+            <circle cx="60" cy="60" r="56" stroke="rgba(219,94,43,0.2)" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="56" stroke="url(#ring-grad-moaz)" stroke-width="2" stroke-dasharray="352" stroke-dashoffset="352" class="loader-ring" transform="rotate(-90 60 60)"/>
+            <defs>
+              <linearGradient id="ring-grad-moaz" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#DB5E2B"/>
+                <stop offset="50%" stop-color="#05A8C1"/>
+                <stop offset="100%" stop-color="#184C72"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <img src="https://larimar-resort.com/wp-content/uploads/2024/10/larimar-logo-orange-png.png" alt="Larimar" class="loader-larimar-logo-center" />
+        </div>
+      </div>
+      <h1 class="loader-name">Moaz Moamen</h1>
+      <p class="loader-title">Sales Agent · Larimar Port Ghalib</p>
+      <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+      <p class="loader-tagline">"Where The Soul Finds Serenity"</p>
+    </div>
+  </div>
 
   <!-- CURSOR GLOW -->
   <div id="cursorGlow" class="cursor-glow"></div>
@@ -463,5 +495,15 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    const loader = document.getElementById('loader');
+    const lc = document.getElementById('loaderCanvas');
+    const lctx = lc.getContext('2d');
+    lc.width = window.innerWidth; lc.height = window.innerHeight;
+    const lp = Array.from({length:60},()=>({x:Math.random()*lc.width,y:Math.random()*lc.height,r:Math.random()*1.5+0.3,dx:(Math.random()-.5)*.3,dy:-Math.random()*.4-.1,a:Math.random()*.4+.05}));
+    function dl(){if(!loader.classList.contains('hidden')){lctx.clearRect(0,0,lc.width,lc.height);lp.forEach(p=>{lctx.beginPath();lctx.arc(p.x,p.y,p.r,0,Math.PI*2);lctx.fillStyle=`rgba(255,255,255,${p.a})`;lctx.fill();p.x+=p.dx;p.y+=p.dy;if(p.y<-5){p.y=lc.height+5;p.x=Math.random()*lc.width;}});requestAnimationFrame(dl);}}
+    dl();
+    window.addEventListener('load',()=>{ setTimeout(()=>loader.classList.add('hidden'), 3000); });
+  </script>
 </body>
 </html>
