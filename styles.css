@@ -350,28 +350,25 @@ ul { list-style: none; }
 .about-image-wrap::before {
   content: '';
   position: absolute;
-  inset: -12px;
+  top: -12px; left: -12px; right: -12px; bottom: -12px;
   border-radius: calc(var(--radius-lg) + 12px);
-  background: conic-gradient(
-    var(--orange) 0deg,
-    var(--teal) 90deg,
-    var(--navy) 180deg,
-    var(--orange) 360deg
-  );
-  animation: spin-ring 8s linear infinite;
+  background: linear-gradient(135deg, var(--orange), var(--teal), var(--navy), var(--orange));
+  background-size: 300% 300%;
+  animation: spin-ring 4s linear infinite;
   z-index: 0;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 @keyframes spin-ring {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* White gap between ring and photo */
 .about-image-wrap::after {
   content: '';
   position: absolute;
-  inset: -4px;
+  top: -4px; left: -4px; right: -4px; bottom: -4px;
   border-radius: calc(var(--radius-lg) + 4px);
   background: var(--light-bg);
   z-index: 1;
@@ -386,6 +383,8 @@ ul { list-style: none; }
   position: relative;
   box-shadow: 0 20px 60px rgba(24,76,114,0.2), 0 8px 24px rgba(219,94,43,0.15);
   z-index: 2;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 /* Shimmer sweep over the photo */
