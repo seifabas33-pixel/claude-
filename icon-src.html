@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:512px; height:512px; }
+  .icon {
+    width:512px; height:512px;
+    background:
+      radial-gradient(circle at 50% 30%, #0f3a5c 0%, #0a2740 55%, #061a2c 100%);
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    font-family:'Playfair Display', Georgia, serif;
+    position:relative; overflow:hidden;
+  }
+  /* subtle warm glow */
+  .icon::before{
+    content:''; position:absolute;
+    top:18%; left:50%; transform:translateX(-50%);
+    width:340px; height:340px; border-radius:50%;
+    background:radial-gradient(circle, rgba(219,94,43,0.22) 0%, transparent 70%);
+  }
+  .palms { display:flex; align-items:flex-end; gap:14px; margin-bottom:18px; position:relative; z-index:2; }
+  .palms svg { width:64px; height:64px; }
+  .word {
+    color:#fff; font-size:74px; font-weight:700;
+    letter-spacing:10px; line-height:1;
+    text-indent:10px; position:relative; z-index:2;
+    text-shadow:0 4px 24px rgba(0,0,0,0.4);
+  }
+  .divider {
+    width:150px; height:3px; margin:22px 0 16px;
+    background:linear-gradient(90deg, transparent, #DB5E2B, #05A8C1, transparent);
+    position:relative; z-index:2; border-radius:3px;
+  }
+  .sub {
+    color:rgba(255,255,255,0.85); font-family:Arial, sans-serif;
+    font-size:30px; letter-spacing:13px; text-indent:13px; font-weight:600;
+    position:relative; z-index:2;
+  }
+</style>
+</head>
+<body>
+  <div class="icon">
+    <div class="palms">
+      <!-- left palm -->
+      <svg viewBox="0 0 64 64" fill="none">
+        <path d="M32 60 C30 44 30 34 31 26" stroke="#DB5E2B" stroke-width="4" stroke-linecap="round"/>
+        <path d="M31 26 C20 18 12 18 6 22 C16 20 24 24 31 28" fill="#05A8C1"/>
+        <path d="M31 26 C42 16 52 16 58 21 C48 19 40 23 32 28" fill="#05A8C1"/>
+        <path d="M31 25 C26 12 18 7 11 7 C20 11 27 18 31 27" fill="#DB5E2B"/>
+        <path d="M31 25 C36 12 44 8 51 8 C42 12 35 18 32 27" fill="#0c8fa6"/>
+      </svg>
+      <!-- right palm -->
+      <svg viewBox="0 0 64 64" fill="none">
+        <path d="M32 60 C30 44 30 34 31 26" stroke="#DB5E2B" stroke-width="4" stroke-linecap="round"/>
+        <path d="M31 26 C20 18 12 18 6 22 C16 20 24 24 31 28" fill="#05A8C1"/>
+        <path d="M31 26 C42 16 52 16 58 21 C48 19 40 23 32 28" fill="#05A8C1"/>
+        <path d="M31 25 C26 12 18 7 11 7 C20 11 27 18 31 27" fill="#DB5E2B"/>
+        <path d="M31 25 C36 12 44 8 51 8 C42 12 35 18 32 27" fill="#0c8fa6"/>
+      </svg>
+    </div>
+    <div class="word">LARIMAR</div>
+    <div class="divider"></div>
+    <div class="sub">PORT GHALIB</div>
+  </div>
+</body>
+</html>
