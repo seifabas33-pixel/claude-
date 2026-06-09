@@ -169,19 +169,39 @@ document.querySelectorAll('.project-card').forEach(card => {
   });
 });
 
-// ===== CONTACT FORM =====
+// ===== CONTACT FORM → WHATSAPP =====
 const form = document.getElementById('contactForm');
 const successMsg = document.getElementById('formSuccess');
 form.addEventListener('submit', e => {
   e.preventDefault();
   const btn = form.querySelector('button[type="submit"]');
-  btn.innerHTML = '<span class="btn-spinner"></span> Sending...';
+  btn.innerHTML = '<span class="btn-spinner"></span> Opening WhatsApp...';
   btn.disabled = true;
+
+  const data = Object.fromEntries(new FormData(form));
+  const projectMap = {
+    villas: 'Larimar Villas',
+    suites: 'Larimar Suites',
+    l3: 'Larimar 3',
+    all: 'All Projects'
+  };
+  const project = projectMap[data.interest] || data.interest || 'Not specified';
+  const msg = [
+    `Hello Moaz! 👋 I'm interested in a property at Larimar Port Ghalib.`,
+    ``,
+    `*Name:* ${data.name || '-'}`,
+    `*Phone:* ${data.phone || '-'}`,
+    `*Email:* ${data.email || '-'}`,
+    `*Interested in:* ${project}`,
+    data.message ? `*Message:* ${data.message}` : '',
+  ].filter(Boolean).join('\n');
+
   setTimeout(() => {
+    window.open(`https://wa.me/201035299659?text=${encodeURIComponent(msg)}`, '_blank');
     form.reset();
     btn.classList.add('hidden');
     successMsg.classList.remove('hidden');
-  }, 1400);
+  }, 1000);
 });
 
 // Input focus animation
