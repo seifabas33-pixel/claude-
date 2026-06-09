@@ -192,12 +192,10 @@ function finishForm() {
   successMsg.classList.remove('hidden');
 }
 
-// WhatsApp (form submit)
+// WhatsApp (form submit) — must open synchronously inside the tap
+// or iOS Safari blocks it as a popup.
 form.addEventListener('submit', e => {
   e.preventDefault();
-  const btn = form.querySelector('button[type="submit"]');
-  btn.innerHTML = '<span class="btn-spinner"></span> Opening WhatsApp...';
-  btn.disabled = true;
 
   const { data, project } = buildEnquiry();
   const waNumber = form.dataset.waNumber || '201035299659';
@@ -212,12 +210,10 @@ form.addEventListener('submit', e => {
     data.message ? `*Message:* ${data.message}` : '',
   ].filter(Boolean).join('\n');
 
-  setTimeout(() => {
-    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
-    btn.innerHTML = 'Send via WhatsApp';
-    btn.disabled = false;
-    finishForm();
-  }, 1000);
+  // Direct navigation to the WhatsApp deep link — opens the app on mobile,
+  // web.whatsapp on desktop. Not blocked because it runs in the tap handler.
+  window.location.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
+  finishForm();
 });
 
 // Email (mailto)
