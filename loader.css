@@ -1,7 +1,7 @@
 /* ===== SHARED LOADER STYLES ===== */
 .loader {
   position: fixed;
-  inset: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(135deg, #0d1829 0%, #0f2240 50%, #0a1628 100%);
   z-index: 9999;
   display: flex;
@@ -16,7 +16,7 @@
 }
 .loader-canvas {
   position: absolute;
-  inset: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   pointer-events: none;
 }
 .loader-content {
@@ -65,7 +65,7 @@
 }
 .loader-monogram-ring svg {
   position: absolute;
-  inset: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
 }
 .loader-ms-img {
   width: 86px;
@@ -138,7 +138,7 @@
 }
 .loader-larimar-monogram-ring svg.ring-svg {
   position: absolute;
-  inset: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
 }
 .loader-larimar-logo-center {
   width: 90px;
