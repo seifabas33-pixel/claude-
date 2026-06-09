@@ -186,8 +186,10 @@ form.addEventListener('submit', e => {
     all: 'All Projects'
   };
   const project = projectMap[data.interest] || data.interest || 'Not specified';
+  const waNumber = form.dataset.waNumber || '201035299659';
+  const agentName = form.dataset.agentName || 'Moaz';
   const msg = [
-    `Hello Moaz! 👋 I'm interested in a property at Larimar Port Ghalib.`,
+    `Hello ${agentName}! 👋 I'm interested in a property at Larimar Port Ghalib.`,
     ``,
     `*Name:* ${data.name || '-'}`,
     `*Phone:* ${data.phone || '-'}`,
@@ -197,7 +199,7 @@ form.addEventListener('submit', e => {
   ].filter(Boolean).join('\n');
 
   setTimeout(() => {
-    window.open(`https://wa.me/201035299659?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
     form.reset();
     btn.classList.add('hidden');
     successMsg.classList.remove('hidden');
