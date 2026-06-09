@@ -10,6 +10,9 @@
 </head>
 <body>
 
+  <!-- CURSOR GLOW -->
+  <div id="cursorGlow" class="cursor-glow"></div>
+
   <!-- NAV -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
@@ -37,13 +40,14 @@
   <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-bg"></div>
+    <canvas id="heroCanvas" class="hero-canvas"></canvas>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-badge">Luxury Real Estate · Port Ghalib · Red Sea</div>
-      <h1 class="hero-name">Moaz Moamen</h1>
-      <p class="hero-tagline"><em>Where The Soul Finds Serenity</em></p>
-      <p class="hero-sub">Your dedicated Sales Agent for exclusive properties at Larimar — Port Ghalib's most prestigious luxury resort community on Egypt's Red Sea coast.</p>
-      <div class="hero-actions">
+      <div class="hero-badge hero-reveal">Luxury Real Estate · Port Ghalib · Red Sea</div>
+      <h1 class="hero-name hero-reveal">Moaz Moamen</h1>
+      <p class="hero-tagline hero-reveal"><em>Where The Soul Finds Serenity</em></p>
+      <p class="hero-sub hero-reveal">Your dedicated Sales Agent for exclusive properties at Larimar — Port Ghalib's most prestigious luxury resort community on Egypt's Red Sea coast.</p>
+      <div class="hero-actions hero-reveal">
         <a href="#projects" class="btn btn-primary">Explore Properties</a>
         <a href="#contact" class="btn btn-outline">Get in Touch</a>
       </div>
@@ -57,19 +61,19 @@
   <section class="stats-bar">
     <div class="container">
       <div class="stat">
-        <span class="stat-num">3</span>
+        <span class="stat-num" data-target="3" data-suffix="">0</span>
         <span class="stat-label">Active Projects</span>
       </div>
       <div class="stat">
-        <span class="stat-num">$2B</span>
+        <span class="stat-num" data-target="2" data-suffix="B+">$0</span>
         <span class="stat-label">Resort Investment</span>
       </div>
       <div class="stat">
-        <span class="stat-num">18km</span>
+        <span class="stat-num" data-target="18" data-suffix="km">0</span>
         <span class="stat-label">Red Sea Shoreline</span>
       </div>
       <div class="stat">
-        <span class="stat-num">100%</span>
+        <span class="stat-num" data-target="100" data-suffix="%">0</span>
         <span class="stat-label">Turnkey Delivery</span>
       </div>
     </div>

@@ -821,15 +821,234 @@ ul { list-style: none; }
   .i-num { font-size: 1rem; }
 }
 
+/* ===== CURSOR GLOW ===== */
+.cursor-glow {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(219,94,43,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.3s;
+}
+@media (hover: none) { .cursor-glow { display: none; } }
+
+/* ===== HERO CANVAS ===== */
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ===== HERO REVEAL ===== */
+.hero-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(.22,1,.36,1), transform 0.75s cubic-bezier(.22,1,.36,1);
+}
+.hero-reveal.revealed { opacity: 1; transform: translateY(0); }
+
 /* ===== SCROLL ANIMATIONS ===== */
 .fade-up {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(36px);
+  transition: opacity 0.65s cubic-bezier(.22,1,.36,1), transform 0.65s cubic-bezier(.22,1,.36,1);
 }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
-.fade-up:nth-child(2) { transition-delay: 0.1s; }
-.fade-up:nth-child(3) { transition-delay: 0.2s; }
-.fade-up:nth-child(4) { transition-delay: 0.3s; }
-.fade-up:nth-child(5) { transition-delay: 0.4s; }
-.fade-up:nth-child(6) { transition-delay: 0.5s; }
+
+/* ===== TITLE REVEAL LINE ===== */
+.section-title {
+  overflow: hidden;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--orange), var(--teal));
+  border-radius: 2px;
+  transition: width 0.8s cubic-bezier(.22,1,.36,1) 0.2s;
+}
+.section-title.center::after { left: 50%; transform: translateX(-50%); }
+.fade-up.visible .section-title::after,
+.section-title.visible::after { width: 60px; }
+
+/* ===== STAT COUNTER ===== */
+.stat-num {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+.stat:hover .stat-num { transform: scale(1.15); }
+
+/* ===== NAVBAR TOGGLE ANIMATED ===== */
+.nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-toggle span { transition: transform 0.3s ease, opacity 0.3s ease; }
+
+/* ===== PROJECT CARD SHIMMER ===== */
+.project-img::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+}
+.project-card:hover .project-img::after { left: 160%; }
+
+/* ===== INVEST DOT PULSE ===== */
+.invest-dot {
+  animation: pulse-dot 2.5s ease infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(219,94,43,0.5); }
+  50%       { box-shadow: 0 0 0 6px rgba(219,94,43,0); }
+}
+
+/* ===== STATS BAR ANIMATED BG ===== */
+.stats-bar {
+  position: relative;
+  overflow: hidden;
+}
+.stats-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+  animation: shimmer-bar 3s ease infinite;
+}
+@keyframes shimmer-bar {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ===== LIFESTYLE ICON BOUNCE ===== */
+.lifestyle-item:hover .lifestyle-icon {
+  animation: bounce-icon 0.5s cubic-bezier(.36,.07,.19,.97);
+}
+@keyframes bounce-icon {
+  0%,100% { transform: translateY(0); }
+  30%     { transform: translateY(-10px); }
+  60%     { transform: translateY(-4px); }
+}
+
+/* ===== FORM LABEL FOCUSED ===== */
+.contact-form label.focused {
+  color: var(--orange);
+}
+.contact-form label.focused input,
+.contact-form label.focused select,
+.contact-form label.focused textarea {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(219,94,43,0.1);
+}
+
+/* ===== BTN SPINNER ===== */
+.btn-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== HERO FLOATING SHAPES ===== */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(5,168,193,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  top: -100px; right: -100px;
+  animation: float-blob 8s ease-in-out infinite;
+}
+.hero-overlay::before {
+  content: '';
+  position: absolute;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(219,94,43,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  bottom: 80px; left: 5%;
+  animation: float-blob 10s ease-in-out infinite reverse;
+}
+@keyframes float-blob {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-40px) scale(1.08); }
+}
+
+/* ===== SCROLL INDICATOR PULSE ===== */
+.hero-scroll span {
+  animation: pulse-border 2s ease infinite;
+}
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(255,255,255,0.4); }
+  50%       { border-color: rgba(255,255,255,0.8); }
+}
+
+/* ===== SOCIAL LINKS HOVER ===== */
+.social-link {
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.social-link:hover {
+  transform: translateY(-3px) scale(1.04);
+  filter: brightness(1.1);
+}
+
+/* ===== ABOUT TAGS HOVER ===== */
+.about-tags span {
+  transition: all 0.2s ease;
+  cursor: default;
+}
+.about-tags span:hover {
+  background: var(--orange);
+  color: white;
+  border-color: var(--orange);
+  transform: translateY(-2px);
+}
+
+/* ===== INVEST CARD GLOW ===== */
+.invest-card {
+  position: relative;
+  overflow: hidden;
+}
+.invest-card::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at center, rgba(219,94,43,0.07) 0%, transparent 60%);
+  animation: rotate-glow 10s linear infinite;
+}
+@keyframes rotate-glow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ===== CONTACT CARD HOVER ===== */
+.contact-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.contact-card:hover {
+  transform: translateX(6px);
+  box-shadow: -4px 4px 20px rgba(219,94,43,0.1);
+}
+
+/* ===== PAGE LOAD ===== */
+@keyframes page-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+body { animation: page-in 0.4s ease; }
