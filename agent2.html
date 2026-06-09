@@ -19,18 +19,20 @@
       </div>
       <div class="loader-divider"></div>
       <div class="loader-monogram">
-        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="110" height="110">
-          <circle cx="60" cy="60" r="56" stroke="rgba(219,94,43,0.3)" stroke-width="1.5"/>
-          <circle cx="60" cy="60" r="56" stroke="url(#spin-grad)" stroke-width="2" stroke-dasharray="352" stroke-dashoffset="352" class="loader-ring"/>
-          <text x="50%" y="67%" text-anchor="middle" font-family="Playfair Display, serif" font-size="52" font-weight="700" fill="#89B4E8" letter-spacing="-3">MS</text>
-          <defs>
-            <linearGradient id="spin-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#DB5E2B"/>
-              <stop offset="50%" stop-color="#05A8C1"/>
-              <stop offset="100%" stop-color="#184C72"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <div class="loader-monogram-ring">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="140" height="140" style="position:absolute;inset:0;">
+            <circle cx="60" cy="60" r="56" stroke="rgba(219,94,43,0.2)" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="56" stroke="url(#spin-grad)" stroke-width="2" stroke-dasharray="352" stroke-dashoffset="352" class="loader-ring" transform="rotate(-90 60 60)"/>
+            <defs>
+              <linearGradient id="spin-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#DB5E2B"/>
+                <stop offset="50%" stop-color="#05A8C1"/>
+                <stop offset="100%" stop-color="#184C72"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <img src="assets/ms-logo.png" alt="MS" class="loader-ms-img" />
+        </div>
       </div>
       <h1 class="loader-name">Mohamed Sharawi</h1>
       <p class="loader-title">Sales Supervisor · Larimar Port Ghalib</p>
@@ -95,11 +97,24 @@
       animation: fade-in-up 0.6s 0.5s both;
       position: relative;
     }
+    .loader-monogram-ring {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .loader-ms-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 0 12px rgba(137,180,232,0.4));
+    }
     .loader-ring {
       animation: draw-ring 1.8s 0.7s cubic-bezier(.22,1,.36,1) forwards;
-      transform-origin: center;
-      transform: rotate(-90deg);
-      transform-box: fill-box;
     }
     @keyframes draw-ring {
       to { stroke-dashoffset: 0; }
