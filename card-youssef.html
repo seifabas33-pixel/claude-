@@ -392,12 +392,24 @@
     .card-scene { animation: card-enter 0.9s cubic-bezier(.22,1,.36,1) both; }
 
     @media (max-width: 600px) {
-      .card-front { flex-direction: column; align-items: center; padding: 28px 24px; gap: 24px; }
-      .card-right { text-align: center; align-items: center; }
-      .card-eyebrow { justify-content: center; }
-      .card-divider { width: 60px; }
-      .photo-frame { width: 120px; height: 120px; }
+      /* Portrait card so the stacked content fits without clipping */
+      .card { aspect-ratio: 5 / 8; }
+      .card-front { flex-direction: column; align-items: center; justify-content: flex-start; padding: 26px 22px 30px; gap: 18px; }
+      .card-right { text-align: center; align-items: center; gap: 7px; }
+      .card-eyebrow { justify-content: center; margin-bottom: 0; }
+      .card-name { font-size: 1.7rem; }
+      .card-divider { width: 70px; margin: 6px auto; }
+      .card-contacts { align-items: center; gap: 7px; }
+      .card-contact-item { font-size: 0.78rem; }
+      .photo-frame { width: 116px; height: 116px; }
       .photo-initials { font-size: 3rem; }
+      .flip-hint { bottom: 14px; right: 50%; transform: translateX(50%); }
+      .card-back { gap: 14px; padding: 30px 24px; }
+    }
+    @media (max-width: 380px) {
+      .card { aspect-ratio: 5 / 9; }
+      .card-name { font-size: 1.5rem; }
+      .card-contact-item { font-size: 0.72rem; }
     }
 
     @media print {
