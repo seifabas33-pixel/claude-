@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youssef Osama | Senior Sales · Port Ghalib</title>
+
+  <!-- WhatsApp / Social Preview -->
+  <meta property="og:title" content="Youssef Osama — Senior Sales" />
+  <meta property="og:description" content="Senior Sales · Port Ghalib · Red Sea, Egypt. Tap to connect on WhatsApp." />
+  <meta property="og:image" content="https://seifabas33-pixel.github.io/claude-/assets/youssef-osama.jpg" />
+  <meta property="og:url" content="https://seifabas33-pixel.github.io/claude-/card-youssef.html" />
+  <meta property="og:type" content="profile" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Youssef Osama — Senior Sales · Port Ghalib" />
+  <meta name="twitter:description" content="Senior Sales · Port Ghalib · Red Sea, Egypt" />
+  <meta name="twitter:image" content="https://seifabas33-pixel.github.io/claude-/assets/youssef-osama.jpg" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0a0f1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ===== CARD WRAPPER ===== */
+    .card-scene {
+      perspective: 1200px;
+      width: 100%;
+      max-width: 780px;
+    }
+
+    .card {
+      width: 100%;
+      aspect-ratio: 1.75 / 1;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.9s cubic-bezier(.22,1,.36,1);
+      cursor: pointer;
+    }
+
+    .card.flipped { transform: rotateY(180deg); }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      overflow: hidden;
+    }
+
+    /* ===== FRONT FACE ===== */
+    .card-front {
+      background: linear-gradient(135deg, #0d1829 0%, #0f2240 40%, #0a1628 100%);
+      display: flex;
+      align-items: center;
+      padding: 40px 48px;
+      gap: 48px;
+    }
+
+    /* Animated background shimmer */
+    .card-front::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(2,91,136,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 30%, rgba(219,94,43,0.1) 0%, transparent 50%);
+      animation: bg-shift 8s ease-in-out infinite alternate;
+    }
+    @keyframes bg-shift {
+      from { opacity: 0.6; }
+      to   { opacity: 1; }
+    }
+
+    /* Corner brackets */
+    .corner {
+      position: absolute;
+      width: 28px; height: 28px;
+      border-color: #DB5E2B;
+      border-style: solid;
+      opacity: 0.8;
+    }
+    .corner-tl { top: 16px; left: 16px; border-width: 2px 0 0 2px; border-radius: 4px 0 0 0; }
+    .corner-tr { top: 16px; right: 16px; border-width: 2px 2px 0 0; border-radius: 0 4px 0 0; }
+    .corner-bl { bottom: 16px; left: 16px; border-width: 0 0 2px 2px; border-radius: 0 0 0 4px; }
+    .corner-br { bottom: 16px; right: 16px; border-width: 0 2px 2px 0; border-radius: 0 0 4px 0; }
+
+    /* Horizontal line accent */
+    .card-line {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #DB5E2B, #05A8C1, transparent);
+      animation: line-glow 3s ease-in-out infinite;
+    }
+    @keyframes line-glow {
+      0%,100% { opacity: 0.6; }
+      50%      { opacity: 1; }
+    }
+
+    /* ===== LEFT — PHOTO + MONOGRAM ===== */
+    .card-left {
+      position: relative;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .photo-frame {
+      width: 160px;
+      height: 160px;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    /* Initials avatar — shown until the photo file loads */
+    .photo-initials {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #0f2240 0%, #0a1628 100%);
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #DB5E2B;
+      text-shadow: 0 2px 18px rgba(0,0,0,0.5);
+    }
+    /* Shimmer over photo */
+    .photo-frame::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.12) 50%, transparent 80%);
+      animation: photo-shimmer 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes photo-shimmer {
+      0%    { left: -100%; }
+      60%, 100% { left: 160%; }
+    }
+
+    /* Monogram badge below photo */
+    .monogram {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 52px;
+      height: 52px;
+      background: #0f2240;
+      border: 2px solid rgba(219,94,43,0.5);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    /* ===== RIGHT — TEXT ===== */
+    .card-right {
+      flex: 1;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .card-eyebrow-text {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      font-weight: 500;
+    }
+    .card-eyebrow-divider {
+      width: 1px;
+      height: 20px;
+      background: rgba(255,255,255,0.2);
+    }
+
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    }
+    .card-name span { color: #DB5E2B; }
+
+    .card-diamond {
+      width: 8px; height: 8px;
+      background: #DB5E2B;
+      transform: rotate(45deg);
+      margin: 2px 0;
+    }
+
+    .card-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .card-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.35);
+      font-style: italic;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    .card-divider {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(219,94,43,0.4), transparent);
+      margin: 4px 0;
+    }
+
+    .card-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .card-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+    }
+    .card-contact-item:hover { color: rgba(255,255,255,0.85); }
+    .card-contact-item svg { width: 11px; height: 11px; color: #DB5E2B; flex-shrink: 0; }
+
+    .flip-hint {
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: absolute;
+      bottom: 22px;
+      right: 24px;
+      z-index: 2;
+    }
+
+    /* ===== BACK FACE ===== */
+    .card-back {
+      transform: rotateY(180deg);
+      background: linear-gradient(135deg, #0d1829 0%, #0f2240 40%, #0a1628 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 18px;
+      padding: 40px;
+    }
+    .card-back::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(2,91,136,0.15) 0%, transparent 70%);
+    }
+
+    .back-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.04em;
+      z-index: 1;
+    }
+    .back-name span { color: #DB5E2B; }
+    .back-role {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      z-index: 1;
+      margin-top: -10px;
+    }
+
+    .back-qr-wrap {
+      padding: 12px;
+      background: #fff;
+      border-radius: 12px;
+      z-index: 1;
+      box-shadow: 0 0 40px rgba(219,94,43,0.2);
+      animation: qr-glow 3s ease-in-out infinite;
+    }
+    @keyframes qr-glow {
+      0%,100% { box-shadow: 0 0 20px rgba(219,94,43,0.15); }
+      50%      { box-shadow: 0 0 40px rgba(219,94,43,0.35); }
+    }
+
+    .back-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.35);
+      z-index: 1;
+      letter-spacing: 0.05em;
+    }
+
+    .back-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(37,211,102,0.15);
+      border: 1px solid rgba(37,211,102,0.3);
+      color: #25D366;
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      z-index: 1;
+      letter-spacing: 0.05em;
+    }
+    .back-wa svg { width: 14px; height: 14px; }
+
+    /* ===== BUTTONS ===== */
+    .card-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-flip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+      text-decoration: none;
+    }
+    .btn-flip.primary { background: #DB5E2B; color: white; }
+    .btn-flip.primary:hover { background: #c0521f; transform: translateY(-2px); }
+    .btn-flip.outline { background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.2); }
+    .btn-flip.outline:hover { border-color: rgba(255,255,255,0.5); color: white; }
+    .btn-flip svg { width: 16px; height: 16px; }
+
+    /* ===== ENTRY ANIMATION ===== */
+    @keyframes card-enter {
+      from { opacity: 0; transform: translateY(40px) scale(0.95); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .card-scene { animation: card-enter 0.9s cubic-bezier(.22,1,.36,1) both; }
+
+    @media (max-width: 600px) {
+      .card-front { flex-direction: column; align-items: center; padding: 28px 24px; gap: 24px; }
+      .card-right { text-align: center; align-items: center; }
+      .card-eyebrow { justify-content: center; }
+      .card-divider { width: 60px; }
+      .photo-frame { width: 120px; height: 120px; }
+      .photo-initials { font-size: 3rem; }
+    }
+
+    @media print {
+      body { background: white; }
+      .card-actions { display: none; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+  <div class="card-scene">
+    <div class="card" id="card">
+
+      <!-- FRONT -->
+      <div class="card-face card-front">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        <div class="card-line"></div>
+
+        <div class="card-left">
+          <div class="photo-frame">
+            <!-- Photo loads from assets/youssef-osama.jpg; falls back to "YO" initials if missing -->
+            <div class="photo-initials" id="photoInitials">YO</div>
+            <img src="assets/youssef-osama.jpg" alt="Youssef Osama"
+                 id="photoImg" style="display:none"
+                 onload="this.style.display='block';document.getElementById('photoInitials').style.display='none';" />
+          </div>
+          <div class="monogram">YO</div>
+        </div>
+
+        <div class="card-right">
+          <div class="card-eyebrow">
+            <span class="card-eyebrow-text">Port Ghalib · Red Sea</span>
+            <div class="card-eyebrow-divider"></div>
+            <span class="card-eyebrow-text">Egypt</span>
+          </div>
+          <h1 class="card-name">Youssef<br/><span>Osama</span></h1>
+          <div class="card-diamond"></div>
+          <p class="card-title">Senior Sales</p>
+          <p class="card-subtitle">Port Ghalib · Red Sea, Egypt</p>
+          <div class="card-divider"></div>
+          <div class="card-contacts">
+            <a class="card-contact-item" href="tel:+201115643691">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.55 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.46 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.43a16 16 0 006.66 6.66l.8-.8a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              +20 111 564 3691
+            </a>
+            <a class="card-contact-item" href="mailto:youssef.yo40@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              youssef.yo40@gmail.com
+            </a>
+            <a class="card-contact-item" href="https://wa.me/201115643691" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+              WhatsApp · +20 111 564 3691
+            </a>
+          </div>
+        </div>
+
+        <span class="flip-hint">Tap to flip ↩</span>
+      </div>
+
+      <!-- BACK -->
+      <div class="card-face card-back">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        <div class="card-line"></div>
+
+        <div class="back-name">Youssef <span>Osama</span></div>
+        <div class="back-role">Senior Sales · Port Ghalib</div>
+
+        <div class="back-qr-wrap">
+          <div id="qrcode"></div>
+        </div>
+
+        <p class="back-caption">Scan to chat on WhatsApp</p>
+
+        <a href="https://wa.me/201115643691" class="back-wa" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Youssef
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card-actions">
+    <button class="btn-flip primary" onclick="document.getElementById('card').classList.toggle('flipped')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+      Flip Card
+    </button>
+    <button class="btn-flip outline" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Print / Save PDF
+    </button>
+  </div>
+
+  <script>
+    // Flip on card click
+    document.getElementById('card').addEventListener('click', function() {
+      this.classList.toggle('flipped');
+    });
+
+    // QR Code → opens a WhatsApp chat with Youssef
+    new QRCode(document.getElementById('qrcode'), {
+      text: 'https://wa.me/201115643691',
+      width: 160,
+      height: 160,
+      colorDark: '#184C72',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  </script>
+
+</body>
+</html>
