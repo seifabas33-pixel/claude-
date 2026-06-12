@@ -410,7 +410,7 @@
 <body>
 
   <div class="card-scene">
-    <div class="card" id="card">
+    <div class="card" id="card" tabindex="0" role="button" aria-label="Business card — flip to view QR code">
 
       <!-- FRONT -->
       <div class="card-face card-front">
@@ -503,20 +503,31 @@
   </div>
 
   <script>
-    // Flip on card click
-    document.getElementById('card').addEventListener('click', function() {
-      this.classList.toggle('flipped');
+    // Flip on card click — but let real links/buttons behave normally
+    var cardEl = document.getElementById('card');
+    function toggleFlip() { cardEl.classList.toggle('flipped'); }
+    cardEl.addEventListener('click', function (e) {
+      if (e.target.closest('a, button')) return;
+      toggleFlip();
+    });
+    cardEl.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFlip(); }
     });
 
-    // QR Code → opens Youssef's digital business card
-    new QRCode(document.getElementById('qrcode'), {
-      text: 'https://seifabas33-pixel.github.io/claude-/card-youssef.html',
-      width: 160,
-      height: 160,
-      colorDark: '#184C72',
-      colorLight: '#ffffff',
-      correctLevel: QRCode.CorrectLevel.H
-    });
+    // QR Code → opens Youssef's digital business card.
+    // Guarded so a blocked/offline CDN can't break the rest of the script.
+    if (window.QRCode) {
+      try {
+        new QRCode(document.getElementById('qrcode'), {
+          text: 'https://seifabas33-pixel.github.io/claude-/card-youssef.html',
+          width: 160,
+          height: 160,
+          colorDark: '#184C72',
+          colorLight: '#ffffff',
+          correctLevel: QRCode.CorrectLevel.H
+        });
+      } catch (err) { /* QR library unavailable — card still works */ }
+    }
 
     // Save Contact → downloads a vCard (.vcf) that opens in any phone's contacts
     document.getElementById('saveContact').addEventListener('click', function () {
@@ -531,7 +542,7 @@
         'ADR;TYPE=WORK:;;Port Ghalib;Red Sea;;;Egypt',
         'URL:https://seifabas33-pixel.github.io/claude-/card-youssef.html',
         'END:VCARD'
-      ].join('\n');
+      ].join('\r\n');
       var blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
       var link = document.createElement('a');
       link.href = URL.createObjectURL(blob);
