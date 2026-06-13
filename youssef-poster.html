@@ -6,9 +6,24 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
+  html, body {
+    height: 100%;
+    background: #ecdfca;
+    overflow: hidden;
+  }
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .poster {
     width: 1080px;
     height: 1920px;
+    flex: 0 0 auto;
+    transform-origin: center center;
     position: relative;
     overflow: hidden;
     font-family: 'Inter', sans-serif;
@@ -193,5 +208,22 @@
       <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2m5.8 14.01c-.24.68-1.42 1.31-1.96 1.36-.5.05-.95.24-3.2-.67-2.7-1.09-4.42-3.86-4.55-4.04-.13-.18-1.1-1.46-1.1-2.79 0-1.32.69-1.97.94-2.24.24-.27.53-.34.71-.34.18 0 .35.01.5.01.16.01.38-.06.59.45.24.58.81 2 .88 2.14.07.14.12.31.02.49-.09.18-.14.29-.28.45-.14.16-.29.36-.42.48-.14.13-.28.28-.12.55.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.61-.13.24.09 1.55.73 1.81.86.27.13.45.2.51.31.07.11.07.63-.17 1.31"/></svg>WhatsApp</span>
     </div>
   </div>
+
+  <script>
+    // Scale the fixed-size poster so the whole thing always fits the screen
+    (function () {
+      var poster = document.querySelector('.poster');
+      function fit() {
+        var vw = window.innerWidth;
+        var vh = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
+        var scale = Math.min(vw / 1080, vh / 1920);
+        poster.style.transform = 'scale(' + scale + ')';
+      }
+      fit();
+      window.addEventListener('resize', fit);
+      window.addEventListener('orientationchange', fit);
+      if (window.visualViewport) window.visualViewport.addEventListener('resize', fit);
+    })();
+  </script>
 </body>
 </html>
