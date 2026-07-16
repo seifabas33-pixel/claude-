@@ -40,8 +40,9 @@ img{max-width:100%;display:block;}
 .wrap{max-width:1160px;margin:0 auto;padding:0 32px;}
 
 /* ===== Preloader ===== */
-#pre{position:fixed;inset:0;z-index:200;background:#08090c;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:26px;transition:opacity .8s ease,visibility .8s;}
+#pre{position:fixed;inset:0;z-index:200;background:#08090c;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:26px;transition:opacity .8s ease,visibility .8s;animation:preauto 1s ease 2.4s forwards;}
 #pre.done{opacity:0;visibility:hidden;}
+@keyframes preauto{to{opacity:0;visibility:hidden;}}
 .pre-mono{font-family:var(--serif);font-weight:600;font-size:3.2rem;letter-spacing:.06em;color:var(--gold-lite);position:relative;}
 .pre-line{width:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:pline 1.6s ease forwards;}
 @keyframes pline{to{width:220px;}}
@@ -75,8 +76,9 @@ img{max-width:100%;display:block;}
 .rv{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);}
 .rv.in{opacity:1;transform:none;}
 .wline{display:inline-block;overflow:hidden;vertical-align:top;}
-.wline>span{display:inline-block;transform:translateY(110%);transition:transform .9s cubic-bezier(.2,.8,.2,1);}
+.wline>span{display:inline-block;transform:translateY(110%);transition:transform .9s cubic-bezier(.2,.8,.2,1);animation:wlineup .01s linear 2.8s forwards;}
 .wline.in>span{transform:none;}
+@keyframes wlineup{to{transform:translateY(0);}}
 
 /* Eyebrow */
 .eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);}
@@ -418,8 +420,8 @@ footer .fine{margin-top:10px;font-size:.72rem;opacity:.6;}
 </footer>
 
 <script>
-// Preloader
-window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('pre').classList.add('done'),1500);});
+// Preloader (independent of load event so it never gets stuck)
+setTimeout(function(){var p=document.getElementById('pre');if(p)p.classList.add('done');},1600);
 // Nav show/hide + solid
 const nav=document.getElementById('nav');let last=0;
 window.addEventListener('scroll',()=>{const y=window.scrollY;nav.classList.toggle('solid',y>40);if(y>last&&y>300)nav.classList.add('hide');else nav.classList.remove('hide');last=y;},{passive:true});
