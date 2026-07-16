@@ -43,6 +43,7 @@ img{max-width:100%;display:block;}
 #pre{position:fixed;inset:0;z-index:200;background:#08090c;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:26px;transition:opacity .8s ease,visibility .8s;animation:preauto 1s ease 2.4s forwards;}
 #pre.done{opacity:0;visibility:hidden;}
 @keyframes preauto{to{opacity:0;visibility:hidden;}}
+html:not(.js) #pre{display:none;}
 .pre-mono{font-family:var(--serif);font-weight:600;font-size:3.2rem;letter-spacing:.06em;color:var(--gold-lite);position:relative;}
 .pre-line{width:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:pline 1.6s ease forwards;}
 @keyframes pline{to{width:220px;}}
@@ -72,12 +73,14 @@ img{max-width:100%;display:block;}
 .nav-cta::after{display:none;}
 @media(max-width:860px){.nav-links a:not(.nav-cta){display:none;}}
 
-/* Reveal */
-.rv{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);}
-.rv.in{opacity:1;transform:none;}
+/* Reveal — content is visible by default; only hidden (for the animation) once JS confirms it can run */
+.rv{transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);}
+html.js .rv{opacity:0;transform:translateY(34px);}
+html.js .rv.in{opacity:1;transform:none;}
 .wline{display:inline-block;overflow:hidden;vertical-align:top;}
-.wline>span{display:inline-block;transform:translateY(110%);transition:transform .9s cubic-bezier(.2,.8,.2,1);animation:wlineup .01s linear 2.8s forwards;}
-.wline.in>span{transform:none;}
+.wline>span{display:inline-block;transition:transform .9s cubic-bezier(.2,.8,.2,1);}
+html.js .wline>span{transform:translateY(110%);animation:wlineup .01s linear 2.8s forwards;}
+html.js .wline.in>span{transform:none;}
 @keyframes wlineup{to{transform:translateY(0);}}
 
 /* Eyebrow */
@@ -215,6 +218,7 @@ footer .fine{margin-top:10px;font-size:.72rem;opacity:.6;}
 </style>
 </head>
 <body>
+<script>document.documentElement.classList.add('js');</script>
 
 <div class="bg-fx"></div>
 <div class="grain"></div>
@@ -430,6 +434,8 @@ setTimeout(()=>document.querySelectorAll('.wline').forEach((w,i)=>{setTimeout(()
 // Reveal
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);if(e.target.querySelector('[data-c]')||e.target.hasAttribute('data-c'))countUp(e.target);}})},{threshold:.15});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+// Safety net: if the observer never fires (some webviews), reveal everything so content is never stuck hidden
+setTimeout(function(){document.querySelectorAll('.rv:not(.in)').forEach(function(el){el.classList.add('in');});},3200);
 // Counters
 function countUp(scope){const els=scope.matches?(scope.matches('[data-c]')?[scope]:[]):[];const list=scope.querySelectorAll?scope.querySelectorAll('[data-c]'):[];const all=[...els,...list];all.forEach(el=>{const t=+el.dataset.c,suf=el.dataset.suf||'';let n=0;const step=Math.max(1,Math.ceil(t/40));const iv=setInterval(()=>{n+=step;if(n>=t){n=t;clearInterval(iv);}el.textContent=n+suf;},22);});}
 // Cursor
