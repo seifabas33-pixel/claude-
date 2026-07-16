@@ -218,7 +218,20 @@ footer .logo{font-size:1.7rem;margin-bottom:14px;}
 footer p{color:var(--muted);font-size:.82rem;}
 footer .fine{margin-top:10px;font-size:.72rem;opacity:.6;}
 
-@media print{.nav,#pre,.cur,.cur-dot,.bg-fx,.grain,.scroll-ind,.hero-cta{display:none!important;}body{background:#fff;color:#111;}}
+/* Floating contact buttons (lead capture) */
+.floats{position:fixed;right:20px;bottom:20px;z-index:120;display:flex;flex-direction:column;gap:14px;}
+.float-btn{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .3s ease;position:relative;text-decoration:none;}
+.float-btn svg{width:30px;height:30px;position:relative;z-index:2;}
+.float-btn:hover{transform:scale(1.09);}
+.float-btn.wa{background:#25D366;color:#fff;}
+.float-btn.wa::before{content:'';position:absolute;inset:0;border-radius:50%;background:#25D366;z-index:1;animation:wapulse 2.4s ease-out infinite;}
+@keyframes wapulse{0%{transform:scale(1);opacity:.55;}70%{transform:scale(1.7);opacity:0;}100%{opacity:0;}}
+.float-btn.mail{background:linear-gradient(135deg,var(--gold-lite),var(--gold));color:#08090c;}
+.float-tip{position:absolute;right:70px;top:50%;transform:translateY(-50%);white-space:nowrap;background:rgba(16,19,25,.96);color:var(--ink);font-size:.74rem;letter-spacing:.02em;padding:8px 13px;border-radius:5px;border:1px solid var(--line);opacity:0;pointer-events:none;transition:opacity .25s;}
+.float-btn:hover .float-tip{opacity:1;}
+@media(max-width:600px){.float-btn{width:54px;height:54px;}.float-btn svg{width:27px;height:27px;}.float-tip{display:none;}.floats{right:16px;bottom:16px;}}
+@media(prefers-reduced-motion:reduce){.float-btn.wa::before{animation:none;}}
+@media print{.nav,#pre,.cur,.cur-dot,.bg-fx,.grain,.scroll-ind,.hero-cta,.floats{display:none!important;}body{background:#fff;color:#111;}}
 </style>
 </head>
 <body>
@@ -245,7 +258,7 @@ footer .fine{margin-top:10px;font-size:.72rem;opacity:.6;}
     <a href="#why">Port Ghalib</a>
     <a href="#projects">Projects</a>
     <a href="#model">Approach</a>
-    <a href="#contact" class="nav-cta">Book a call</a>
+    <a href="https://wa.me/201065367667?text=Hi%20Ahmed%2C%20I%27m%20interested%20in%20Red%20Sea%20real%20estate%20investment.%20Could%20you%20share%20more%20details%3F" target="_blank" rel="noopener" class="nav-cta">Book a call</a>
   </div>
 </div>
 
@@ -260,7 +273,7 @@ footer .fine{margin-top:10px;font-size:.72rem;opacity:.6;}
     </h1>
     <p class="lead rv">Real estate investment consultant connecting international investors to Port Ghalib's most sought-after developments.</p>
     <div class="hero-cta rv">
-      <a href="#contact" class="btn btn-gold">Book a consultation</a>
+      <a href="https://wa.me/201065367667?text=Hi%20Ahmed%2C%20I%27m%20interested%20in%20Red%20Sea%20real%20estate%20investment.%20Could%20you%20share%20more%20details%3F" target="_blank" rel="noopener" class="btn btn-gold">Book a consultation</a>
       <a href="#projects" class="btn btn-ghost">View projects</a>
     </div>
   </div>
@@ -315,7 +328,7 @@ footer .fine{margin-top:10px;font-size:.72rem;opacity:.6;}
       <div class="wc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v14"/><path d="M12 6l6 2"/><path d="M4 16h16l-2 5H6z"/></svg></div><h3>The Marina</h3><p>A landmark yacht marina and vibrant waterfront at the heart of the destination's lifestyle.</p></div>
       <div class="wc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="7" r="3"/><path d="M12 10v6"/><path d="M8 20c0-2 1.8-4 4-4s4 2 4 4"/></svg></div><h3>Diving</h3><p>Some of the planet's finest reefs and dive sites, a magnet for a global community.</p></div>
       <div class="wc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l6-6 4 4 7-8"/><path d="M17 7h4v4"/></svg></div><h3>Investment Return</h3><p>Strong appreciation potential and attractive rental yields in a market early in its growth.</p></div>
-      <div class="wc feature rv"><h3>Ready to explore?</h3><p style="margin-bottom:18px;">Let's find the opportunity that fits your goals.</p><a href="#contact" class="btn btn-gold" style="align-self:flex-start;">Talk to Ahmed</a></div>
+      <div class="wc feature rv"><h3>Ready to explore?</h3><p style="margin-bottom:18px;">Let's find the opportunity that fits your goals.</p><a href="https://wa.me/201065367667?text=Hi%20Ahmed%2C%20I%27m%20interested%20in%20Red%20Sea%20real%20estate%20investment.%20Could%20you%20share%20more%20details%3F" target="_blank" rel="noopener" class="btn btn-gold" style="align-self:flex-start;">Talk to Ahmed</a></div>
     </div>
   </div>
 </section>
@@ -424,12 +437,24 @@ footer .fine{margin-top:10px;font-size:.72rem;opacity:.6;}
     <h2 class="sec-title rv">Let's talk <em>opportunities</em></h2>
     <p class="csub rv">Whether you're an individual investor or an international company, I'd be glad to discuss how Port Ghalib can work for you.</p>
     <div class="ccards">
-      <a href="https://wa.me/201065367667" target="_blank" rel="noopener" class="cc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.9c0 2.1.55 4.05 1.6 5.8L2 22l4.45-1.17a9.9 9.9 0 0 0 5.59 1.7c5.46 0 9.91-4.45 9.91-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.19-1.14l-.3-.18-2.64.69.7-2.57-.2-.32a8.16 8.16 0 0 1-1.25-4.36c0-4.53 3.7-8.22 8.24-8.22 2.2 0 4.26.86 5.82 2.42a8.16 8.16 0 0 1 2.41 5.81c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.13-1.47-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.3z"/></svg></div><span class="lbl">WhatsApp</span><span class="val">+20 106 536 7667</span></a>
+      <a href="https://wa.me/201065367667?text=Hi%20Ahmed%2C%20I%27m%20interested%20in%20Red%20Sea%20real%20estate%20investment.%20Could%20you%20share%20more%20details%3F" target="_blank" rel="noopener" class="cc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.9c0 2.1.55 4.05 1.6 5.8L2 22l4.45-1.17a9.9 9.9 0 0 0 5.59 1.7c5.46 0 9.91-4.45 9.91-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.19-1.14l-.3-.18-2.64.69.7-2.57-.2-.32a8.16 8.16 0 0 1-1.25-4.36c0-4.53 3.7-8.22 8.24-8.22 2.2 0 4.26.86 5.82 2.42a8.16 8.16 0 0 1 2.41 5.81c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.13-1.47-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.3z"/></svg></div><span class="lbl">WhatsApp</span><span class="val">+20 106 536 7667</span></a>
       <a href="tel:+201065367667" class="cc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg></div><span class="lbl">Call</span><span class="val">+20 106 536 7667</span></a>
-      <a href="mailto:hagag4787@gmail.com" class="cc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></div><span class="lbl">Email</span><span class="val">hagag4787@gmail.com</span></a>
+      <a href="mailto:hagag4787@gmail.com?subject=Red%20Sea%20Real%20Estate%20Investment%20Enquiry&body=Hi%20Ahmed%2C%20I%27m%20interested%20in%20investing%20in%20Port%20Ghalib%20%2F%20Hurghada.%20Please%20share%20more%20details." class="cc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></div><span class="lbl">Email</span><span class="val">hagag4787@gmail.com</span></a>
     </div>
   </div>
 </section>
+
+<!-- Floating lead-capture buttons -->
+<div class="floats">
+  <a class="float-btn wa" href="https://wa.me/201065367667?text=Hi%20Ahmed%2C%20I%27m%20interested%20in%20Red%20Sea%20real%20estate%20investment.%20Could%20you%20share%20more%20details%3F" target="_blank" rel="noopener" aria-label="Chat with Ahmed Hagag on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.9c0 2.1.55 4.05 1.6 5.8L2 22l4.45-1.17a9.9 9.9 0 0 0 5.59 1.7c5.46 0 9.91-4.45 9.91-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.19-1.14l-.3-.18-2.64.69.7-2.57-.2-.32a8.16 8.16 0 0 1-1.25-4.36c0-4.53 3.7-8.22 8.24-8.22 2.2 0 4.26.86 5.82 2.42a8.16 8.16 0 0 1 2.41 5.81c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.13-1.47-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.3z"/></svg>
+    <span class="float-tip">Chat on WhatsApp</span>
+  </a>
+  <a class="float-btn mail" href="mailto:hagag4787@gmail.com?subject=Red%20Sea%20Real%20Estate%20Investment%20Enquiry&body=Hi%20Ahmed%2C%20I%27m%20interested%20in%20investing%20in%20Port%20Ghalib%20%2F%20Hurghada.%20Please%20share%20more%20details." aria-label="Email Ahmed Hagag">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+    <span class="float-tip">Email Ahmed</span>
+  </a>
+</div>
 
 <footer>
   <div class="wrap">
