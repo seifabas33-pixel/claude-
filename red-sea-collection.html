@@ -23,6 +23,7 @@
   --gold-soft:rgba(154,106,44,.32);
   --sea:#0E6F79;         /* Red Sea teal — interactive accent */
   --sea-ink:#FFFFFF;
+  --brand:#6E0F20;       /* Homes Bay burgundy (brand identity) */
   --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --sans:'Jost',system-ui,'Segoe UI',sans-serif;
 }
@@ -72,7 +73,18 @@ p.body{
 p.body strong{color:var(--ink);font-weight:600}
 .rule{height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-soft) 60%,transparent);width:min(230px,34vw);margin:1rem 0;border-radius:2px}
 
+/* ===== Homes Bay wordmark ===== */
+.logo{display:inline-flex;flex-direction:column;align-items:center;line-height:1;color:var(--brand)}
+.logo .lm{font-family:var(--sans);font-weight:500;letter-spacing:.01em;white-space:nowrap;text-transform:none}
+.logo .ls{font-family:var(--sans);font-weight:500;text-transform:uppercase;white-space:nowrap}
+.logo.hero .lm{font-size:clamp(1.7rem,3.4vw,2.35rem)}
+.logo.hero .ls{font-size:clamp(.52rem,1vw,.66rem);letter-spacing:.6em;margin-top:.5rem;padding-left:.6em}
+.logo.mini{flex-direction:row;align-items:baseline;gap:.55rem}
+.logo.mini .lm{font-size:1rem;font-weight:600}
+.logo.mini .ls{font-size:.56rem;letter-spacing:.34em;color:var(--brand);opacity:.8}
+
 /* ===== Cover ===== */
+.cover .logo.hero{margin:0 auto 2.1rem;animation:rise .9s both}
 .cover{text-align:center;align-items:center}
 .cover .eyebrow{animation:rise .9s .1s both}
 .cover h1{font-size:clamp(2.9rem,7.6vw,5.8rem);letter-spacing:.005em;margin:1.5rem 0 1.1rem;animation:rise .9s .25s both}
@@ -200,6 +212,7 @@ p.body strong{color:var(--ink);font-weight:600}
 <div class="deck" id="deck">
   <div class="track" id="track" lang="pl">
     <section class="slide cover" aria-label="Cover">
+      <span class="logo hero"><span class="lm">Homes Bay</span><span class="ls">Hurghada</span></span>
       <div class="eyebrow">Prezentacja dla Klienta<span class='sep'>·</span>Hurghada<span class='sep'>·</span>Morze Czerwone<span class='sep'>·</span>Lipiec 2026</div>
       <h1>Sześć adresów<br>nad <em>Morzem Czerwonym</em></h1>
       <p class="tagline">Portfolio inwestycji wzdłuż wybrzeża Hurghady —<br>od Al Ahyaa po zatokę Sahl Hasheesh.</p>
@@ -428,13 +441,16 @@ p.body strong{color:var(--ink);font-weight:600}
           <span class="where">Mamsha · obok Grand Hotelu</span>
           <span class="go">Google Maps ↗</span>
         </a></div>
-      <p class="body" style="margin-top:2rem">Dziękujemy. Z przyjemnością pokażemy Państwu każde z tych miejsc osobiście.</p>
+      <div style="margin-top:2rem;display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap">
+        <span class="logo hero" style="align-items:flex-start"><span class="lm" style="font-size:1.7rem">Homes Bay</span><span class="ls" style="font-size:.56rem;letter-spacing:.5em;margin-top:.4rem;padding-left:.5em">Hurghada</span></span>
+      </div>
+      <p class="body" style="margin-top:1.1rem">Dziękujemy. Z przyjemnością pokażemy Państwu każde z tych miejsc osobiście.</p>
       <p class="body" style="margin-top:1rem;font-size:.82rem;color:var(--muted);max-width:74ch">Ceny, plany płatności i terminy oddania wg informacji deweloperów, lipiec 2026. Kurs orientacyjny 57,7 EGP = 1 €. Oferta ma charakter informacyjny i nie stanowi oferty handlowej w rozumieniu przepisów prawa.</p>
     </section></div>
 
   <div class="hint" id="hint">← → nawigacja</div>
   <div class="chrome">
-    <div class="brand">Red Sea Collection · Hurghada</div>
+    <div class="brand"><span class="logo mini"><span class="lm">Homes Bay</span><span class="ls">Hurghada</span></span></div>
     <div class="dots" id="dots" role="tablist" aria-label="Slajdy"></div>
     <div class="navr">
       <span class="count" id="count">01 / 09</span>
