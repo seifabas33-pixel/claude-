@@ -1,0 +1,76 @@
+{
+  "business": {
+    "name": "Soho Bar — Tapas & Grill",
+    "brand": "SOHO BAR",
+    "tagline": "The freshest bar and restaurant in Port Ghalib",
+    "concept": "European soul and social buzz on the shores of Port Ghalib — inspired by Mediterranean tapas bars and laid-back city lounge culture.",
+    "type": "Gastropub — Spanish, Italian & grilled cuisine",
+    "story": "Soho Bar was born from a simple idea: bring a little European soul and social buzz to the shores of Port Ghalib, inspired by the vibrant energy of Mediterranean tapas bars and the laid-back elegance of city lounge culture."
+  },
+  "location": {
+    "venue": "Port Ghalib Marina",
+    "landmark": "Next to Marina Residence Suites",
+    "city": "Port Ghalib, Marsa Alam",
+    "region": "Red Sea",
+    "country": "Egypt",
+    "nearestAirport": {
+      "name": "Marsa Alam International Airport (RMF)",
+      "distanceKm": 4,
+      "driveMinutes": 5
+    }
+  },
+  "contact": {
+    "phone": "+201065367667",
+    "phoneDisplay": "+20 106 536 7667",
+    "whatsapp": "+201065367667",
+    "emailPrimary": "bar@sohobaregypt.com",
+    "emailSecondary": "sohotapasandgrill@gmail.com",
+    "website": "https://sohobaregypt.com",
+    "instagram": "https://www.instagram.com/sohobarandgrill/",
+    "instagramHandle": "@sohobarandgrill",
+    "facebook": "https://www.facebook.com/people/SOHO-BAR/61563975425484/"
+  },
+  "hours": {
+    "note": "Confirm with owner — listings say ~10:30 to 24:00 daily",
+    "daily": { "open": "10:30", "close": "00:00" }
+  },
+  "ratings": [
+    { "platform": "TripAdvisor", "score": 5.0, "outOf": 5, "reviews": 220, "badge": "#1 of 18 restaurants in Port Ghalib" },
+    { "platform": "Google", "score": 4.9, "outOf": 5, "reviews": 966 },
+    { "platform": "Restaurant Guru", "score": 5.0, "outOf": 5, "reviews": 347 }
+  ],
+  "menuHighlights": {
+    "categories": [
+      { "key": "grill", "name": "From the Grill", "description": "Incredible steaks and burgers", "signature": ["Camel steak"] },
+      { "key": "tapas", "name": "Tapas", "description": "Plates made to share with friends and family", "signature": ["Fried squid"] },
+      { "key": "pizza", "name": "Italian Pizzas", "description": "Italian-style, Neapolitan favourites", "signature": ["Neapolitan pizza"] },
+      { "key": "vegan", "name": "Vegan Options", "description": "Great plant-based choices" },
+      { "key": "drinks", "name": "Bar & Cocktails", "description": "Ice-cold beers and expertly crafted, insta-worthy cocktails" }
+    ],
+    "formats": ["Bottomless brunch", "Date-night tapas tasting"],
+    "avgSpendPerPersonEGP": { "min": 800, "max": 900 },
+    "pricesNote": "Itemized prices not public — awaiting menu from owner"
+  },
+  "services": [
+    { "key": "reservations", "name": "Table Reservations", "description": "Book via WhatsApp, Instagram, or the website" },
+    { "key": "transport", "name": "Free Transportation", "description": "Free hotel pick-up with every reservation" },
+    { "key": "sports", "name": "Live Sports", "description": "Live football and F1 on multiple screens" },
+    { "key": "billiards", "name": "Free Billiards", "description": "Free pool table for guests" },
+    { "key": "ambience", "name": "Lounge Ambience", "description": "Music kept cool and low so the conversation keeps going" },
+    { "key": "waterfront", "name": "Marina Waterfront", "description": "Scenic seating by the water on the Port Ghalib marina promenade" }
+  ],
+  "reviewQuotes": [
+    { "text": "Wonderful place, wonderful staff, wonderful food and wonderful atmosphere.", "source": "TripAdvisor" },
+    { "text": "The quality of the food is really excellent and the value for money is very appealing.", "source": "TripAdvisor" },
+    { "text": "Standout dishes like the camel steak — excellent camel meat and Neapolitan pizza.", "source": "Restaurant Guru" }
+  ],
+  "seo": {
+    "keywords": [
+      "Soho Bar Port Ghalib", "restaurant Port Ghalib", "bar Marsa Alam",
+      "tapas Port Ghalib", "steak Marsa Alam", "camel steak Egypt",
+      "cocktails Port Ghalib marina", "best restaurant Port Ghalib",
+      "reserve table Port Ghalib", "live football Marsa Alam"
+    ],
+    "audienceLanguages": ["en", "de", "it"]
+  }
+}
