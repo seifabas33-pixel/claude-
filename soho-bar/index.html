@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOHO BAR — Tapas & Grill | Port Ghalib Marina, Marsa Alam</title>
+<meta name="description" content="Soho Bar — Tapas & Grill. The #1 rated bar & restaurant in Port Ghalib, Marsa Alam. Steaks, tapas, Italian pizzas, cocktails, live sports & free hotel pick-up. Reserve your table now.">
+<meta property="og:title" content="SOHO BAR — Tapas & Grill · Port Ghalib">
+<meta property="og:description" content="The #1 rated bar & restaurant in Port Ghalib. Steaks, tapas, pizzas, cocktails — with free hotel transportation on every reservation.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Soho Bar — Tapas & Grill",
+  "servesCuisine": ["Spanish", "Italian", "Grill", "Tapas"],
+  "priceRange": "E£800–900 per person",
+  "telephone": "+201065367667",
+  "email": "bar@sohobaregypt.com",
+  "url": "https://sohobaregypt.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Port Ghalib Marina, next to Marina Residence Suites",
+    "addressLocality": "Port Ghalib, Marsa Alam",
+    "addressRegion": "Red Sea",
+    "addressCountry": "EG"
+  },
+  "openingHours": "Mo-Su 10:30-24:00",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "1500" },
+  "acceptsReservations": "True",
+  "sameAs": [
+    "https://www.instagram.com/sohobarandgrill/",
+    "https://www.facebook.com/people/SOHO-BAR/61563975425484/"
+  ]
+}
+</script>
+<style>
+:root{
+  --bg:#0d0b09;
+  --bg-2:#151109;
+  --panel:#1c160f;
+  --panel-2:#241c12;
+  --gold:#d4a24c;
+  --gold-bright:#ecc27a;
+  --cream:#f5ead8;
+  --muted:#b8a88f;
+  --line:rgba(212,162,76,.25);
+  --whatsapp:#25d366;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--cream);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
+img{max-width:100%}
+a{color:var(--gold-bright);text-decoration:none}
+.container{width:min(1120px,92%);margin:0 auto}
+section{padding:84px 0}
+.kicker{
+  display:inline-block;letter-spacing:.32em;text-transform:uppercase;
+  font-size:.72rem;font-weight:600;color:var(--gold);margin-bottom:14px;
+}
+.section-title{font-size:clamp(1.9rem,4.5vw,2.9rem);font-weight:700;line-height:1.15;margin-bottom:18px}
+.section-lead{color:var(--muted);max-width:640px;font-size:1.02rem}
+.center{text-align:center}.center .section-lead{margin:0 auto}
+
+/* ── Nav ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(13,11,9,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.35rem;letter-spacing:.08em;color:var(--cream)}
+.logo span{color:var(--gold)}
+.logo small{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:.56rem;letter-spacing:.4em;color:var(--muted);text-transform:uppercase}
+.nav-links{display:flex;gap:26px;align-items:center;list-style:none}
+.nav-links a{color:var(--cream);font-size:.85rem;font-weight:500;letter-spacing:.04em;transition:color .2s}
+.nav-links a:hover{color:var(--gold-bright)}
+.btn{
+  display:inline-block;padding:13px 30px;border-radius:999px;
+  font-weight:600;font-size:.9rem;letter-spacing:.05em;
+  transition:transform .18s ease, box-shadow .18s ease;cursor:pointer;border:none;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#b07f2e);color:#1a1206;box-shadow:0 6px 22px rgba(212,162,76,.35)}
+.btn-outline{border:1px solid var(--gold);color:var(--gold-bright);background:transparent}
+.nav-cta{padding:9px 20px;font-size:.8rem}
+.lang{display:flex;gap:4px;margin-left:6px}
+.lang button{
+  background:transparent;border:1px solid transparent;color:var(--muted);
+  font-size:.72rem;font-weight:700;letter-spacing:.08em;padding:5px 7px;border-radius:7px;cursor:pointer;
+}
+.lang button.active{color:var(--gold-bright);border-color:var(--line)}
+.burger{display:none;background:none;border:none;color:var(--cream);font-size:1.6rem;cursor:pointer}
+
+/* ── Hero ── */
+header.hero{
+  min-height:100svh;display:flex;align-items:center;position:relative;
+  background:
+    radial-gradient(1100px 500px at 78% -8%, rgba(212,162,76,.16), transparent 60%),
+    radial-gradient(800px 420px at 12% 110%, rgba(58,110,140,.18), transparent 60%),
+    linear-gradient(180deg,#0d0b09 0%, #14100a 55%, #0d0b09 100%);
+  padding-top:66px;
+}
+header.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(245,234,216,.05) 1px, transparent 1px);
+  background-size:26px 26px;opacity:.5;
+}
+.hero-inner{position:relative;z-index:2;padding:60px 0;width:min(1120px,92%);margin:0 auto}
+.hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.badge{
+  display:inline-flex;align-items:center;gap:7px;
+  border:1px solid var(--line);background:rgba(28,22,15,.7);
+  padding:7px 15px;border-radius:999px;font-size:.76rem;color:var(--muted);font-weight:500;
+}
+.badge b{color:var(--gold-bright);font-weight:700}
+.hero h1{font-size:clamp(2.6rem,7vw,4.8rem);font-weight:900;line-height:1.05;letter-spacing:.01em}
+.hero h1 em{font-style:italic;color:var(--gold-bright)}
+.hero .sub{margin:22px 0 36px;color:var(--muted);font-size:1.1rem;max-width:560px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:34px;margin-top:56px}
+.fact .n{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--gold-bright)}
+.fact .l{font-size:.76rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+
+/* ── Story ── */
+.story-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.story-quote{
+  border-left:3px solid var(--gold);padding:6px 0 6px 22px;margin:26px 0;
+  font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--gold-bright);line-height:1.5;
+}
+.story-art{
+  border-radius:var(--radius);min-height:420px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(400px 260px at 70% 20%, rgba(212,162,76,.35), transparent 65%),
+    radial-gradient(500px 300px at 20% 90%, rgba(58,110,140,.4), transparent 60%),
+    linear-gradient(160deg,#241c12, #10131a);
+  border:1px solid var(--line);
+  display:flex;align-items:flex-end;padding:28px;
+}
+.story-art .tag{font-size:.8rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+
+/* ── Menu ── */
+#menu{background:var(--bg-2)}
+.menu-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:38px 0 30px}
+.menu-tabs button{
+  background:var(--panel);border:1px solid var(--line);color:var(--muted);
+  padding:11px 22px;border-radius:999px;font-size:.86rem;font-weight:600;cursor:pointer;transition:all .2s;
+}
+.menu-tabs button.active{background:linear-gradient(135deg,var(--gold),#b07f2e);color:#1a1206;border-color:transparent}
+.menu-panel{display:none;animation:fade .35s ease}
+.menu-panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.dishes{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.dish{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 24px;transition:transform .2s, border-color .2s;
+}
+.dish:hover{transform:translateY(-3px);border-color:var(--gold)}
+.dish h3{font-size:1.12rem;color:var(--cream);margin-bottom:6px}
+.dish p{font-size:.88rem;color:var(--muted)}
+.dish .star{
+  display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:#1a1206;background:linear-gradient(135deg,var(--gold-bright),var(--gold));
+  border-radius:6px;padding:3px 9px;margin-bottom:10px;
+}
+.menu-note{margin-top:30px;font-size:.85rem;color:var(--muted);border:1px dashed var(--line);border-radius:var(--radius);padding:16px 20px}
+
+/* ── Services ── */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:44px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px 26px;transition:transform .2s,border-color .2s;position:relative;overflow:hidden;
+}
+.card:hover{transform:translateY(-4px);border-color:var(--gold)}
+.card .ic{
+  width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+  background:rgba(212,162,76,.13);border:1px solid var(--line);margin-bottom:18px;
+}
+.card .ic svg{width:26px;height:26px;stroke:var(--gold-bright);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.15rem;margin-bottom:8px}
+.card p{font-size:.9rem;color:var(--muted)}
+
+/* ── Reviews ── */
+#reviews{background:var(--bg-2)}
+.scoreboard{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin:40px 0 46px}
+.score{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 34px;text-align:center;min-width:200px;
+}
+.score .v{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:900;color:var(--gold-bright)}
+.score .stars{color:var(--gold);letter-spacing:2px;font-size:.85rem}
+.score .p{font-size:.8rem;color:var(--muted);margin-top:5px}
+.quotes{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.quote{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px;
+}
+.quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:1.02rem;color:var(--cream);margin-bottom:14px}
+.quote .src{font-size:.76rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+
+/* ── Reserve ── */
+#reserve .wrap{
+  display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:start;
+}
+.reserve-info ul{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:14px}
+.reserve-info li{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:.94rem}
+.reserve-info li::before{content:"✦";color:var(--gold);flex:none;margin-top:2px}
+form{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:34px 30px;display:grid;grid-template-columns:1fr 1fr;gap:18px;
+}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+label{font-size:.76rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+input,select,textarea{
+  background:var(--bg);border:1px solid var(--line);border-radius:10px;
+  color:var(--cream);padding:13px 14px;font-family:'Inter',sans-serif;font-size:.95rem;outline:none;
+  transition:border-color .2s;width:100%;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+input::placeholder,textarea::placeholder{color:rgba(184,168,143,.5)}
+textarea{resize:vertical;min-height:86px}
+.btn-wa{
+  grid-column:1/-1;background:linear-gradient(135deg,#2ee06f,#1da851);color:#062b12;
+  display:flex;align-items:center;justify-content:center;gap:10px;font-size:1rem;padding:16px;
+}
+.form-hint{grid-column:1/-1;font-size:.78rem;color:var(--muted);text-align:center}
+
+/* ── Find us ── */
+.find-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:44px;align-items:stretch}
+.info-list{display:flex;flex-direction:column;gap:0;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.info-row{display:flex;gap:16px;padding:20px 24px;border-bottom:1px solid var(--line);align-items:flex-start}
+.info-row:last-child{border-bottom:none}
+.info-row .ic{flex:none;width:40px;height:40px;border-radius:10px;background:rgba(212,162,76,.13);display:flex;align-items:center;justify-content:center}
+.info-row .ic svg{width:20px;height:20px;stroke:var(--gold-bright);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.info-row h4{font-family:'Inter',sans-serif;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.info-row p, .info-row a{font-size:.95rem;color:var(--cream)}
+.map-box{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);min-height:420px}
+.map-box iframe{width:100%;height:100%;min-height:420px;border:0;filter:grayscale(.2) contrast(1.05)}
+
+/* ── Footer ── */
+footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
+.foot{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:center}
+.socials{display:flex;gap:12px}
+.socials a{
+  width:42px;height:42px;border-radius:50%;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;transition:border-color .2s, transform .2s;
+}
+.socials a:hover{border-color:var(--gold);transform:translateY(-2px)}
+.socials svg{width:19px;height:19px;fill:var(--gold-bright)}
+.foot small{color:var(--muted);font-size:.8rem}
+
+/* ── Floating WhatsApp ── */
+.wa-float{
+  position:fixed;right:22px;bottom:22px;z-index:90;
+  width:58px;height:58px;border-radius:50%;background:var(--whatsapp);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 26px rgba(37,211,102,.45);transition:transform .2s;
+}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+
+@media(max-width:900px){
+  .story-grid,#reserve .wrap,.find-grid{grid-template-columns:1fr}
+  .story-art{min-height:260px}
+  form{grid-template-columns:1fr}
+  .nav-links{
+    position:fixed;top:66px;right:0;background:rgba(13,11,9,.97);
+    flex-direction:column;padding:26px;width:230px;gap:18px;
+    border-left:1px solid var(--line);border-bottom:1px solid var(--line);
+    transform:translateX(100%);transition:transform .25s ease;align-items:flex-start;
+  }
+  .nav-links.open{transform:none}
+  .burger{display:block}
+  section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#top">SOHO<span> BAR</span><small>Tapas &amp; Grill · Port Ghalib</small></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#story" data-i18n="nav.story">Our Story</a></li>
+      <li><a href="#menu" data-i18n="nav.menu">Menu</a></li>
+      <li><a href="#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="#reviews" data-i18n="nav.reviews">Reviews</a></li>
+      <li><a href="#find" data-i18n="nav.find">Find Us</a></li>
+      <li><a class="btn btn-gold nav-cta" href="#reserve" data-i18n="nav.reserve">Reserve</a></li>
+      <li class="lang">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="de">DE</button>
+        <button data-lang="it">IT</button>
+      </li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-badges">
+      <span class="badge">★★★★★ <b>5.0</b> TripAdvisor · <b data-i18n="hero.badge1">#1 in Port Ghalib</b></span>
+      <span class="badge"><b>4.9</b> Google · 950+ <span data-i18n="hero.badge2">reviews</span></span>
+    </div>
+    <h1 data-i18n-html="hero.title">Mediterranean soul,<br><em>on the Red Sea marina.</em></h1>
+    <p class="sub" data-i18n="hero.sub">Steaks &amp; burgers from the grill, tapas made for sharing, Italian pizzas and the best cocktails in town — right on the Port Ghalib waterfront.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-gold" href="#reserve" data-i18n="hero.cta1">Reserve a Table</a>
+      <a class="btn btn-outline" href="#menu" data-i18n="hero.cta2">Explore the Menu</a>
+    </div>
+    <div class="hero-facts">
+      <div class="fact"><div class="n">10:30 – 00:00</div><div class="l" data-i18n="hero.f1">Open every day</div></div>
+      <div class="fact"><div class="n" data-i18n="hero.f2n">Free</div><div class="l" data-i18n="hero.f2">Hotel pick-up with reservation</div></div>
+      <div class="fact"><div class="n">#1</div><div class="l" data-i18n="hero.f3">Restaurant in Port Ghalib</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="story">
+  <div class="container story-grid">
+    <div>
+      <span class="kicker" data-i18n="story.kicker">Our Story</span>
+      <h2 class="section-title" data-i18n="story.title">A little European soul on the shores of Port Ghalib</h2>
+      <p class="section-lead" data-i18n="story.lead1">Soho Bar was born from a simple idea: bring the vibrant energy of Mediterranean tapas bars and the laid-back elegance of city lounge culture to the Red Sea.</p>
+      <div class="story-quote" data-i18n="story.quote">"Great food, ice-cold beers, cocktails made by real mixologists — and music kept cool and low, so the conversation never stops."</div>
+      <p class="section-lead" data-i18n="story.lead2">By day, a relaxed marina terrace five minutes from Marsa Alam airport. By night, the warmest spot in town — live football and F1 on the screens, tapas on the table, and the sea right beside you.</p>
+    </div>
+    <div class="story-art"><span class="tag" data-i18n="story.art">Port Ghalib Marina · Waterfront Terrace</span></div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="container">
+    <div class="center">
+      <span class="kicker" data-i18n="menu.kicker">The Menu</span>
+      <h2 class="section-title" data-i18n="menu.title">From the grill, the oven &amp; the bar</h2>
+      <p class="section-lead" data-i18n="menu.lead">Spanish tapas, Italian pizzas and serious grilling — with great vegan options and a bar that knows what it's doing.</p>
+    </div>
+    <div class="menu-tabs" id="menuTabs">
+      <button class="active" data-panel="grill" data-i18n="menu.t1">From the Grill</button>
+      <button data-panel="tapas" data-i18n="menu.t2">Tapas</button>
+      <button data-panel="pizza" data-i18n="menu.t3">Italian Pizzas</button>
+      <button data-panel="vegan" data-i18n="menu.t4">Vegan</button>
+      <button data-panel="drinks" data-i18n="menu.t5">Bar &amp; Cocktails</button>
+    </div>
+
+    <div class="menu-panel active" data-panel="grill">
+      <div class="dishes">
+        <div class="dish"><span class="star" data-i18n="menu.sig">Signature</span><h3 data-i18n="menu.g1">Camel Steak</h3><p data-i18n="menu.g1d">Our most famous plate — tender, lean and unforgettable. The dish guests travel for.</p></div>
+        <div class="dish"><h3 data-i18n="menu.g2">Grilled Steaks</h3><p data-i18n="menu.g2d">Premium cuts, flame-grilled to your liking.</p></div>
+        <div class="dish"><h3 data-i18n="menu.g3">Gourmet Burgers</h3><p data-i18n="menu.g3d">Juicy, stacked and made fresh on the grill.</p></div>
+      </div>
+    </div>
+    <div class="menu-panel" data-panel="tapas">
+      <div class="dishes">
+        <div class="dish"><span class="star" data-i18n="menu.fav">Guest favourite</span><h3 data-i18n="menu.ta1">Fried Squid</h3><p data-i18n="menu.ta1d">Crisp, golden calamari — made for sharing over a cold drink.</p></div>
+        <div class="dish"><h3 data-i18n="menu.ta2">Tapas Selection</h3><p data-i18n="menu.ta2d">Mediterranean small plates to mix, match and pass around the table.</p></div>
+        <div class="dish"><h3 data-i18n="menu.ta3">Date-Night Tasting</h3><p data-i18n="menu.ta3d">A shared tapas journey for two — ask our team for tonight's picks.</p></div>
+      </div>
+    </div>
+    <div class="menu-panel" data-panel="pizza">
+      <div class="dishes">
+        <div class="dish"><span class="star" data-i18n="menu.fav">Guest favourite</span><h3 data-i18n="menu.p1">Neapolitan Pizza</h3><p data-i18n="menu.p1d">Italian-style, blistered crust, simple and perfect.</p></div>
+        <div class="dish"><h3 data-i18n="menu.p2">Italian Classics</h3><p data-i18n="menu.p2d">A full range of Italian-style pizzas from our oven.</p></div>
+      </div>
+    </div>
+    <div class="menu-panel" data-panel="vegan">
+      <div class="dishes">
+        <div class="dish"><h3 data-i18n="menu.v1">Vegan Options</h3><p data-i18n="menu.v1d">Great plant-based dishes across tapas, pizzas and mains — not an afterthought.</p></div>
+      </div>
+    </div>
+    <div class="menu-panel" data-panel="drinks">
+      <div class="dishes">
+        <div class="dish"><span class="star" data-i18n="menu.sig">Signature</span><h3 data-i18n="menu.d1">Craft Cocktails</h3><p data-i18n="menu.d1d">Our mixologists make the best cocktails in town — insta-worthy included.</p></div>
+        <div class="dish"><h3 data-i18n="menu.d2">Ice-Cold Beers</h3><p data-i18n="menu.d2d">The fridge is always stocked and always freezing.</p></div>
+        <div class="dish"><h3 data-i18n="menu.d3">Bottomless Brunch</h3><p data-i18n="menu.d3d">Long, lazy brunching by the marina — ask us for details.</p></div>
+      </div>
+    </div>
+
+    <p class="menu-note" data-i18n="menu.note">📖 The full menu with today's prices is waiting for you at the bar — or message us on WhatsApp and we'll send it over.</p>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="center">
+      <span class="kicker" data-i18n="sv.kicker">Services &amp; Entertainment</span>
+      <h2 class="section-title" data-i18n="sv.title">More than a great meal</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h10.2A2 2 0 0 1 19 8l2 5v6h-2.5v-2h-13v2H3z"/><circle cx="7.5" cy="15" r="1.2"/><circle cx="16.5" cy="15" r="1.2"/></svg></div>
+        <h3 data-i18n="sv.c1">Free Hotel Pick-Up</h3><p data-i18n="sv.c1d">Reserve a table and we'll arrange free transportation from your hotel — door to marina.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="13" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+        <h3 data-i18n="sv.c2">Live Football &amp; F1</h3><p data-i18n="sv.c2d">Every big match and race on multiple screens — you'll never miss your team.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg></div>
+        <h3 data-i18n="sv.c3">Free Billiards</h3><p data-i18n="sv.c3d">A free pool table for guests — order a round and rack them up.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg></div>
+        <h3 data-i18n="sv.c4">Lounge Ambience</h3><p data-i18n="sv.c4d">Music kept cool and low, so conversation always comes first.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 21c2-2 4-2 6 0s4 2 6 0 4-2 6 0M12 3a5 5 0 0 1 5 5H7a5 5 0 0 1 5-5z"/></svg></div>
+        <h3 data-i18n="sv.c5">Marina Waterfront</h3><p data-i18n="sv.c5d">Scenic seating by the water on the Port Ghalib promenade — sunsets included.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 15v6M17 4H7v5a5 5 0 0 0 10 0zM17 5h3a3 3 0 0 1-3 4M7 5H4a3 3 0 0 0 3 4"/></svg></div>
+        <h3 data-i18n="sv.c6">Brunch &amp; Tastings</h3><p data-i18n="sv.c6d">From bottomless brunch to date-night tapas tastings — ask us what's on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="container">
+    <div class="center">
+      <span class="kicker" data-i18n="rv.kicker">Guest Reviews</span>
+      <h2 class="section-title" data-i18n="rv.title">Rated #1 in Port Ghalib</h2>
+    </div>
+    <div class="scoreboard">
+      <div class="score"><div class="v">5.0</div><div class="stars">★★★★★</div><div class="p">TripAdvisor · 220+ <span data-i18n="rv.rev">reviews</span></div></div>
+      <div class="score"><div class="v">4.9</div><div class="stars">★★★★★</div><div class="p">Google · 950+ <span data-i18n="rv.rev2">reviews</span></div></div>
+      <div class="score"><div class="v">5.0</div><div class="stars">★★★★★</div><div class="p">Restaurant Guru · 340+ <span data-i18n="rv.rev3">reviews</span></div></div>
+    </div>
+    <div class="quotes">
+      <div class="quote"><p data-i18n="rv.q1">"Wonderful place, wonderful staff, wonderful food and wonderful atmosphere."</p><div class="src">— TripAdvisor</div></div>
+      <div class="quote"><p data-i18n="rv.q2">"The quality of the food is really excellent and the value for money is very appealing."</p><div class="src">— TripAdvisor</div></div>
+      <div class="quote"><p data-i18n="rv.q3">"Standout dishes like the camel steak, excellent Neapolitan pizza — and staff that are all friendly and super helpful."</p><div class="src">— Restaurant Guru</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="reserve">
+  <div class="container wrap">
+    <div class="reserve-info">
+      <span class="kicker" data-i18n="rs.kicker">Reservations</span>
+      <h2 class="section-title" data-i18n="rs.title">Book your table — we'll even pick you up</h2>
+      <p class="section-lead" data-i18n="rs.lead">Fill in the form and it opens WhatsApp with your booking ready to send. Our team confirms in minutes.</p>
+      <ul>
+        <li data-i18n="rs.b1">Free transportation from your hotel with every reservation</li>
+        <li data-i18n="rs.b2">Instant contact on WhatsApp — no waiting, no apps to install</li>
+        <li data-i18n="rs.b3">Tell us about birthdays, vegan menus or terrace wishes — we'll arrange it</li>
+      </ul>
+    </div>
+    <form id="bookForm">
+      <div class="field"><label for="fName" data-i18n="rs.name">Your name</label><input id="fName" required placeholder="John Smith"></div>
+      <div class="field"><label for="fPhone" data-i18n="rs.phone">Phone / WhatsApp</label><input id="fPhone" type="tel" placeholder="+49 …"></div>
+      <div class="field"><label for="fDate" data-i18n="rs.date">Date</label><input id="fDate" type="date" required></div>
+      <div class="field"><label for="fTime" data-i18n="rs.time">Time</label><input id="fTime" type="time" min="10:30" max="23:30" value="19:30" required></div>
+      <div class="field"><label for="fGuests" data-i18n="rs.guests">Guests</label>
+        <select id="fGuests"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option data-i18n="rs.more">9+ (group)</option></select>
+      </div>
+      <div class="field"><label for="fHotel" data-i18n="rs.hotel">Your hotel (for free pick-up)</label><input id="fHotel" placeholder="Marina Lodge…"></div>
+      <div class="field full"><label for="fNotes" data-i18n="rs.notes">Special requests</label><textarea id="fNotes" data-i18n-ph="rs.notesPh" placeholder="Birthday, vegan menu, terrace table…"></textarea></div>
+      <button class="btn btn-wa" type="submit">
+        <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor"><path d="M16 2.9C8.8 2.9 3 8.7 3 15.9c0 2.3.6 4.5 1.7 6.5L3 29.1l6.9-1.8c1.9 1 4 1.6 6.1 1.6 7.2 0 13-5.8 13-13S23.2 2.9 16 2.9zm0 23.7c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4c-1.1-1.7-1.6-3.6-1.6-5.6 0-5.9 4.8-10.7 10.7-10.7S26.7 10 26.7 15.9 21.9 26.6 16 26.6zm5.9-8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2s0-.5.1-.7c.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5s.1-.4 0-.5c-.1-.2-.7-1.7-1-2.4-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1.1 1.1-1.1 2.6 1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.8.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5s-.3-.2-.6-.4z"/></svg>
+        <span data-i18n="rs.send">Send Booking on WhatsApp</span>
+      </button>
+      <div class="form-hint" data-i18n="rs.hint">Prefer to call? +20 106 536 7667 · Or email bar@sohobaregypt.com</div>
+    </form>
+  </div>
+</section>
+
+<section id="find">
+  <div class="container">
+    <div class="center">
+      <span class="kicker" data-i18n="fd.kicker">Find Us</span>
+      <h2 class="section-title" data-i18n="fd.title">On the marina, next to Marina Residence</h2>
+      <p class="section-lead" data-i18n="fd.lead">Port Ghalib Marina promenade — just 5 minutes from Marsa Alam International Airport.</p>
+    </div>
+    <div class="find-grid">
+      <div class="info-list">
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
+          <div><h4 data-i18n="fd.addr">Address</h4><p data-i18n="fd.addrV">Port Ghalib Marina, next to Marina Residence Suites, Marsa Alam, Red Sea, Egypt</p></div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+          <div><h4 data-i18n="fd.hours">Opening hours</h4><p data-i18n="fd.hoursV">Every day · 10:30 AM – midnight</p></div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+          <div><h4 data-i18n="fd.phone">Phone &amp; WhatsApp</h4><p><a href="tel:+201065367667">+20 106 536 7667</a></p></div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+          <div><h4 data-i18n="fd.mail">Email</h4><p><a href="mailto:bar@sohobaregypt.com">bar@sohobaregypt.com</a></p></div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M17.5 2h-11L2 8.5 12 22 22 8.5z"/><path d="M2 8.5h20M12 22L8 8.5l4-6 4 6z"/></svg></div>
+          <div><h4 data-i18n="fd.air">From the airport</h4><p data-i18n="fd.airV">Marsa Alam International (RMF) — about 4 km, a 5-minute drive</p></div>
+        </div>
+      </div>
+      <div class="map-box">
+        <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Soho%20Bar%20Port%20Ghalib%20Marina%20Marsa%20Alam%20Egypt&output=embed"
+          title="Soho Bar on the map"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot">
+    <a class="logo" href="#top">SOHO<span> BAR</span><small>Tapas &amp; Grill · Port Ghalib</small></a>
+    <div class="socials">
+      <a href="https://www.instagram.com/sohobarandgrill/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.9.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.4-.3.8-.3 1.9-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.3 1.9.2.5.4.8.7 1.1.3.3.6.5 1.1.7.4.1.8.3 1.9.3 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.9-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.4.3-.8.3-1.9.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.3-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.4-.1-.8-.3-1.9-.3-1.3-.1-1.7-.1-4.8-.1zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm5.2-2.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/people/SOHO-BAR/61563975425484/" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+      </a>
+      <a href="https://wa.me/201065367667" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 32 32"><path d="M16 2.9C8.8 2.9 3 8.7 3 15.9c0 2.3.6 4.5 1.7 6.5L3 29.1l6.9-1.8c1.9 1 4 1.6 6.1 1.6 7.2 0 13-5.8 13-13S23.2 2.9 16 2.9zm0 23.7c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4c-1.1-1.7-1.6-3.6-1.6-5.6 0-5.9 4.8-10.7 10.7-10.7S26.7 10 26.7 15.9 21.9 26.6 16 26.6zm5.9-8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2s0-.5.1-.7c.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5s.1-.4 0-.5c-.1-.2-.7-1.7-1-2.4-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1.1 1.1-1.1 2.6 1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.8.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5s-.3-.2-.6-.4z"/></svg>
+      </a>
+    </div>
+    <small data-i18n="ft.copy">© 2026 Soho Bar — Tapas &amp; Grill · Port Ghalib Marina, Marsa Alam, Egypt</small>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/201065367667?text=Hello%20Soho%20Bar!%20I%27d%20like%20to%20book%20a%20table." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 2.9C8.8 2.9 3 8.7 3 15.9c0 2.3.6 4.5 1.7 6.5L3 29.1l6.9-1.8c1.9 1 4 1.6 6.1 1.6 7.2 0 13-5.8 13-13S23.2 2.9 16 2.9zm5.9 17.7c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2s0-.5.1-.7c.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5s.1-.4 0-.5c-.1-.2-.7-1.7-1-2.4-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1.1 1.1-1.1 2.6 1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.8.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5s-.3-.2-.6-.4z"/></svg>
+</a>
+
+<script>
+/* ── i18n ── */
+const I18N = {
+  de: {
+    "nav.story":"Unsere Story","nav.menu":"Speisekarte","nav.services":"Service","nav.reviews":"Bewertungen","nav.find":"Anfahrt","nav.reserve":"Reservieren",
+    "hero.badge1":"Nr. 1 in Port Ghalib","hero.badge2":"Bewertungen",
+    "hero.title":"Mediterrane Seele,<br><em>an der Marina am Roten Meer.</em>",
+    "hero.sub":"Steaks & Burger vom Grill, Tapas zum Teilen, italienische Pizza und die besten Cocktails der Stadt — direkt an der Uferpromenade von Port Ghalib.",
+    "hero.cta1":"Tisch reservieren","hero.cta2":"Zur Speisekarte",
+    "hero.f1":"Täglich geöffnet","hero.f2n":"Gratis","hero.f2":"Hotel-Abholung bei Reservierung","hero.f3":"Restaurant in Port Ghalib",
+    "story.kicker":"Unsere Story","story.title":"Ein Stück europäische Seele am Ufer von Port Ghalib",
+    "story.lead1":"Die Soho Bar entstand aus einer einfachen Idee: die lebendige Energie mediterraner Tapas-Bars und die entspannte Eleganz urbaner Lounge-Kultur ans Rote Meer zu bringen.",
+    "story.quote":"„Großartiges Essen, eiskaltes Bier, Cocktails von echten Mixologen — und die Musik bleibt leise, damit das Gespräch nie abreißt.“",
+    "story.lead2":"Tagsüber eine entspannte Marina-Terrasse, fünf Minuten vom Flughafen Marsa Alam. Abends der gemütlichste Ort der Stadt — Fußball und F1 live, Tapas auf dem Tisch, das Meer direkt daneben.",
+    "story.art":"Port Ghalib Marina · Terrasse am Wasser",
+    "menu.kicker":"Die Karte","menu.title":"Vom Grill, aus dem Ofen & von der Bar",
+    "menu.lead":"Spanische Tapas, italienische Pizza und ernsthaftes Grillen — mit tollen veganen Optionen und einer Bar, die ihr Handwerk versteht.",
+    "menu.t1":"Vom Grill","menu.t2":"Tapas","menu.t3":"Italienische Pizza","menu.t4":"Vegan","menu.t5":"Bar & Cocktails",
+    "menu.sig":"Spezialität","menu.fav":"Gästeliebling",
+    "menu.g1":"Kamelsteak","menu.g1d":"Unser berühmtestes Gericht — zart, mager und unvergesslich. Dafür reisen Gäste an.",
+    "menu.g2":"Steaks vom Grill","menu.g2d":"Premium-Cuts, über der Flamme nach Wunsch gegrillt.",
+    "menu.g3":"Gourmet-Burger","menu.g3d":"Saftig, hoch gestapelt und frisch vom Grill.",
+    "menu.ta1":"Frittierte Calamari","menu.ta1d":"Knusprig-goldene Calamari — perfekt zum Teilen bei einem kalten Drink.",
+    "menu.ta2":"Tapas-Auswahl","menu.ta2d":"Mediterrane kleine Teller zum Kombinieren und Herumreichen.",
+    "menu.ta3":"Date-Night-Tasting","menu.ta3d":"Eine Tapas-Reise für zwei — fragen Sie unser Team nach den Empfehlungen des Abends.",
+    "menu.p1":"Neapolitanische Pizza","menu.p1d":"Italienische Art, luftiger Rand, einfach perfekt.",
+    "menu.p2":"Italienische Klassiker","menu.p2d":"Die ganze Bandbreite italienischer Pizzen aus unserem Ofen.",
+    "menu.v1":"Vegane Gerichte","menu.v1d":"Richtig gute pflanzliche Küche bei Tapas, Pizza und Hauptgerichten — kein Nebengedanke.",
+    "menu.d1":"Craft-Cocktails","menu.d1d":"Unsere Mixologen machen die besten Cocktails der Stadt — Insta-tauglich inklusive.",
+    "menu.d2":"Eiskaltes Bier","menu.d2d":"Der Kühlschrank ist immer voll und immer eiskalt.",
+    "menu.d3":"Bottomless Brunch","menu.d3d":"Langer, entspannter Brunch an der Marina — sprechen Sie uns an.",
+    "menu.note":"📖 Die komplette Karte mit Tagespreisen liegt für Sie an der Bar bereit — oder schreiben Sie uns auf WhatsApp, wir senden sie Ihnen.",
+    "sv.kicker":"Service & Unterhaltung","sv.title":"Mehr als nur gutes Essen",
+    "sv.c1":"Gratis Hotel-Abholung","sv.c1d":"Reservieren Sie einen Tisch und wir organisieren den kostenlosen Transfer von Ihrem Hotel zur Marina.",
+    "sv.c2":"Fußball & F1 live","sv.c2d":"Jedes große Spiel und Rennen auf mehreren Bildschirmen — Sie verpassen Ihr Team nie.",
+    "sv.c3":"Gratis Billard","sv.c3d":"Ein kostenloser Billardtisch für Gäste — bestellen Sie eine Runde und legen Sie los.",
+    "sv.c4":"Lounge-Atmosphäre","sv.c4d":"Die Musik bleibt angenehm leise — das Gespräch steht an erster Stelle.",
+    "sv.c5":"Direkt am Wasser","sv.c5d":"Malerische Plätze an der Promenade von Port Ghalib — Sonnenuntergang inklusive.",
+    "sv.c6":"Brunch & Tastings","sv.c6d":"Vom Bottomless Brunch bis zum Tapas-Tasting zu zweit — fragen Sie, was gerade läuft.",
+    "rv.kicker":"Gästebewertungen","rv.title":"Die Nr. 1 in Port Ghalib","rv.rev":"Bewertungen","rv.rev2":"Bewertungen","rv.rev3":"Bewertungen",
+    "rv.q1":"„Wunderbarer Ort, wunderbares Personal, wunderbares Essen und wunderbare Atmosphäre.“",
+    "rv.q2":"„Die Qualität des Essens ist wirklich exzellent und das Preis-Leistungs-Verhältnis sehr attraktiv.“",
+    "rv.q3":"„Highlights wie das Kamelsteak, exzellente neapolitanische Pizza — und ein durchweg freundliches, hilfsbereites Team.“",
+    "rs.kicker":"Reservierung","rs.title":"Tisch buchen — wir holen Sie sogar ab",
+    "rs.lead":"Formular ausfüllen — es öffnet WhatsApp mit Ihrer fertigen Buchung. Unser Team bestätigt in wenigen Minuten.",
+    "rs.b1":"Kostenloser Transfer von Ihrem Hotel bei jeder Reservierung",
+    "rs.b2":"Direkter Kontakt über WhatsApp — kein Warten, keine App-Installation",
+    "rs.b3":"Geburtstag, veganes Menü oder Terrassenplatz? Sagen Sie es uns — wir kümmern uns darum",
+    "rs.name":"Ihr Name","rs.phone":"Telefon / WhatsApp","rs.date":"Datum","rs.time":"Uhrzeit","rs.guests":"Gäste","rs.more":"9+ (Gruppe)",
+    "rs.hotel":"Ihr Hotel (für Gratis-Abholung)","rs.notes":"Besondere Wünsche","rs.notesPh":"Geburtstag, veganes Menü, Terrassentisch…",
+    "rs.send":"Buchung per WhatsApp senden","rs.hint":"Lieber anrufen? +20 106 536 7667 · Oder E-Mail an bar@sohobaregypt.com",
+    "fd.kicker":"Anfahrt","fd.title":"An der Marina, neben dem Marina Residence",
+    "fd.lead":"Promenade der Port Ghalib Marina — nur 5 Minuten vom internationalen Flughafen Marsa Alam.",
+    "fd.addr":"Adresse","fd.addrV":"Port Ghalib Marina, neben den Marina Residence Suites, Marsa Alam, Rotes Meer, Ägypten",
+    "fd.hours":"Öffnungszeiten","fd.hoursV":"Täglich · 10:30 – 24:00 Uhr","fd.phone":"Telefon & WhatsApp","fd.mail":"E-Mail",
+    "fd.air":"Vom Flughafen","fd.airV":"Marsa Alam International (RMF) — ca. 4 km, 5 Minuten Fahrt",
+    "ft.copy":"© 2026 Soho Bar — Tapas & Grill · Port Ghalib Marina, Marsa Alam, Ägypten",
+    "wa.hello":"Hallo Soho Bar! Ich möchte gerne einen Tisch reservieren.",
+    "wa.msg":"Hallo Soho Bar! Ich möchte einen Tisch reservieren:\n👤 Name: {name}\n📞 Telefon: {phone}\n📅 Datum: {date}\n🕗 Uhrzeit: {time}\n👥 Gäste: {guests}\n🏨 Hotel (Gratis-Abholung): {hotel}\n📝 Wünsche: {notes}"
+  },
+  it: {
+    "nav.story":"La nostra storia","nav.menu":"Menù","nav.services":"Servizi","nav.reviews":"Recensioni","nav.find":"Dove siamo","nav.reserve":"Prenota",
+    "hero.badge1":"N. 1 a Port Ghalib","hero.badge2":"recensioni",
+    "hero.title":"Anima mediterranea,<br><em>sulla marina del Mar Rosso.</em>",
+    "hero.sub":"Bistecche e burger alla griglia, tapas da condividere, pizza italiana e i migliori cocktail della città — direttamente sul lungomare di Port Ghalib.",
+    "hero.cta1":"Prenota un tavolo","hero.cta2":"Scopri il menù",
+    "hero.f1":"Aperto tutti i giorni","hero.f2n":"Gratis","hero.f2":"Transfer dall'hotel con prenotazione","hero.f3":"Ristorante a Port Ghalib",
+    "story.kicker":"La nostra storia","story.title":"Un po' di anima europea sulle rive di Port Ghalib",
+    "story.lead1":"Il Soho Bar nasce da un'idea semplice: portare sul Mar Rosso l'energia dei tapas bar mediterranei e l'eleganza rilassata della lounge culture.",
+    "story.quote":"«Ottimo cibo, birre ghiacciate, cocktail preparati da veri mixologist — e musica soft, così la conversazione non si ferma mai.»",
+    "story.lead2":"Di giorno, una terrazza rilassata sulla marina a cinque minuti dall'aeroporto di Marsa Alam. Di sera, il posto più accogliente della città — calcio e F1 in diretta, tapas in tavola e il mare accanto a te.",
+    "story.art":"Marina di Port Ghalib · Terrazza sull'acqua",
+    "menu.kicker":"Il menù","menu.title":"Dalla griglia, dal forno e dal bar",
+    "menu.lead":"Tapas spagnole, pizza italiana e grigliate serie — con ottime opzioni vegane e un bar che sa il fatto suo.",
+    "menu.t1":"Dalla griglia","menu.t2":"Tapas","menu.t3":"Pizza italiana","menu.t4":"Vegano","menu.t5":"Bar & Cocktail",
+    "menu.sig":"Specialità","menu.fav":"Preferito dagli ospiti",
+    "menu.g1":"Bistecca di cammello","menu.g1d":"Il nostro piatto più famoso — tenera, magra e indimenticabile. Il piatto per cui gli ospiti arrivano fin qui.",
+    "menu.g2":"Bistecche alla griglia","menu.g2d":"Tagli pregiati, grigliati alla fiamma come li preferisci.",
+    "menu.g3":"Burger gourmet","menu.g3d":"Succosi, ricchi e preparati al momento sulla griglia.",
+    "menu.ta1":"Calamari fritti","menu.ta1d":"Calamari dorati e croccanti — perfetti da condividere con un drink freddo.",
+    "menu.ta2":"Selezione di tapas","menu.ta2d":"Piattini mediterranei da combinare e far girare a tavola.",
+    "menu.ta3":"Degustazione per due","menu.ta3d":"Un viaggio di tapas da condividere — chiedi al nostro team le proposte della serata.",
+    "menu.p1":"Pizza napoletana","menu.p1d":"Stile italiano, cornicione alveolato, semplice e perfetta.",
+    "menu.p2":"Classici italiani","menu.p2d":"Tutta la gamma delle pizze all'italiana dal nostro forno.",
+    "menu.v1":"Opzioni vegane","menu.v1d":"Ottimi piatti vegetali tra tapas, pizze e secondi — non un ripiego.",
+    "menu.d1":"Cocktail d'autore","menu.d1d":"I nostri mixologist preparano i migliori cocktail della città — instagrammabili inclusi.",
+    "menu.d2":"Birre ghiacciate","menu.d2d":"Il frigo è sempre pieno e sempre gelato.",
+    "menu.d3":"Bottomless brunch","menu.d3d":"Brunch lungo e pigro sulla marina — chiedici i dettagli.",
+    "menu.note":"📖 Il menù completo con i prezzi del giorno ti aspetta al bar — oppure scrivici su WhatsApp e te lo inviamo.",
+    "sv.kicker":"Servizi e intrattenimento","sv.title":"Molto più di un'ottima cena",
+    "sv.c1":"Transfer gratuito dall'hotel","sv.c1d":"Prenota un tavolo e organizziamo noi il trasporto gratuito dal tuo hotel alla marina.",
+    "sv.c2":"Calcio e F1 in diretta","sv.c2d":"Ogni grande partita e gara su più schermi — non perderai mai la tua squadra.",
+    "sv.c3":"Biliardo gratuito","sv.c3d":"Un tavolo da biliardo gratuito per gli ospiti — ordina un giro e gioca.",
+    "sv.c4":"Atmosfera lounge","sv.c4d":"Musica soft e di sottofondo: la conversazione viene prima di tutto.",
+    "sv.c5":"Sul lungomare","sv.c5d":"Tavoli panoramici sull'acqua, sulla passeggiata di Port Ghalib — tramonti inclusi.",
+    "sv.c6":"Brunch e degustazioni","sv.c6d":"Dal bottomless brunch alle degustazioni di tapas per due — chiedici il programma.",
+    "rv.kicker":"Recensioni degli ospiti","rv.title":"Il numero 1 di Port Ghalib","rv.rev":"recensioni","rv.rev2":"recensioni","rv.rev3":"recensioni",
+    "rv.q1":"«Posto meraviglioso, staff meraviglioso, cibo meraviglioso e atmosfera meravigliosa.»",
+    "rv.q2":"«La qualità del cibo è davvero eccellente e il rapporto qualità-prezzo molto interessante.»",
+    "rv.q3":"«Piatti straordinari come la bistecca di cammello, ottima pizza napoletana — e uno staff sempre gentile e disponibilissimo.»",
+    "rs.kicker":"Prenotazioni","rs.title":"Prenota il tavolo — veniamo anche a prenderti",
+    "rs.lead":"Compila il modulo: si apre WhatsApp con la prenotazione già pronta da inviare. Il nostro team conferma in pochi minuti.",
+    "rs.b1":"Trasporto gratuito dal tuo hotel con ogni prenotazione",
+    "rs.b2":"Contatto immediato su WhatsApp — nessuna attesa, nessuna app da installare",
+    "rs.b3":"Compleanni, menù vegano o tavolo in terrazza? Diccelo e ci pensiamo noi",
+    "rs.name":"Il tuo nome","rs.phone":"Telefono / WhatsApp","rs.date":"Data","rs.time":"Ora","rs.guests":"Ospiti","rs.more":"9+ (gruppo)",
+    "rs.hotel":"Il tuo hotel (per il transfer gratuito)","rs.notes":"Richieste speciali","rs.notesPh":"Compleanno, menù vegano, tavolo in terrazza…",
+    "rs.send":"Invia la prenotazione su WhatsApp","rs.hint":"Preferisci chiamare? +20 106 536 7667 · Oppure scrivi a bar@sohobaregypt.com",
+    "fd.kicker":"Dove siamo","fd.title":"Sulla marina, accanto al Marina Residence",
+    "fd.lead":"Passeggiata della marina di Port Ghalib — a soli 5 minuti dall'aeroporto internazionale di Marsa Alam.",
+    "fd.addr":"Indirizzo","fd.addrV":"Marina di Port Ghalib, accanto alle Marina Residence Suites, Marsa Alam, Mar Rosso, Egitto",
+    "fd.hours":"Orari di apertura","fd.hoursV":"Tutti i giorni · 10:30 – 24:00","fd.phone":"Telefono e WhatsApp","fd.mail":"Email",
+    "fd.air":"Dall'aeroporto","fd.airV":"Marsa Alam International (RMF) — circa 4 km, 5 minuti d'auto",
+    "ft.copy":"© 2026 Soho Bar — Tapas & Grill · Marina di Port Ghalib, Marsa Alam, Egitto",
+    "wa.hello":"Ciao Soho Bar! Vorrei prenotare un tavolo.",
+    "wa.msg":"Ciao Soho Bar! Vorrei prenotare un tavolo:\n👤 Nome: {name}\n📞 Telefono: {phone}\n📅 Data: {date}\n🕗 Ora: {time}\n👥 Ospiti: {guests}\n🏨 Hotel (transfer gratuito): {hotel}\n📝 Richieste: {notes}"
+  }
+};
+const EN_WA = {
+  "wa.hello":"Hello Soho Bar! I'd like to book a table.",
+  "wa.msg":"Hello Soho Bar! I'd like to book a table:\n👤 Name: {name}\n📞 Phone: {phone}\n📅 Date: {date}\n🕗 Time: {time}\n👥 Guests: {guests}\n🏨 Hotel (free pick-up): {hotel}\n📝 Requests: {notes}"
+};
+
+let currentLang = 'en';
+const enDefaults = {};
+document.querySelectorAll('[data-i18n],[data-i18n-html],[data-i18n-ph]').forEach(el=>{
+  if(el.dataset.i18n) enDefaults[el.dataset.i18n] = el.textContent;
+  if(el.dataset.i18nHtml) enDefaults[el.dataset.i18nHtml] = el.innerHTML;
+  if(el.dataset.i18nPh) enDefaults[el.dataset.i18nPh] = el.placeholder;
+});
+
+function t(key){
+  if(currentLang==='en') return enDefaults[key] ?? EN_WA[key] ?? '';
+  return I18N[currentLang][key] ?? enDefaults[key] ?? EN_WA[key] ?? '';
+}
+function setLang(lang){
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{ el.innerHTML = t(el.dataset.i18nHtml); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{ el.placeholder = t(el.dataset.i18nPh); });
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+  document.querySelector('.wa-float').href =
+    'https://wa.me/201065367667?text=' + encodeURIComponent(t('wa.hello'));
+  try{ localStorage.setItem('soho-lang', lang); }catch(e){}
+}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+try{
+  const saved = localStorage.getItem('soho-lang');
+  const nav = (navigator.language||'en').slice(0,2);
+  if(saved && (saved==='en'||I18N[saved])) setLang(saved);
+  else if(I18N[nav]) setLang(nav);
+}catch(e){}
+
+/* ── Mobile nav ── */
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+/* ── Menu tabs ── */
+document.querySelectorAll('#menuTabs button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('#menuTabs button').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.menu-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelector(`.menu-panel[data-panel="${btn.dataset.panel}"]`).classList.add('active');
+  });
+});
+
+/* ── Reservation → WhatsApp ── */
+const fDate = document.getElementById('fDate');
+fDate.min = new Date().toISOString().split('T')[0];
+document.getElementById('bookForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const msg = t('wa.msg')
+    .replace('{name}',  v('fName')  || '—')
+    .replace('{phone}', v('fPhone') || '—')
+    .replace('{date}',  v('fDate')  || '—')
+    .replace('{time}',  v('fTime')  || '—')
+    .replace('{guests}',v('fGuests')|| '—')
+    .replace('{hotel}', v('fHotel') || '—')
+    .replace('{notes}', v('fNotes') || '—');
+  window.open('https://wa.me/201065367667?text=' + encodeURIComponent(msg), '_blank');
+});
+</script>
+</body>
+</html>
