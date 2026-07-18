@@ -120,7 +120,8 @@ nav{
 .btn-gold{background:linear-gradient(135deg,var(--gold),#b07f2e);color:#1a1206;box-shadow:0 6px 22px rgba(212,162,76,.35)}
 .btn-outline{border:1px solid var(--gold);color:var(--gold-bright);background:transparent}
 .nav-cta{padding:9px 20px;font-size:.8rem}
-.nav-tools{display:flex;align-items:center;gap:8px;margin-left:4px}
+.nav-cluster{display:flex;align-items:center;gap:24px}
+.nav-right{display:flex;align-items:center;gap:8px}
 .theme-btn{
   background:transparent;border:1px solid var(--line);border-radius:9px;
   width:34px;height:34px;font-size:1rem;line-height:1;cursor:pointer;
@@ -393,16 +394,18 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
 <nav>
   <div class="container nav-inner">
     <a class="logo logo-text" href="#top">SOHO<span> BAR</span><small>Tapas &amp; Grill · Port Ghalib</small></a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#story" data-i18n="nav.story">Our Story</a></li>
-      <li><a href="#menu" data-i18n="nav.menu">Menu</a></li>
-      <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
-      <li><a href="#services" data-i18n="nav.services">Services</a></li>
-      <li><a href="#whatson" data-i18n="nav.whatson">What's On</a></li>
-      <li><a href="#reviews" data-i18n="nav.reviews">Reviews</a></li>
-      <li><a href="#find" data-i18n="nav.find">Find Us</a></li>
-      <li><a class="btn btn-gold nav-cta" href="#reserve" data-i18n="nav.reserve">Reserve</a></li>
-      <li class="nav-tools">
+    <div class="nav-cluster">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#story" data-i18n="nav.story">Our Story</a></li>
+        <li><a href="#menu" data-i18n="nav.menu">Menu</a></li>
+        <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="#whatson" data-i18n="nav.whatson">What's On</a></li>
+        <li><a href="#reviews" data-i18n="nav.reviews">Reviews</a></li>
+        <li><a href="#find" data-i18n="nav.find">Find Us</a></li>
+        <li><a class="btn btn-gold nav-cta" href="#reserve" data-i18n="nav.reserve">Reserve</a></li>
+      </ul>
+      <div class="nav-right">
         <button id="themeToggle" class="theme-btn" aria-label="Toggle light or dark mode" title="Light / Dark">🌙</button>
         <select id="langSelect" class="lang-select" aria-label="Language">
           <option value="en">EN</option>
@@ -412,9 +415,9 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
           <option value="cs">CS</option>
           <option value="nl">NL</option>
         </select>
-      </li>
-    </ul>
-    <button class="burger" id="burger" aria-label="Menu">☰</button>
+        <button class="burger" id="burger" aria-label="Menu">☰</button>
+      </div>
+    </div>
   </div>
 </nav>
 
