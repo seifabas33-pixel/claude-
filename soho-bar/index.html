@@ -83,6 +83,9 @@ nav{
 }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
 .logo{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.logo-text{font-family:'Playfair Display',serif;font-weight:900;font-size:1.4rem;letter-spacing:.09em;color:var(--cream);line-height:1;gap:0}
+.logo-text span{color:var(--gold)}
+.logo-text small{font-family:'Inter',sans-serif;font-weight:500;font-size:.54rem;letter-spacing:.32em;color:var(--muted);text-transform:uppercase;margin-top:5px}
 .brand-img{height:38px;width:auto;display:block}
 .logo-sub{font-family:'Inter',sans-serif;font-weight:500;font-size:.54rem;letter-spacing:.34em;color:var(--muted);text-transform:uppercase;padding-left:2px}
 .hero-logo{height:170px;width:auto;display:block;margin:0 0 26px;filter:drop-shadow(0 8px 30px rgba(212,162,76,.28))}
@@ -300,7 +303,7 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
 
 <nav>
   <div class="container nav-inner">
-    <a class="logo" href="#top"><img id="navLogo" class="brand-img" src="logo-mark.png" alt="Soho Bar — Tapas and Grill"><span class="logo-sub">Port Ghalib Marina</span></a>
+    <a class="logo logo-text" href="#top">SOHO<span> BAR</span><small>Tapas &amp; Grill · Port Ghalib</small></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#story" data-i18n="nav.story">Our Story</a></li>
       <li><a href="#menu" data-i18n="nav.menu">Menu</a></li>
