@@ -49,10 +49,29 @@
   --gold-bright:#ecc27a;
   --cream:#f5ead8;
   --muted:#b8a88f;
+  --ink:#ffffff;
+  --ink-soft:#e2d7c3;
+  --nav-bg:rgba(13,11,9,.82);
   --line:rgba(212,162,76,.25);
   --whatsapp:#25d366;
   --radius:14px;
 }
+:root[data-theme="light"]{
+  --bg:#faf6ee;
+  --bg-2:#f2e9d8;
+  --panel:#ffffff;
+  --panel-2:#f7f0e2;
+  --gold:#b07f2e;
+  --gold-bright:#8f6414;
+  --cream:#2a2118;
+  --muted:#6b5f4c;
+  --ink:#1b140b;
+  --ink-soft:#4a4030;
+  --nav-bg:rgba(250,246,238,.88);
+  --line:rgba(176,127,46,.30);
+}
+html{transition:none}
+body,section,nav,footer,.panel,.dish,.day,.card,.score,.menu-tabs button,form,input,select,textarea{transition:background-color .3s ease, color .3s ease, border-color .3s ease}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -78,7 +97,7 @@ section{padding:84px 0}
 /* ── Nav ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(13,11,9,.82);backdrop-filter:blur(14px);
+  background:var(--nav-bg);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line);
 }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
@@ -101,12 +120,19 @@ nav{
 .btn-gold{background:linear-gradient(135deg,var(--gold),#b07f2e);color:#1a1206;box-shadow:0 6px 22px rgba(212,162,76,.35)}
 .btn-outline{border:1px solid var(--gold);color:var(--gold-bright);background:transparent}
 .nav-cta{padding:9px 20px;font-size:.8rem}
-.lang{display:flex;gap:4px;margin-left:6px}
-.lang button{
-  background:transparent;border:1px solid transparent;color:var(--muted);
-  font-size:.72rem;font-weight:700;letter-spacing:.08em;padding:5px 7px;border-radius:7px;cursor:pointer;
+.nav-tools{display:flex;align-items:center;gap:8px;margin-left:4px}
+.theme-btn{
+  background:transparent;border:1px solid var(--line);border-radius:9px;
+  width:34px;height:34px;font-size:1rem;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:border-color .2s, transform .2s;
 }
-.lang button.active{color:var(--gold-bright);border-color:var(--line)}
+.theme-btn:hover{border-color:var(--gold);transform:translateY(-1px)}
+.lang-select{
+  background:transparent;border:1px solid var(--line);border-radius:9px;
+  color:var(--cream);font-size:.78rem;font-weight:700;letter-spacing:.06em;
+  padding:7px 8px;cursor:pointer;font-family:'Inter',sans-serif;
+}
+.lang-select option{background:var(--bg-2);color:var(--cream)}
 .burger{display:none;background:none;border:none;color:var(--cream);font-size:1.6rem;cursor:pointer}
 
 /* ── Hero ── */
@@ -136,17 +162,17 @@ header.hero::after{
 .hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
 .badge{
   display:inline-flex;align-items:center;gap:7px;
-  border:1px solid var(--line);background:rgba(28,22,15,.7);
-  padding:7px 15px;border-radius:999px;font-size:.76rem;color:var(--muted);font-weight:500;
+  border:1px solid rgba(212,162,76,.35);background:rgba(20,15,9,.72);
+  padding:7px 15px;border-radius:999px;font-size:.76rem;color:#cbb89c;font-weight:500;
 }
-.badge b{color:var(--gold-bright);font-weight:700}
-.hero h1{font-size:clamp(2.6rem,7vw,4.8rem);font-weight:900;line-height:1.05;letter-spacing:.01em}
-.hero h1 em{font-style:italic;color:var(--gold-bright)}
-.hero .sub{margin:22px 0 36px;color:var(--muted);font-size:1.1rem;max-width:560px}
+.badge b{color:#f0c887;font-weight:700}
+.hero h1{font-size:clamp(2.6rem,7vw,4.8rem);font-weight:900;line-height:1.05;letter-spacing:.01em;color:#f6ecda}
+.hero h1 em{font-style:italic;color:#f0c887}
+.hero .sub{margin:22px 0 36px;color:#dccfb6;font-size:1.1rem;max-width:560px}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:14px}
 .hero-facts{display:flex;flex-wrap:wrap;gap:34px;margin-top:56px}
-.fact .n{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--gold-bright)}
-.fact .l{font-size:.76rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.fact .n{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:#f0c887}
+.fact .l{font-size:.76rem;color:#cbb89c;letter-spacing:.06em;text-transform:uppercase}
 
 /* ── Story ── */
 .story-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
@@ -183,8 +209,8 @@ header.hero::after{
   background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 22px;
 }
 .dish-main{min-width:0}
-.dish h3{font-size:1.28rem;color:#fff;margin-bottom:5px;font-family:'Playfair Display',serif;font-weight:700;display:flex;align-items:center;gap:9px;flex-wrap:wrap;line-height:1.2}
-.dish p{font-size:1rem;color:#e2d7c3;line-height:1.55}
+.dish h3{font-size:1.28rem;color:var(--ink);margin-bottom:5px;font-family:'Playfair Display',serif;font-weight:700;display:flex;align-items:center;gap:9px;flex-wrap:wrap;line-height:1.2}
+.dish p{font-size:1rem;color:var(--ink-soft);line-height:1.55}
 .dish .price{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold-bright);font-weight:800;white-space:nowrap;flex:none;text-shadow:0 1px 10px rgba(212,162,76,.25)}
 .veg{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(74,168,86,.22);border:1px solid rgba(74,168,86,.6);color:#6fd67e;font-size:.72rem;font-weight:800;flex:none}
 .star{
@@ -221,8 +247,8 @@ header.hero::after{
 .day:hover{transform:translateY(-4px);border-color:var(--gold)}
 .day-ic{font-size:2rem;line-height:1;margin-bottom:14px}
 .day .dow{font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
-.day h3{font-family:'Playfair Display',serif;font-size:1.55rem;color:#fff;margin-bottom:9px;line-height:1.15}
-.day p{font-size:1rem;color:#e2d7c3;line-height:1.55}
+.day h3{font-family:'Playfair Display',serif;font-size:1.55rem;color:var(--ink);margin-bottom:9px;line-height:1.15}
+.day p{font-size:1rem;color:var(--ink-soft);line-height:1.55}
 .day.feat{border-color:var(--gold);background:linear-gradient(158deg, rgba(212,162,76,.14), var(--panel) 60%)}
 .day .deal{
   position:absolute;top:22px;right:22px;
@@ -350,7 +376,7 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
   .story-art{min-height:260px}
   form{grid-template-columns:1fr}
   .nav-links{
-    position:fixed;top:66px;right:0;background:rgba(13,11,9,.97);
+    position:fixed;top:66px;right:0;background:var(--bg-2);
     flex-direction:column;padding:26px;width:230px;gap:18px;
     border-left:1px solid var(--line);border-bottom:1px solid var(--line);
     transform:translateX(100%);transition:transform .25s ease;align-items:flex-start;
@@ -376,10 +402,16 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
       <li><a href="#reviews" data-i18n="nav.reviews">Reviews</a></li>
       <li><a href="#find" data-i18n="nav.find">Find Us</a></li>
       <li><a class="btn btn-gold nav-cta" href="#reserve" data-i18n="nav.reserve">Reserve</a></li>
-      <li class="lang">
-        <button data-lang="en" class="active">EN</button>
-        <button data-lang="de">DE</button>
-        <button data-lang="it">IT</button>
+      <li class="nav-tools">
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle light or dark mode" title="Light / Dark">🌙</button>
+        <select id="langSelect" class="lang-select" aria-label="Language">
+          <option value="en">EN</option>
+          <option value="de">DE</option>
+          <option value="it">IT</option>
+          <option value="pl">PL</option>
+          <option value="cs">CS</option>
+          <option value="nl">NL</option>
+        </select>
       </li>
     </ul>
     <button class="burger" id="burger" aria-label="Menu">☰</button>
@@ -675,9 +707,9 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
 <script>
 
 /* ── full menu (from the official Soho Bar menu) ── */
-const STAR={sig:{en:'Signature',de:'Spezialität',it:'Specialità'}};
+const STAR={sig:{en:'Signature',de:'Spezialität',it:'Specialità',pl:'Specjalność',cs:'Specialita',nl:'Specialiteit'}};
 const MENU=[
- {key:'tapas', label:{en:'Tapas',de:'Tapas',it:'Tapas'}, items:[
+ {key:'tapas', label:{en:'Tapas',de:'Tapas',it:'Tapas',pl:'Tapas',cs:'Tapas',nl:'Tapas'}, items:[
    {n:'Patatas Bravas', d:'Spanish fried potatoes with spicy tomato sauce', p:'€5', veg:1},
    {n:'Pan de Ajo / y Queso', d:'Homemade garlic bread, with or without cheese', p:'€3.5 / €5', veg:1},
    {n:'Bruschetta', d:'Grilled garlic bread with tomato, olive oil, pesto & cracked pepper', p:'€6', veg:1},
@@ -693,13 +725,13 @@ const MENU=[
    {n:'Honey & Mustard Chicken Wings', d:'Chicken wings in a honey & mustard glaze', p:'€8'},
    {n:'Mejillones a la Marinera', d:'Steamed greenlip mussels in a cream lemon-garlic sauce', p:'€8'},
  ]},
- {key:'salads', label:{en:'Salads',de:'Salate',it:'Insalate'}, items:[
+ {key:'salads', label:{en:'Salads',de:'Salate',it:'Insalate',pl:'Sałatki',cs:'Saláty',nl:'Salades'}, items:[
    {n:'Quinoa Salad', d:'Quinoa, mixed vegetables, herbs & lemon vinaigrette', p:'€11', veg:1},
    {n:'Classic Caesar Salad', d:'Romaine, parmesan, croutons & Caesar dressing · add chicken €3', p:'€12'},
    {n:'Cobb Salad', d:'Mixed greens, avocado, boiled eggs, grilled chicken, tomatoes, parmesan & blue cheese', p:'€14'},
    {n:'Beef Carpaccio', d:'Raw tenderloin, olive oil, lemon mustard, truffle mayo, rucola & parmesan', p:'€16'},
  ]},
- {key:'pizza', label:{en:'Pizza',de:'Pizza',it:'Pizza'}, intro:{en:'Slow, long-risen Neapolitan dough.',de:'Langgeführter neapolitanischer Teig.',it:'Impasto napoletano a lunga lievitazione.'}, items:[
+ {key:'pizza', label:{en:'Pizza',de:'Pizza',it:'Pizza',pl:'Pizza',cs:'Pizza',nl:'Pizza'}, intro:{en:'Slow, long-risen Neapolitan dough.',de:'Langgeführter neapolitanischer Teig.',it:'Impasto napoletano a lunga lievitazione.'}, items:[
    {n:'Margherita', d:'Tomato, mozzarella & basil', p:'€10', veg:1},
    {n:'Quattro Formaggio', d:'Fresh cream & four kinds of cheese', p:'€13', veg:1},
    {n:'Diavola', d:'Tomato, mozzarella, salami, jalapeño & basil', p:'€15'},
@@ -709,13 +741,13 @@ const MENU=[
    {n:'Tartufa', d:'Truffle paste, fresh mushroom, mozzarella, truffle oil & parmesan', p:'€16', veg:1},
    {n:'Pannuozzo al Salmone', d:'Folded pizza bread, cream cheese, avocado, rucola & smoked salmon, with fries', p:'€17'},
  ]},
- {key:'burgers', label:{en:'Burgers',de:'Burger',it:'Burger'}, intro:{en:'All burgers served with hand-cut fries & coleslaw.',de:'Alle Burger mit handgeschnittenen Pommes & Krautsalat.',it:'Tutti i burger con patatine tagliate a mano e coleslaw.'}, items:[
+ {key:'burgers', label:{en:'Burgers',de:'Burger',it:'Burger',pl:'Burgery',cs:'Burgery',nl:'Burgers'}, intro:{en:'All burgers served with hand-cut fries & coleslaw.',de:'Alle Burger mit handgeschnittenen Pommes & Krautsalat.',it:'Tutti i burger con patatine tagliate a mano e coleslaw.'}, items:[
    {n:'Classic Beef Burger', d:'Beef patty, lettuce, tomato, onion rings & pickles', p:'€13'},
    {n:'Mushroom Swiss Burger', d:'Beef patty, grilled mushrooms & melted Swiss cheese', p:'€16'},
    {n:'BBQ Burger', d:'Beef patty, BBQ sauce, cheddar, crispy onion rings & pickles', p:'€14'},
    {n:'Veggie Delight', d:'Grilled zucchini, roasted pepper, caramelised onions & avocado in multigrain bread', p:'€11', veg:1},
  ]},
- {key:'mains', label:{en:'Steaks & Mains',de:'Steaks & Hauptgerichte',it:'Bistecche e Secondi'}, intro:{en:'All steaks & mains come with 2 sides: sautéed vegetables, garlic-rosemary potatoes, hand-cut fries, rice, mashed potatoes or salad.',de:'Alle Steaks & Hauptgerichte mit 2 Beilagen nach Wahl: sautiertes Gemüse, Rosmarinkartoffeln, Pommes, Reis, Kartoffelpüree oder Salat.',it:'Tutte le bistecche e i secondi con 2 contorni a scelta: verdure saltate, patate al rosmarino, patatine, riso, purè o insalata.'}, items:[
+ {key:'mains', label:{en:'Steaks & Mains',de:'Steaks & Hauptgerichte',it:'Bistecche e Secondi',pl:'Steki i dania główne',cs:'Steaky a hlavní jídla',nl:'Steaks & hoofdgerechten'}, intro:{en:'All steaks & mains come with 2 sides: sautéed vegetables, garlic-rosemary potatoes, hand-cut fries, rice, mashed potatoes or salad.',de:'Alle Steaks & Hauptgerichte mit 2 Beilagen nach Wahl: sautiertes Gemüse, Rosmarinkartoffeln, Pommes, Reis, Kartoffelpüree oder Salat.',it:'Tutte le bistecche e i secondi con 2 contorni a scelta: verdure saltate, patate al rosmarino, patatine, riso, purè o insalata.'}, items:[
    {n:'Young Angus Beef Fillet', d:'Tender, juicy Angus fillet, expertly grilled', p:'€27'},
    {n:'Young Angus Ribeye Steak', d:'Richly marbled Angus ribeye, full of flavour', p:'€35'},
    {n:'Young Angus Sirloin Steak', d:'Classic Angus sirloin, bold & beefy', p:'€30'},
@@ -726,20 +758,20 @@ const MENU=[
    {n:'Escalope Milanese', d:'Veal cutlet, breaded & fried', p:'€24'},
    {n:'Chicken Milanese', d:'Chicken fillet, breaded & fried', p:'€19'},
  ]},
- {key:'pasta', label:{en:'Pasta',de:'Pasta',it:'Pasta'}, items:[
+ {key:'pasta', label:{en:'Pasta',de:'Pasta',it:'Pasta',pl:'Makarony',cs:'Těstoviny',nl:'Pasta'}, items:[
    {n:'Linguine allo Scoglio', d:'Fresh linguine with a medley of seafood in a rich savoury sauce', p:'€21'},
    {n:'Tagliatelle al Ragù Beef', d:'Ribboned tagliatelle in a hearty slow-cooked beef ragù', p:'€18'},
    {n:"Spaghetti all'Aragosta", d:'Spaghetti with succulent lobster in a luscious tomato sauce', p:'€25'},
    {n:'Linguine Tomate Burrata', d:'Delicate linguine, vibrant tomato sauce & creamy burrata', p:'€16', veg:1},
    {n:'Tagliatelle con Gamberi e Zucchine', d:'Prawns, zucchini, garlic & olive oil — light & flavourful', p:'€21'},
  ]},
- {key:'desserts', label:{en:'Desserts',de:'Desserts',it:'Dolci'}, items:[
+ {key:'desserts', label:{en:'Desserts',de:'Desserts',it:'Dolci',pl:'Desery',cs:'Dezerty',nl:'Desserts'}, items:[
    {n:'Cheesecake', d:'Strawberry, chocolate, caramel or blueberry', p:'€7'},
    {n:'Warm Chocolate Fondant', d:'Dark chocolate fondant, vanilla ice cream & pistachios', p:'€9'},
    {n:'Ice Cream', d:'Vanilla, chocolate, strawberry or mango — per scoop', p:'€2'},
  ]},
- {key:'cocktails', label:{en:'Cocktails',de:'Cocktails',it:'Cocktail'}, items:[
-   {sub:{en:'Vodka',de:'Vodka',it:'Vodka'}},
+ {key:'cocktails', label:{en:'Cocktails',de:'Cocktails',it:'Cocktail',pl:'Koktajle',cs:'Koktejly',nl:'Cocktails'}, items:[
+   {sub:{en:'Vodka',de:'Vodka',it:'Vodka',pl:'Wódka',cs:'Vodka',nl:'Wodka'}},
    {n:'Mango Crush', d:'Vodka, vanilla, mango, peach cordial, fresh mint & lemon', p:'€10.5'},
    {n:'Passion Martini', d:'Vodka, homemade passion-fruit purée, orange juice & lemon', p:'€11'},
    {n:'Pornstar Martini', d:'Vodka, vanilla, passion-fruit purée, lemon & a shot of sparkling wine', p:'€10.5'},
@@ -747,29 +779,29 @@ const MENU=[
    {n:'Soho Mule', d:'Vodka, ginger cordial, fresh lemon, vanilla & soda', p:'€10'},
    {n:'Caramel White Russian', d:'Vodka, coffee liqueur, fresh cream & caramel', p:'€11'},
    {n:'Bloody Mary', d:'Vodka, wasabi, tomato juice, Worcestershire, BBQ, mixed salt & black pepper', p:'€12'},
-   {sub:{en:'Rum',de:'Rum',it:'Rum'}},
+   {sub:{en:'Rum',de:'Rum',it:'Rum',pl:'Rum',cs:'Rum',nl:'Rum'}},
    {n:'Raspberry Daiquiri', d:'Rum, raspberry, homemade raspberry purée & fresh lime', p:'€11'},
    {n:'Watermelon Whammy', d:'Rum, fresh watermelon, passion-fruit purée, mint & lemon', p:'€12'},
    {n:'Raspberry Mojito', d:'Rum, raspberry, fresh lime, mint, raspberry purée & soda', p:'€10.5'},
    {n:'Frozen Piña Colada', d:'Rum, coconut cream, coconut purée & fresh pineapple', p:'€10'},
    {n:'Chocolate Martini', d:'Rum, coconut cream & chocolate', p:'€10'},
-   {sub:{en:'Gin',de:'Gin',it:'Gin'}},
+   {sub:{en:'Gin',de:'Gin',it:'Gin',pl:'Gin',cs:'Gin',nl:'Gin'}},
    {n:'Hyde Park Streaker', d:'Gin, fresh mint, cucumber, elderflower & lemon', p:'€11'},
    {n:'Basil Smash', d:'Gin, fresh basil, elderflower & hummus foam', p:'€11'},
    {n:'Art of Passion', d:'Gin, lemon leaves, passion-fruit purée & fresh mint', p:'€10.5'},
    {n:'Red Grape Smash', d:'Gin, red grapes, cranberry juice & lemon', p:'€10.5'},
-   {sub:{en:'Tequila',de:'Tequila',it:'Tequila'}},
+   {sub:{en:'Tequila',de:'Tequila',it:'Tequila',pl:'Tequila',cs:'Tequila',nl:'Tequila'}},
    {n:'Margarita', d:'Tequila, triple sec & fresh lemon', p:'€8.5'},
    {n:'Pineapple Margarita', d:'Tequila, fresh pineapple, triple sec, lemon & togarashi rim', p:'€9.5'},
    {n:'Mango Margarita', d:'Tequila, lemon, orange liqueur, mango & soda', p:'€12'},
    {n:'Whitecap Margarita', d:'Tequila, cream of coconut & lemon', p:'€12'},
-   {sub:{en:'Whisky',de:'Whisky',it:'Whisky'}},
+   {sub:{en:'Whisky',de:'Whisky',it:'Whisky',pl:'Whisky',cs:'Whisky',nl:'Whisky'}},
    {n:'Peach Sour', d:'Whiskey, fresh rosemary, peach purée, lemon & bitters', p:'€10'},
    {n:'Whiskey Sour', d:'Whiskey, fresh lemon, bitters & hummus foam', p:'€10'},
    {n:'Old Fashioned', d:'Whiskey, brown sugar, bitters & flaming orange', p:'€10'},
    {n:'New York Sour', d:'Whiskey, lemon, bitters, hummus foam & red wine', p:'€11'},
    {n:'Manhattan', d:'Whiskey, red vermouth & a dash of angostura', p:'€12'},
-   {sub:{en:'Spritz & Classics',de:'Spritz & Klassiker',it:'Spritz e Classici'}},
+   {sub:{en:'Spritz & Classics',de:'Spritz & Klassiker',it:'Spritz e Classici',pl:'Spritz i klasyki',cs:'Spritz a klasika',nl:'Spritz & klassiekers'}},
    {n:'Aperol Spritz', d:'', p:'€10'},
    {n:'Campari Spritz', d:'', p:'€10'},
    {n:'Lemon Chillo Spritz', d:'', p:'€10'},
@@ -777,7 +809,7 @@ const MENU=[
    {n:'Sangria', d:'Choose white, red or rosé', p:'€10'},
    {n:'Negroni', d:'Gin, red vermouth & campari', p:'€10'},
  ]},
- {key:'mocktails', label:{en:'Mocktails & Smoothies',de:'Alkoholfrei & Smoothies',it:'Mocktail & Smoothie'}, intro:{en:'Every mocktail & smoothie €6.',de:'Jeder Mocktail & Smoothie €6.',it:'Ogni mocktail e smoothie €6.'}, items:[
+ {key:'mocktails', label:{en:'Mocktails & Smoothies',de:'Alkoholfrei & Smoothies',it:'Mocktail & Smoothie',pl:'Mocktaile i smoothie',cs:'Mocktaily a smoothie',nl:'Mocktails & smoothies'}, intro:{en:'Every mocktail & smoothie €6.',de:'Jeder Mocktail & Smoothie €6.',it:'Ogni mocktail e smoothie €6.'}, items:[
    {n:'Saturn', d:'Passion fruit, vanilla, lemon & pineapple', p:'€6'},
    {n:'Summer Breeze', d:'Mixed berries, basil, cranberry & lemon', p:'€6'},
    {n:'Super Solero', d:'Strawberry, coconut cream & vanilla', p:'€6'},
@@ -790,47 +822,47 @@ const MENU=[
    {n:'Virgin Raspberry Colada', d:'Pineapple, coconut & raspberry purée', p:'€6'},
    {n:'Homemade Ice Tea', d:'Peach or lemon', p:'€6'},
  ]},
- {key:'beer', label:{en:'Beer & Spirits',de:'Bier & Spirituosen',it:'Birra & Distillati'}, items:[
-   {sub:{en:'Beers',de:'Biere',it:'Birre'}},
+ {key:'beer', label:{en:'Beer & Spirits',de:'Bier & Spirituosen',it:'Birra & Distillati',pl:'Piwo i alkohole',cs:'Pivo a lihoviny',nl:'Bier & sterke drank'}, items:[
+   {sub:{en:'Beers',de:'Biere',it:'Birre',pl:'Piwa',cs:'Piva',nl:'Bieren'}},
    {n:'Draft Heineken', d:'330ml / 500ml · 5%', p:'€3.5 / €5'},
    {n:'Heineken', d:'330ml bottle · 5%', p:'€4'},
    {n:'Stella', d:'500ml bottle · 4.5%', p:'€4.5'},
    {n:'Sakara', d:'500ml bottle · 4%', p:'€4.5'},
    {n:'Meister Max', d:'330ml bottle · 8%', p:'€4'},
    {n:'Radler / Diesel', d:'Lager with lemon soda or cola · 500ml', p:'€5'},
-   {sub:{en:'Shots',de:'Shots',it:'Shot'}},
+   {sub:{en:'Shots',de:'Shots',it:'Shot',pl:'Shoty',cs:'Panáky',nl:'Shots'}},
    {n:'House Shots', d:'Mastiha · Sambuca · Baileys · Coffee Liqueur · Limoncello', p:'€4'},
-   {sub:{en:'Shot Cocktails',de:'Shot-Cocktails',it:'Shot Cocktail'}},
+   {sub:{en:'Shot Cocktails',de:'Shot-Cocktails',it:'Shot Cocktail',pl:'Shoty koktajlowe',cs:'Panákové koktejly',nl:'Shotcocktails'}},
    {n:'Do Do Shot', d:'Vodka, olive water & tabasco', p:'€5'},
    {n:'B.52', d:'Baileys, coffee liqueur & Cointreau', p:'€5'},
    {n:'Blue Kamikaze', d:'Vodka, blue curaçao & lemon', p:'€5'},
    {n:'Boom Boom.T', d:'Tequila, lemon, triple sec & Sprite', p:'€5'},
-   {sub:{en:'Spirits',de:'Spirituosen',it:'Distillati'}},
+   {sub:{en:'Spirits',de:'Spirituosen',it:'Distillati',pl:'Alkohole',cs:'Lihoviny',nl:'Sterke drank'}},
    {n:'House Spirits', d:'Vodka · Rum · Gin · Tequila · Whisky', p:'€3.5'},
  ]},
- {key:'wine', label:{en:'Wine',de:'Wein',it:'Vini'}, items:[
-   {sub:{en:'Red',de:'Rotwein',it:'Rossi'}},
+ {key:'wine', label:{en:'Wine',de:'Wein',it:'Vini',pl:'Wino',cs:'Víno',nl:'Wijn'}, items:[
+   {sub:{en:'Red',de:'Rotwein',it:'Rossi',pl:'Czerwone',cs:'Červené',nl:'Rood'}},
    {n:'Omar Khayyam · House', d:'Egyptian bobal · 12.5% · glass / bottle', p:'€5.5 / €24'},
    {n:'Cape Bay', d:'South African merlot & syrah · 13% · glass / bottle', p:'€8 / €30'},
    {n:'Château de Granville', d:'French merlot & cabernet sauvignon · 13% · glass / bottle', p:'€9 / €35'},
    {n:'Beausoleil', d:'Egyptian syrah · 12.5% · bottle', p:'€29'},
    {n:'Jardin du Nil', d:'Egyptian cabernet, petit verdot & syrah · 12.5% · bottle', p:'€29'},
-   {sub:{en:'Rosé',de:'Rosé',it:'Rosati'}},
+   {sub:{en:'Rosé',de:'Rosé',it:'Rosati',pl:'Rosé',cs:'Rosé',nl:'Rosé'}},
    {n:'Omar Khayyam · House', d:'Egyptian bobal & sultanine blanche · 12.5% · glass / bottle', p:'€5.5 / €24'},
    {n:'Beausoleil', d:'Egyptian rosé merlot · 12.5% · bottle', p:'€29'},
    {n:'XO', d:'Egyptian grenache & montepulciano · 12.5% · bottle', p:'€24'},
-   {sub:{en:'White',de:'Weißwein',it:'Bianchi'}},
+   {sub:{en:'White',de:'Weißwein',it:'Bianchi',pl:'Białe',cs:'Bílé',nl:'Wit'}},
    {n:'Omar Khayyam · House', d:'Egyptian sultanine blanche · 12.5% · glass / bottle', p:'€5.5 / €24'},
    {n:'Cape Bay', d:'South African chardonnay · 12.5% · glass / bottle', p:'€8 / €30'},
    {n:'Château de Granville', d:'French semillon · 12% · glass / bottle', p:'€10 / €35'},
    {n:'Beausoleil', d:'Egyptian banatti · 12.5% · bottle', p:'€29'},
    {n:'Jardin du Nil', d:'Egyptian vermentino & viognier · 12.5% · bottle', p:'€29'},
    {n:'XO', d:'Egyptian chardonnay & vermentino · 12.5% · bottle', p:'€24'},
-   {sub:{en:'Sparkling',de:'Schaumwein',it:'Spumanti'}},
+   {sub:{en:'Sparkling',de:'Schaumwein',it:'Spumanti',pl:'Musujące',cs:'Šumivé',nl:'Mousserend'}},
    {n:'Valmont', d:'Egyptian viognier, marsanne & roussanne · 12.5% · glass / bottle', p:'€6 / €25'},
    {n:'Le Baron', d:'Egyptian viognier · glass / bottle', p:'€10 / €38'},
  ]},
- {key:'soft', label:{en:'Soft & Hot Drinks',de:'Softdrinks & Heiß',it:'Bibite & Caldi'}, items:[
+ {key:'soft', label:{en:'Soft & Hot Drinks',de:'Softdrinks & Heiß',it:'Bibite & Caldi',pl:'Napoje zimne i gorące',cs:'Nealko a teplé nápoje',nl:'Fris & warme dranken'}, items:[
    {n:'San Benedetto', d:'Still water · 0.5l / 1l', p:'€3 / €4.5'},
    {n:'San Benedetto Sparkling', d:'0.3l', p:'€3.5'},
    {n:'Soda', d:'Coca-Cola, Cola Light, Sprite, Fanta or Schweppes Tonic', p:'€3'},
@@ -845,7 +877,10 @@ const MENU=[
 const MENU_NOTE={
   en:'All prices in euro (€), include VAT and are subject to a 12% service charge. We prioritise local, seasonal produce, so some items may vary. Please tell us about any allergies before ordering.',
   de:'Alle Preise in Euro (€), inkl. MwSt., zzgl. 12% Service. Wir bevorzugen lokale, saisonale Produkte — einzelne Gerichte können daher variieren. Bitte informieren Sie uns vor der Bestellung über Allergien.',
-  it:'Tutti i prezzi in euro (€), IVA inclusa, soggetti a un 12% di servizio. Diamo priorità a prodotti locali e di stagione, quindi alcuni piatti possono variare. Informateci di eventuali allergie prima di ordinare.'
+  it:'Tutti i prezzi in euro (€), IVA inclusa, soggetti a un 12% di servizio. Diamo priorità a prodotti locali e di stagione, quindi alcuni piatti possono variare. Informateci di eventuali allergie prima di ordinare.',
+  pl:'Wszystkie ceny w euro (€), zawierają VAT i podlegają 12% opłacie serwisowej. Stawiamy na lokalne, sezonowe produkty, więc niektóre pozycje mogą się różnić. Prosimy o informację o alergiach przed zamówieniem.',
+  cs:'Všechny ceny jsou v eurech (€), včetně DPH a podléhají 12% servisnímu poplatku. Upřednostňujeme místní a sezónní suroviny, proto se některé položky mohou lišit. Před objednáním nás prosím informujte o alergiích.',
+  nl:'Alle prijzen in euro (€), inclusief btw en onderworpen aan 12% servicekosten. We geven prioriteit aan lokale, seizoensgebonden producten, dus sommige gerechten kunnen variëren. Meld allergieën vóór het bestellen.'
 };
 let activeCat=0;
 function renderMenu(){
@@ -1015,6 +1050,159 @@ const I18N = {
     "ft.copy":"© 2026 Soho Bar — Tapas & Grill · Marina di Port Ghalib, Marsa Alam, Egitto",
     "wa.hello":"Ciao Soho Bar! Vorrei prenotare un tavolo.",
     "wa.msg":"Ciao Soho Bar! Vorrei prenotare un tavolo:\n👤 Nome: {name}\n📞 Telefono: {phone}\n📅 Data: {date}\n🕗 Ora: {time}\n👥 Ospiti: {guests}\n🏨 Hotel (transfer gratuito): {hotel}\n📝 Richieste: {notes}"
+  },
+  pl: {
+    "nav.story":"Nasza historia","nav.menu":"Menu","nav.gallery":"Galeria","nav.services":"Usługi","nav.whatson":"Program","nav.reviews":"Opinie","nav.find":"Znajdź nas","nav.reserve":"Rezerwuj",
+    "gl.kicker":"Posmak Soho","gl.title":"Galeria","gl.lead":"Pizze z pieca opalanego drewnem, świeże dania i smaki, dla których goście wracają — przesuwaj zdjęcia.",
+    "wo.kicker":"Muzyka na żywo · Happy Hour · Oferty tygodnia","wo.title":"W tym tygodniu w Soho","wo.lead":"Każdego wieczoru dobry powód, by wyjść — zespoły na żywo, karaoke, happy hour i oferty do dzielenia nad mariną.",
+    "wo.sun":"Niedziela","wo.sunT":"Happy Hour","wo.sunD":"19–21 — dwie godziny promocji na drinki na początek tygodnia.",
+    "wo.mon":"Poniedziałek","wo.monT":"Kolacja do dzielenia","wo.monD":"2 pizze lub 2 burgery + 2 koktajle — idealne dla dwojga.",
+    "wo.tue":"Wtorek","wo.tueT":"Happy Hour","wo.tueD":"19–21 — kolejne dwie godziny promocji na drinki.",
+    "wo.wed":"Środa","wo.wedT":"Zespół na żywo","wo.wedD":"Muzyka na żywo przez cały wieczór.",
+    "wo.thu":"Czwartek","wo.thuT":"Karaoke i Bingo","wo.thuD":"Chwyć mikrofon i graj w bingo o nagrody.",
+    "wo.fri":"Piątek","wo.friT":"Zespół na żywo","wo.friD":"Muzyka na żywo na początek weekendu.",
+    "wo.sat":"Sobota","wo.satT":"Darmowe shoty","wo.satD":"Darmowy shot dla całego stołu po kolacji.",
+    "hero.badge1":"nr 1 w Port Ghalib","hero.badge2":"opinii",
+    "hero.title":"Śródziemnomorska dusza,<br><em>nad mariną Port Ghalib.</em>",
+    "hero.sub":"Kulinarna destynacja, gdzie współczesna kuchnia włoska spotyka się z najlepszymi składnikami — wyselekcjonowane mięsa, świeże ryby, rzemieślnicze ciasta i wyrafinowane menu, w jednym z najbardziej urokliwych miejsc Port Ghalib.",
+    "hero.cta1":"Zarezerwuj stolik","hero.cta2":"Zobacz menu",
+    "hero.f1":"Otwarte codziennie","hero.f2n":"Gratis","hero.f2":"Odbiór z hotelu przy rezerwacji","hero.f3":"Restauracja w Port Ghalib",
+    "story.kicker":"Nasza historia","story.title":"Gdzie włoska tradycja spotyka egipską duszę",
+    "story.lead1":"Nasza kuchnia rodzi się ze spotkania dwóch światów — włoskiej tradycji i egipskiej autentyczności — połączonych w jednej tożsamości, która opowiada naszą historię.",
+    "story.quote":"„Każdego dnia własnoręcznie wypiekamy chleb do naszych tapas i burgerów, używając wyselekcjonowanych składników i technik, które podkreślają każdy detal.”",
+    "story.lead2":"Od długo wyrastającego ciasta naszej neapolitańskiej pizzy po wysokiej jakości włoskie składniki — każde danie ma zapewnić autentyczne doznania. Świeży makaron, kremowe risotto, wyśmienite polędwice Angus i nasza lokalna specjalność — Camel Steak — dopełniają menu łączące tradycję, dbałość i smaki Morza Śródziemnego.",
+    "story.art":"Marina Port Ghalib · Taras nad wodą",
+    "menu.dl":"⬇  Pobierz pełne menu (PDF)","menu.kicker":"Menu","menu.title":"Z grilla, z pieca i z baru",
+    "menu.lead":"Włoski makaron i pizza, hiszpańskie tapas i prawdziwe grillowanie — z doskonałymi opcjami wegańskimi i barem, który zna się na rzeczy.",
+    "sv.kicker":"Usługi i rozrywka","sv.title":"Więcej niż świetny posiłek",
+    "sv.c1":"Darmowy odbiór z hotelu","sv.c1d":"Zarezerwuj stolik, a zorganizujemy darmowy transport z Twojego hotelu — od drzwi po marinę.",
+    "sv.c2":"Piłka i F1 na żywo","sv.c2d":"Każdy ważny mecz i wyścig na wielu ekranach — nie przegapisz swojej drużyny.",
+    "sv.c3":"Darmowy bilard","sv.c3d":"Darmowy stół bilardowy dla gości — zamów kolejkę i graj.",
+    "sv.c4":"Klimat lounge","sv.c4d":"Muzyka cicha i przyjemna, by rozmowa była na pierwszym miejscu.",
+    "sv.c5":"Nabrzeże mariny","sv.c5d":"Malownicze miejsca nad wodą na promenadzie Port Ghalib — zachody słońca w cenie.",
+    "sv.c6":"Brunch i degustacje","sv.c6d":"Od bottomless brunchu po degustacje tapas we dwoje — zapytaj, co dziś gramy.",
+    "rv.kicker":"Opinie gości","rv.title":"Nr 1 w Port Ghalib","rv.rev":"opinii","rv.rev2":"opinii","rv.rev3":"opinii",
+    "rv.q1":"„Cudowne miejsce, cudowna obsługa, cudowne jedzenie i cudowna atmosfera.”",
+    "rv.q2":"„Jakość jedzenia jest naprawdę znakomita, a stosunek jakości do ceny bardzo atrakcyjny.”",
+    "rv.q3":"„Wyróżniające się dania jak Camel Steak, znakomita pizza neapolitańska — i zawsze miła, pomocna obsługa.”",
+    "rs.kicker":"Rezerwacje","rs.title":"Zarezerwuj stolik — nawet Cię odbierzemy",
+    "rs.lead":"Wypełnij formularz — otworzy WhatsApp z gotową rezerwacją. Nasz zespół potwierdzi w kilka minut.",
+    "rs.b1":"Darmowy transport z hotelu przy każdej rezerwacji",
+    "rs.b2":"Bezpośredni kontakt na WhatsApp — bez czekania, bez instalowania aplikacji",
+    "rs.b3":"Urodziny, menu wegańskie lub stolik na tarasie? Powiedz nam — zajmiemy się tym",
+    "rs.name":"Twoje imię","rs.phone":"Telefon / WhatsApp","rs.date":"Data","rs.time":"Godzina","rs.guests":"Goście","rs.more":"9+ (grupa)",
+    "rs.hotel":"Twój hotel (do darmowego odbioru)","rs.notes":"Specjalne życzenia","rs.notesPh":"Urodziny, menu wegańskie, stolik na tarasie…",
+    "rs.send":"Wyślij rezerwację przez WhatsApp","rs.hint":"Wolisz zadzwonić? +20 106 536 7667 · lub e-mail bar@sohobaregypt.com",
+    "fd.kicker":"Znajdź nas","fd.title":"Nad mariną, obok Marina Residence",
+    "fd.lead":"Promenada mariny Port Ghalib — zaledwie 5 minut od międzynarodowego lotniska Marsa Alam.",
+    "fd.addr":"Adres","fd.addrV":"Port Ghalib Marina, obok Marina Residence Suites, Marsa Alam, Morze Czerwone, Egipt",
+    "fd.hours":"Godziny otwarcia","fd.hoursV":"Codziennie · 10:30 – 24:00","fd.phone":"Telefon i WhatsApp","fd.mail":"E-mail",
+    "fd.air":"Z lotniska","fd.airV":"Marsa Alam International (RMF) — ok. 4 km, 5 minut jazdy",
+    "ft.copy":"© 2026 Soho Bar — Tapas & Grill · Marina Port Ghalib, Marsa Alam, Egipt",
+    "wa.hello":"Cześć Soho Bar! Chciał(a)bym zarezerwować stolik.",
+    "wa.msg":"Cześć Soho Bar! Chciał(a)bym zarezerwować stolik:\n👤 Imię: {name}\n📞 Telefon: {phone}\n📅 Data: {date}\n🕗 Godzina: {time}\n👥 Goście: {guests}\n🏨 Hotel (darmowy odbiór): {hotel}\n📝 Życzenia: {notes}"
+  },
+  cs: {
+    "nav.story":"Náš příběh","nav.menu":"Menu","nav.gallery":"Galerie","nav.services":"Služby","nav.whatson":"Program","nav.reviews":"Recenze","nav.find":"Kde nás najdete","nav.reserve":"Rezervovat",
+    "gl.kicker":"Ochutnávka Soho","gl.title":"Galerie","gl.lead":"Pizzy z pece na dřevo, čerstvé pokrmy a chutě, kvůli kterým se hosté vracejí — projeďte fotky.",
+    "wo.kicker":"Živá hudba · Happy Hour · Týdenní nabídky","wo.title":"Tento týden v Soho","wo.lead":"Každý večer důvod vyrazit — živé kapely, karaoke, happy hour a nabídky ke sdílení přímo u mariny.",
+    "wo.sun":"Neděle","wo.sunT":"Happy Hour","wo.sunD":"19–21 — dvě hodiny akcí na nápoje na začátek týdne.",
+    "wo.mon":"Pondělí","wo.monT":"Večeře ke sdílení","wo.monD":"2 pizzy nebo 2 burgery + 2 koktejly — ideální pro dva.",
+    "wo.tue":"Úterý","wo.tueT":"Happy Hour","wo.tueD":"19–21 — další dvě hodiny akcí na nápoje.",
+    "wo.wed":"Středa","wo.wedT":"Živá kapela","wo.wedD":"Živá hudba po celý večer.",
+    "wo.thu":"Čtvrtek","wo.thuT":"Karaoke a Bingo","wo.thuD":"Chyťte mikrofon a hrajte bingo o ceny.",
+    "wo.fri":"Pátek","wo.friT":"Živá kapela","wo.friD":"Živá hudba na začátek víkendu.",
+    "wo.sat":"Sobota","wo.satT":"Panák zdarma","wo.satD":"Panák zdarma pro celý stůl po večeři.",
+    "hero.badge1":"č. 1 v Port Ghalib","hero.badge2":"recenzí",
+    "hero.title":"Středomořská duše,<br><em>na marině Port Ghalib.</em>",
+    "hero.sub":"Gastronomická destinace, kde se současná italská kuchyně setkává s těmi nejlepšími surovinami — vybraná masa, čerstvé ryby, řemeslná těsta a vytříbené menu, na jednom z nejpůsobivějších míst Port Ghalib.",
+    "hero.cta1":"Rezervovat stůl","hero.cta2":"Prohlédnout menu",
+    "hero.f1":"Otevřeno denně","hero.f2n":"Zdarma","hero.f2":"Odvoz z hotelu při rezervaci","hero.f3":"Restaurace v Port Ghalib",
+    "story.kicker":"Náš příběh","story.title":"Kde se italská tradice potkává s egyptskou duší",
+    "story.lead1":"Naše kuchyně se rodí ze setkání dvou světů — italské tradice a egyptské autenticity — spojených v jedinečné identitě, která vypráví náš příběh.",
+    "story.quote":"„Každý den ručně pečeme chléb pro naše tapas a burgery, s vybranými surovinami a postupy, které vyzdvihnou každý detail.”",
+    "story.lead2":"Od dlouho kynutého těsta naší neapolské pizzy až po kvalitní italské suroviny — každý pokrm nabízí autentický zážitek. Čerstvé těstoviny, krémová rizota, prvotřídní steaky Angus a naše místní specialita — Camel Steak — dotvářejí menu spojující tradici, péči a chutě Středomoří.",
+    "story.art":"Marina Port Ghalib · Terasa u vody",
+    "menu.dl":"⬇  Stáhnout kompletní menu (PDF)","menu.kicker":"Menu","menu.title":"Z grilu, z pece a z baru",
+    "menu.lead":"Italské těstoviny a pizza, španělské tapas a poctivé grilování — se skvělými veganskými volbami a barem, který svému řemeslu rozumí.",
+    "sv.kicker":"Služby a zábava","sv.title":"Víc než skvělé jídlo",
+    "sv.c1":"Odvoz z hotelu zdarma","sv.c1d":"Zarezervujte stůl a zajistíme bezplatný odvoz z vašeho hotelu — od dveří až k marině.",
+    "sv.c2":"Fotbal a F1 živě","sv.c2d":"Každý velký zápas i závod na více obrazovkách — o svůj tým nikdy nepřijdete.",
+    "sv.c3":"Kulečník zdarma","sv.c3d":"Kulečníkový stůl zdarma pro hosty — objednejte rundu a hrajte.",
+    "sv.c4":"Lounge atmosféra","sv.c4d":"Hudba tichá a příjemná, aby byl na prvním místě rozhovor.",
+    "sv.c5":"Nábřeží mariny","sv.c5d":"Malebná místa u vody na promenádě Port Ghalib — západy slunce v ceně.",
+    "sv.c6":"Brunch a degustace","sv.c6d":"Od bottomless brunche po degustace tapas ve dvou — zeptejte se, co se dnes koná.",
+    "rv.kicker":"Recenze hostů","rv.title":"Č. 1 v Port Ghalib","rv.rev":"recenzí","rv.rev2":"recenzí","rv.rev3":"recenzí",
+    "rv.q1":"„Nádherné místo, nádherný personál, nádherné jídlo a nádherná atmosféra.”",
+    "rv.q2":"„Kvalita jídla je opravdu vynikající a poměr cena/výkon velmi příznivý.”",
+    "rv.q3":"„Skvělé pokrmy jako Camel Steak, výborná neapolská pizza — a personál vždy milý a ochotný.”",
+    "rs.kicker":"Rezervace","rs.title":"Rezervujte stůl — i vás vyzvedneme",
+    "rs.lead":"Vyplňte formulář — otevře WhatsApp s hotovou rezervací. Náš tým potvrdí během pár minut.",
+    "rs.b1":"Doprava z hotelu zdarma při každé rezervaci",
+    "rs.b2":"Přímý kontakt přes WhatsApp — bez čekání, bez instalace aplikace",
+    "rs.b3":"Narozeniny, veganské menu nebo stůl na terase? Řekněte nám — zařídíme to",
+    "rs.name":"Vaše jméno","rs.phone":"Telefon / WhatsApp","rs.date":"Datum","rs.time":"Čas","rs.guests":"Hosté","rs.more":"9+ (skupina)",
+    "rs.hotel":"Váš hotel (pro odvoz zdarma)","rs.notes":"Speciální přání","rs.notesPh":"Narozeniny, veganské menu, stůl na terase…",
+    "rs.send":"Odeslat rezervaci přes WhatsApp","rs.hint":"Raději zavoláte? +20 106 536 7667 · nebo e-mail bar@sohobaregypt.com",
+    "fd.kicker":"Kde nás najdete","fd.title":"U mariny, vedle Marina Residence",
+    "fd.lead":"Promenáda mariny Port Ghalib — pouhých 5 minut od mezinárodního letiště Marsa Alam.",
+    "fd.addr":"Adresa","fd.addrV":"Port Ghalib Marina, vedle Marina Residence Suites, Marsa Alam, Rudé moře, Egypt",
+    "fd.hours":"Otevírací doba","fd.hoursV":"Denně · 10:30 – 24:00","fd.phone":"Telefon a WhatsApp","fd.mail":"E-mail",
+    "fd.air":"Z letiště","fd.airV":"Marsa Alam International (RMF) — cca 4 km, 5 minut jízdy",
+    "ft.copy":"© 2026 Soho Bar — Tapas & Grill · Marina Port Ghalib, Marsa Alam, Egypt",
+    "wa.hello":"Ahoj Soho Bar! Rád/a bych zarezervoval/a stůl.",
+    "wa.msg":"Ahoj Soho Bar! Rád/a bych zarezervoval/a stůl:\n👤 Jméno: {name}\n📞 Telefon: {phone}\n📅 Datum: {date}\n🕗 Čas: {time}\n👥 Hosté: {guests}\n🏨 Hotel (odvoz zdarma): {hotel}\n📝 Přání: {notes}"
+  },
+  nl: {
+    "nav.story":"Ons verhaal","nav.menu":"Menu","nav.gallery":"Galerij","nav.services":"Diensten","nav.whatson":"Programma","nav.reviews":"Reviews","nav.find":"Vind ons","nav.reserve":"Reserveren",
+    "gl.kicker":"Een voorproefje van Soho","gl.title":"Galerij","gl.lead":"Houtgestookte pizza's, verse gerechten en de smaken waarvoor gasten terugkomen — veeg door de foto's.",
+    "wo.kicker":"Live muziek · Happy hour · Weekaanbiedingen","wo.title":"Deze week bij Soho","wo.lead":"Elke avond een reden om uit te gaan — livebands, karaoke, happy hour en deelaanbiedingen aan de jachthaven.",
+    "wo.sun":"Zondag","wo.sunT":"Happy Hour","wo.sunD":"19–21 uur — twee uur drankacties om de week te beginnen.",
+    "wo.mon":"Maandag","wo.monT":"Deeldiner","wo.monD":"2 pizza's of 2 burgers + 2 cocktails — perfect voor twee.",
+    "wo.tue":"Dinsdag","wo.tueT":"Happy Hour","wo.tueD":"19–21 uur — nog twee uur drankacties.",
+    "wo.wed":"Woensdag","wo.wedT":"Liveband","wo.wedD":"Live muziek de hele avond.",
+    "wo.thu":"Donderdag","wo.thuT":"Karaoke & Bingo","wo.thuD":"Pak de microfoon en speel bingo voor prijzen.",
+    "wo.fri":"Vrijdag","wo.friT":"Liveband","wo.friD":"Live muziek om het weekend te starten.",
+    "wo.sat":"Zaterdag","wo.satT":"Gratis shots","wo.satD":"Een gratis shot voor de hele tafel na het diner.",
+    "hero.badge1":"nr. 1 in Port Ghalib","hero.badge2":"reviews",
+    "hero.title":"Mediterrane ziel,<br><em>aan de jachthaven van Port Ghalib.</em>",
+    "hero.sub":"Een culinaire bestemming waar hedendaagse Italiaanse keuken de beste ingrediënten ontmoet — geselecteerd vlees, verse vis, ambachtelijke degen en een verfijnd menu, op een van de mooiste plekken van Port Ghalib.",
+    "hero.cta1":"Reserveer een tafel","hero.cta2":"Bekijk het menu",
+    "hero.f1":"Dagelijks geopend","hero.f2n":"Gratis","hero.f2":"Ophalen bij hotel bij reservering","hero.f3":"Restaurant in Port Ghalib",
+    "story.kicker":"Ons verhaal","story.title":"Waar Italiaanse traditie de Egyptische ziel ontmoet",
+    "story.lead1":"Onze keuken ontstaat uit de ontmoeting van twee werelden — Italiaanse traditie en Egyptische authenticiteit — verenigd in één identiteit die ons verhaal vertelt.",
+    "story.quote":"„Elke dag bakken we ons brood met de hand voor onze tapas en burgers, met geselecteerde ingrediënten en technieken die elk detail tot hun recht laten komen.”",
+    "story.lead2":"Van het langgerezen deeg van onze Napolitaanse pizza tot hoogwaardige Italiaanse ingrediënten — elk gerecht biedt een authentieke ervaring. Verse pasta, romige risotto's, eersteklas Angus-filets en onze lokale specialiteit — de Camel Steak — maken een menu compleet dat traditie, vakmanschap en de smaken van de Middellandse Zee verenigt.",
+    "story.art":"Port Ghalib Marina · Terras aan het water",
+    "menu.dl":"⬇  Download het volledige menu (PDF)","menu.kicker":"Het menu","menu.title":"Van de grill, de oven en de bar",
+    "menu.lead":"Italiaanse pasta en pizza, Spaanse tapas en echt grillwerk — met heerlijke veganistische opties en een bar die zijn vak verstaat.",
+    "sv.kicker":"Diensten & entertainment","sv.title":"Meer dan een geweldige maaltijd",
+    "sv.c1":"Gratis ophalen bij hotel","sv.c1d":"Reserveer een tafel en wij regelen gratis vervoer vanaf je hotel — van deur tot jachthaven.",
+    "sv.c2":"Live voetbal & F1","sv.c2d":"Elke grote wedstrijd en race op meerdere schermen — je mist je team nooit.",
+    "sv.c3":"Gratis biljart","sv.c3d":"Een gratis pooltafel voor gasten — bestel een rondje en speel.",
+    "sv.c4":"Lounge-sfeer","sv.c4d":"Muziek zacht en rustig, zodat het gesprek altijd voorop staat.",
+    "sv.c5":"Waterkant jachthaven","sv.c5d":"Sfeervolle plekjes aan het water op de promenade van Port Ghalib — zonsondergangen inbegrepen.",
+    "sv.c6":"Brunch & proeverijen","sv.c6d":"Van bottomless brunch tot tapas-proeverijen voor twee — vraag ons wat er speelt.",
+    "rv.kicker":"Gastenreviews","rv.title":"Nr. 1 in Port Ghalib","rv.rev":"reviews","rv.rev2":"reviews","rv.rev3":"reviews",
+    "rv.q1":"„Prachtige plek, prachtig personeel, prachtig eten en een prachtige sfeer.”",
+    "rv.q2":"„De kwaliteit van het eten is echt uitstekend en de prijs-kwaliteitverhouding zeer aantrekkelijk.”",
+    "rv.q3":"„Uitblinkers als de Camel Steak, uitstekende Napolitaanse pizza — en personeel dat altijd vriendelijk en behulpzaam is.”",
+    "rs.kicker":"Reserveringen","rs.title":"Boek je tafel — we halen je zelfs op",
+    "rs.lead":"Vul het formulier in — het opent WhatsApp met je kant-en-klare boeking. Ons team bevestigt binnen enkele minuten.",
+    "rs.b1":"Gratis vervoer vanaf je hotel bij elke reservering",
+    "rs.b2":"Direct contact via WhatsApp — geen wachten, geen app installeren",
+    "rs.b3":"Verjaardag, veganistisch menu of een tafel op het terras? Laat het ons weten — wij regelen het",
+    "rs.name":"Je naam","rs.phone":"Telefoon / WhatsApp","rs.date":"Datum","rs.time":"Tijd","rs.guests":"Gasten","rs.more":"9+ (groep)",
+    "rs.hotel":"Je hotel (voor gratis ophalen)","rs.notes":"Speciale wensen","rs.notesPh":"Verjaardag, veganistisch menu, tafel op terras…",
+    "rs.send":"Boeking versturen via WhatsApp","rs.hint":"Liever bellen? +20 106 536 7667 · of e-mail bar@sohobaregypt.com",
+    "fd.kicker":"Vind ons","fd.title":"Aan de jachthaven, naast Marina Residence",
+    "fd.lead":"Promenade van Port Ghalib Marina — op slechts 5 minuten van de internationale luchthaven Marsa Alam.",
+    "fd.addr":"Adres","fd.addrV":"Port Ghalib Marina, naast Marina Residence Suites, Marsa Alam, Rode Zee, Egypte",
+    "fd.hours":"Openingstijden","fd.hoursV":"Elke dag · 10:30 – 24:00","fd.phone":"Telefoon & WhatsApp","fd.mail":"E-mail",
+    "fd.air":"Vanaf de luchthaven","fd.airV":"Marsa Alam International (RMF) — ongeveer 4 km, 5 minuten rijden",
+    "ft.copy":"© 2026 Soho Bar — Tapas & Grill · Port Ghalib Marina, Marsa Alam, Egypte",
+    "wa.hello":"Hallo Soho Bar! Ik wil graag een tafel reserveren.",
+    "wa.msg":"Hallo Soho Bar! Ik wil graag een tafel reserveren:\n👤 Naam: {name}\n📞 Telefoon: {phone}\n📅 Datum: {date}\n🕗 Tijd: {time}\n👥 Gasten: {guests}\n🏨 Hotel (gratis ophalen): {hotel}\n📝 Wensen: {notes}"
   }
 };
 const EN_WA = {
@@ -1040,13 +1228,13 @@ function setLang(lang){
   document.querySelectorAll('[data-i18n]').forEach(el=>{ el.textContent = t(el.dataset.i18n); });
   document.querySelectorAll('[data-i18n-html]').forEach(el=>{ el.innerHTML = t(el.dataset.i18nHtml); });
   document.querySelectorAll('[data-i18n-ph]').forEach(el=>{ el.placeholder = t(el.dataset.i18nPh); });
-  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+  const sel=document.getElementById('langSelect'); if(sel) sel.value=lang;
   document.querySelector('.wa-float').href =
     'https://wa.me/201065367667?text=' + encodeURIComponent(t('wa.hello'));
   try{ localStorage.setItem('soho-lang', lang); }catch(e){}
   renderMenu();
 }
-document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+document.getElementById('langSelect').addEventListener('change',e=>setLang(e.target.value));
 (function initLang(){
   let lang='en';
   try{
@@ -1056,6 +1244,24 @@ document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',
     else if(I18N[nav]) lang=nav;
   }catch(e){}
   setLang(lang);
+})();
+
+/* ── Light / Dark theme ── */
+(function(){
+  const root=document.documentElement, btn=document.getElementById('themeToggle');
+  function apply(theme){
+    if(theme==='light') root.setAttribute('data-theme','light');
+    else root.removeAttribute('data-theme');
+    if(btn) btn.textContent = theme==='light' ? '☀️' : '🌙';
+    try{ localStorage.setItem('soho-theme', theme); }catch(e){}
+  }
+  let theme='dark';
+  try{
+    const saved=localStorage.getItem('soho-theme');
+    if(saved==='light'||saved==='dark') theme=saved;
+  }catch(e){}
+  apply(theme);
+  btn&&btn.addEventListener('click',()=>apply(root.hasAttribute('data-theme')?'dark':'light'));
 })();
 
 /* ── Mobile nav ── */
