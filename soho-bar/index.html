@@ -108,17 +108,25 @@ nav{
 
 /* ── Hero ── */
 header.hero{
-  min-height:100svh;display:flex;align-items:center;position:relative;
+  min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;
   background:
-    radial-gradient(1100px 500px at 78% -8%, rgba(212,162,76,.16), transparent 60%),
-    radial-gradient(800px 420px at 12% 110%, rgba(58,110,140,.18), transparent 60%),
+    radial-gradient(900px 460px at 12% 110%, rgba(58,110,140,.14), transparent 60%),
     linear-gradient(180deg,#0d0b09 0%, #14100a 55%, #0d0b09 100%);
   padding-top:66px;
 }
+header.hero::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:url('hero-bg.jpg') no-repeat;
+  background-position:right -30px center;
+  background-size:auto 108%;
+  opacity:.62;
+  -webkit-mask-image:radial-gradient(58% 62% at 74% 48%, #000 26%, transparent 74%);
+  mask-image:radial-gradient(58% 62% at 74% 48%, #000 26%, transparent 74%);
+}
 header.hero::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
   background-image:radial-gradient(rgba(245,234,216,.05) 1px, transparent 1px);
-  background-size:26px 26px;opacity:.5;
+  background-size:26px 26px;opacity:.4;
 }
 .hero-inner{position:relative;z-index:2;padding:60px 0;width:min(1120px,92%);margin:0 auto}
 .hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
@@ -292,6 +300,12 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
   .nav-links.open{transform:none}
   .burger{display:block}
   section{padding:64px 0}
+  header.hero::before{
+    background-position:center 12%;background-size:135% auto;opacity:.4;
+    -webkit-mask-image:radial-gradient(70% 42% at 50% 20%, #000 20%, transparent 72%);
+    mask-image:radial-gradient(70% 42% at 50% 20%, #000 20%, transparent 72%);
+  }
+  .hero-logo{height:110px;margin-bottom:22px}
 }
 </style>
 </head>
