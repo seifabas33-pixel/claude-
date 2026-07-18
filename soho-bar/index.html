@@ -232,8 +232,8 @@ header.hero::after{
 /* ── Gallery ── */
 .gallery-wrap{position:relative;margin-top:44px}
 .gallery{
-  display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;
-  padding:6px max((100% - 1120px)/2, 4%) 22px;scroll-padding-left:4%;
+  display:flex;gap:18px;overflow-x:auto;
+  padding:6px max((100% - 1120px)/2, 4%) 22px;
   scrollbar-width:none;-webkit-overflow-scrolling:touch;
 }
 .gallery::-webkit-scrollbar{display:none}
@@ -1057,48 +1057,73 @@ const navLinks = document.getElementById('navLinks');
 burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
 
-/* ── Gallery swipe ── */
+/* ── Gallery: continuous marquee, pause on touch/hover ── */
 (function(){
   const track=document.getElementById('galleryTrack');
   if(!track) return;
-  const slides=[...track.children];
+  const originals=[...track.children];
+  const N=originals.length;
   const dotsWrap=document.getElementById('galDots');
-  slides.forEach((s,i)=>{
+  originals.forEach((s,i)=>{
     const d=document.createElement('button'); d.className='gal-dot'; d.setAttribute('aria-label','Photo '+(i+1));
-    d.addEventListener('click',()=>track.scrollTo({left:s.offsetLeft-track.offsetLeft-16,behavior:'smooth'}));
+    d.addEventListener('click',()=>{ pos=originals[i].offsetLeft-basePad; track.scrollLeft=pos; });
     dotsWrap.appendChild(d);
   });
-  const step=()=>slides[0].getBoundingClientRect().width+18;
+  // duplicate slides so the loop is seamless
+  originals.forEach(s=>track.appendChild(s.cloneNode(true)));
+
+  let basePad=0, loopWidth=1, slideStep=1;
+  function measure(){
+    basePad=originals[0].offsetLeft;
+    loopWidth=track.children[N].offsetLeft-originals[0].offsetLeft;
+    slideStep=originals[0].getBoundingClientRect().width+18;
+  }
+  measure(); window.addEventListener('resize',measure);
+
   const prev=document.querySelector('.gal-nav.prev'), next=document.querySelector('.gal-nav.next');
-  prev&&prev.addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));
-  next&&next.addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
-  function update(){
-    const c=track.scrollLeft+track.clientWidth/2; let idx=0,best=1e9;
-    slides.forEach((s,i)=>{const cc=s.offsetLeft+s.offsetWidth/2-track.offsetLeft;const dd=Math.abs(cc-c);if(dd<best){best=dd;idx=i;}});
+  prev&&prev.addEventListener('click',()=>{pos-=slideStep;});
+  next&&next.addEventListener('click',()=>{pos+=slideStep;});
+
+  let pos=track.scrollLeft, paused=false, visible=true, lastT=0;
+  const pause=()=>paused=true, resume=()=>paused=false;
+  track.addEventListener('mouseenter',pause);
+  track.addEventListener('mouseleave',resume);
+  track.addEventListener('pointerdown',pause);
+  window.addEventListener('pointerup',resume);
+  track.addEventListener('touchstart',pause,{passive:true});
+  window.addEventListener('touchend',resume,{passive:true});
+  track.addEventListener('touchcancel',resume,{passive:true});
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(es=>{visible=es[0].isIntersecting;},{threshold:0.02}).observe(document.getElementById('gallery'));
+  }
+  const reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const SPEED=55; // px per second — a gentle, steady glide
+
+  function updateDots(){
+    let eff=((track.scrollLeft-basePad)%loopWidth+loopWidth)%loopWidth;
+    const center=(eff+track.clientWidth/2)%loopWidth;
+    let idx=0,best=1e9;
+    originals.forEach((s,i)=>{
+      const cc=s.offsetLeft-basePad+s.offsetWidth/2;
+      let dd=Math.abs(cc-center); dd=Math.min(dd,loopWidth-dd);
+      if(dd<best){best=dd;idx=i;}
+    });
     [...dotsWrap.children].forEach((d,i)=>d.classList.toggle('active',i===idx));
   }
-  let raf; track.addEventListener('scroll',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(update);});
-  update();
-
-  /* auto-advance (swipes right on its own) */
-  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let hover=false, visible=false, pausedUntil=0;
-  const atEnd=()=>track.scrollLeft + track.clientWidth >= track.scrollWidth - 8;
-  function tick(){
-    if(hover || !visible || document.hidden || Date.now()<pausedUntil) return;
-    if(atEnd()) track.scrollTo({left:0,behavior:'smooth'});
-    else track.scrollBy({left:step(),behavior:'smooth'});
+  function frame(t){
+    const dt=lastT?Math.min((t-lastT)/1000,0.05):0; lastT=t;
+    if(paused){
+      pos=track.scrollLeft;               // follow the guest's own swipe while paused
+    } else if(visible && !document.hidden && !reduce){
+      pos+=SPEED*dt;
+      if(pos>=loopWidth) pos-=loopWidth;
+      if(pos<0) pos+=loopWidth;
+      track.scrollLeft=pos;
+    }
+    updateDots();
+    requestAnimationFrame(frame);
   }
-  const bump=()=>{pausedUntil=Date.now()+6000;};
-  track.addEventListener('mouseenter',()=>hover=true);
-  track.addEventListener('mouseleave',()=>hover=false);
-  ['pointerdown','touchstart','wheel'].forEach(ev=>track.addEventListener(ev,bump,{passive:true}));
-  [prev,next].forEach(el=>el&&el.addEventListener('click',bump));
-  dotsWrap.addEventListener('click',bump);
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(es=>{visible=es[0].isIntersecting;},{threshold:0.15}).observe(document.getElementById('gallery'));
-  } else { visible=true; }
-  if(!reduce) setInterval(tick, 3500);
+  requestAnimationFrame(frame);
 })();
 
 /* ── Reservation → WhatsApp ── */
