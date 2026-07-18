@@ -1079,6 +1079,26 @@ navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLink
   }
   let raf; track.addEventListener('scroll',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(update);});
   update();
+
+  /* auto-advance (swipes right on its own) */
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let hover=false, visible=false, pausedUntil=0;
+  const atEnd=()=>track.scrollLeft + track.clientWidth >= track.scrollWidth - 8;
+  function tick(){
+    if(hover || !visible || document.hidden || Date.now()<pausedUntil) return;
+    if(atEnd()) track.scrollTo({left:0,behavior:'smooth'});
+    else track.scrollBy({left:step(),behavior:'smooth'});
+  }
+  const bump=()=>{pausedUntil=Date.now()+6000;};
+  track.addEventListener('mouseenter',()=>hover=true);
+  track.addEventListener('mouseleave',()=>hover=false);
+  ['pointerdown','touchstart','wheel'].forEach(ev=>track.addEventListener(ev,bump,{passive:true}));
+  [prev,next].forEach(el=>el&&el.addEventListener('click',bump));
+  dotsWrap.addEventListener('click',bump);
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(es=>{visible=es[0].isIntersecting;},{threshold:0.15}).observe(document.getElementById('gallery'));
+  } else { visible=true; }
+  if(!reduce) setInterval(tick, 3500);
 })();
 
 /* ── Reservation → WhatsApp ── */
