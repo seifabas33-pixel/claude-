@@ -203,6 +203,26 @@ header.hero::after{
 .card h3{font-size:1.15rem;margin-bottom:8px}
 .card p{font-size:.9rem;color:var(--muted)}
 
+/* ── What's On ── */
+#whatson{background:var(--bg-2)}
+.week{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;margin-top:46px}
+.day{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 26px;position:relative;transition:transform .2s,border-color .2s;overflow:hidden;
+}
+.day:hover{transform:translateY(-4px);border-color:var(--gold)}
+.day-ic{font-size:2rem;line-height:1;margin-bottom:14px}
+.day .dow{font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
+.day h3{font-family:'Playfair Display',serif;font-size:1.55rem;color:#fff;margin-bottom:9px;line-height:1.15}
+.day p{font-size:1rem;color:#e2d7c3;line-height:1.55}
+.day.feat{border-color:var(--gold);background:linear-gradient(158deg, rgba(212,162,76,.14), var(--panel) 60%)}
+.day .deal{
+  position:absolute;top:22px;right:22px;
+  background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:#1a1206;
+  font-family:'Playfair Display',serif;font-weight:800;font-size:1.35rem;padding:6px 14px;border-radius:12px;
+  box-shadow:0 6px 18px rgba(212,162,76,.35);
+}
+
 /* ── Reviews ── */
 #reviews{background:var(--bg-2)}
 .scoreboard{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin:40px 0 46px}
@@ -308,6 +328,7 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
       <li><a href="#story" data-i18n="nav.story">Our Story</a></li>
       <li><a href="#menu" data-i18n="nav.menu">Menu</a></li>
       <li><a href="#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="#whatson" data-i18n="nav.whatson">What's On</a></li>
       <li><a href="#reviews" data-i18n="nav.reviews">Reviews</a></li>
       <li><a href="#find" data-i18n="nav.find">Find Us</a></li>
       <li><a class="btn btn-gold nav-cta" href="#reserve" data-i18n="nav.reserve">Reserve</a></li>
@@ -398,6 +419,55 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
       <div class="card">
         <div class="ic"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 15v6M17 4H7v5a5 5 0 0 0 10 0zM17 5h3a3 3 0 0 1-3 4M7 5H4a3 3 0 0 0 3 4"/></svg></div>
         <h3 data-i18n="sv.c6">Brunch &amp; Tastings</h3><p data-i18n="sv.c6d">From bottomless brunch to date-night tapas tastings — ask us what's on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="whatson">
+  <div class="container">
+    <div class="center">
+      <span class="kicker" data-i18n="wo.kicker">Live Music · Happy Hour · Weekly Deals</span>
+      <h2 class="section-title" data-i18n="wo.title">What's On This Week</h2>
+      <p class="section-lead" data-i18n="wo.lead">There's a reason to come out every night — live bands, karaoke, happy hour and sharing deals right on the marina.</p>
+    </div>
+    <div class="week">
+      <div class="day">
+        <div class="day-ic">🍹</div>
+        <div class="dow" data-i18n="wo.sun">Sunday</div>
+        <h3 data-i18n="wo.sunT">Happy Hour</h3>
+        <p data-i18n="wo.sunD">7–9 PM — two hours of drink specials to start the week.</p>
+      </div>
+      <div class="day feat">
+        <div class="deal">€25</div>
+        <div class="day-ic">🍕</div>
+        <div class="dow" data-i18n="wo.mon">Monday</div>
+        <h3 data-i18n="wo.monT">Sharing Dinner</h3>
+        <p data-i18n="wo.monD">2 pizzas or 2 burgers + 2 cocktails — perfect for two.</p>
+      </div>
+      <div class="day">
+        <div class="day-ic">🎸</div>
+        <div class="dow" data-i18n="wo.wed">Wednesday</div>
+        <h3 data-i18n="wo.wedT">Live Band</h3>
+        <p data-i18n="wo.wedD">Live music through the evening.</p>
+      </div>
+      <div class="day">
+        <div class="day-ic">🎤</div>
+        <div class="dow" data-i18n="wo.thu">Thursday</div>
+        <h3 data-i18n="wo.thuT">Karaoke &amp; Bingo</h3>
+        <p data-i18n="wo.thuD">Grab the mic and play bingo for prizes.</p>
+      </div>
+      <div class="day">
+        <div class="day-ic">🎶</div>
+        <div class="dow" data-i18n="wo.fri">Friday</div>
+        <h3 data-i18n="wo.friT">Live Band</h3>
+        <p data-i18n="wo.friD">Live music to kick off the weekend.</p>
+      </div>
+      <div class="day">
+        <div class="day-ic">🥂</div>
+        <div class="dow" data-i18n="wo.sat">Saturday</div>
+        <h3 data-i18n="wo.satT">Free Shots</h3>
+        <p data-i18n="wo.satD">A free shot for the whole table after dinner.</p>
       </div>
     </div>
   </div>
@@ -719,7 +789,14 @@ function renderMenu(){
 /* ── i18n ── */
 const I18N = {
   de: {
-    "nav.story":"Unsere Story","nav.menu":"Speisekarte","nav.services":"Service","nav.reviews":"Bewertungen","nav.find":"Anfahrt","nav.reserve":"Reservieren",
+    "nav.story":"Unsere Story","nav.menu":"Speisekarte","nav.services":"Service","nav.whatson":"Programm","nav.reviews":"Bewertungen","nav.find":"Anfahrt","nav.reserve":"Reservieren",
+    "wo.kicker":"Live-Musik · Happy Hour · Wochenangebote","wo.title":"Diese Woche bei Soho","wo.lead":"Jeden Abend ein guter Grund vorbeizukommen — Live-Bands, Karaoke, Happy Hour und Sharing-Angebote direkt an der Marina.",
+    "wo.sun":"Sonntag","wo.sunT":"Happy Hour","wo.sunD":"19–21 Uhr — zwei Stunden Getränke-Specials zum Wochenstart.",
+    "wo.mon":"Montag","wo.monT":"Sharing-Dinner","wo.monD":"2 Pizzen oder 2 Burger + 2 Cocktails — perfekt zu zweit.",
+    "wo.wed":"Mittwoch","wo.wedT":"Live-Band","wo.wedD":"Live-Musik den ganzen Abend.",
+    "wo.thu":"Donnerstag","wo.thuT":"Karaoke & Bingo","wo.thuD":"Schnapp dir das Mikro und spiel Bingo um Preise.",
+    "wo.fri":"Freitag","wo.friT":"Live-Band","wo.friD":"Live-Musik zum Start ins Wochenende.",
+    "wo.sat":"Samstag","wo.satT":"Gratis-Shots","wo.satD":"Ein Gratis-Shot für den ganzen Tisch nach dem Dinner.",
     "hero.badge1":"Nr. 1 in Port Ghalib","hero.badge2":"Bewertungen",
     "hero.title":"Mediterrane Seele,<br><em>an der Marina von Port Ghalib.</em>",
     "hero.sub":"Steaks & Burger vom Grill, Tapas zum Teilen, italienische Pizza und die besten Cocktails der Stadt — direkt an der Uferpromenade von Port Ghalib.",
@@ -779,7 +856,14 @@ const I18N = {
     "wa.msg":"Hallo Soho Bar! Ich möchte einen Tisch reservieren:\n👤 Name: {name}\n📞 Telefon: {phone}\n📅 Datum: {date}\n🕗 Uhrzeit: {time}\n👥 Gäste: {guests}\n🏨 Hotel (Gratis-Abholung): {hotel}\n📝 Wünsche: {notes}"
   },
   it: {
-    "nav.story":"La nostra storia","nav.menu":"Menù","nav.services":"Servizi","nav.reviews":"Recensioni","nav.find":"Dove siamo","nav.reserve":"Prenota",
+    "nav.story":"La nostra storia","nav.menu":"Menù","nav.services":"Servizi","nav.whatson":"Programma","nav.reviews":"Recensioni","nav.find":"Dove siamo","nav.reserve":"Prenota",
+    "wo.kicker":"Musica dal vivo · Happy Hour · Offerte settimanali","wo.title":"Questa settimana al Soho","wo.lead":"Ogni sera un buon motivo per uscire — band dal vivo, karaoke, happy hour e offerte da condividere sulla marina.",
+    "wo.sun":"Domenica","wo.sunT":"Happy Hour","wo.sunD":"19–21 — due ore di offerte sui drink per iniziare la settimana.",
+    "wo.mon":"Lunedì","wo.monT":"Cena da Condividere","wo.monD":"2 pizze o 2 burger + 2 cocktail — perfetto per due.",
+    "wo.wed":"Mercoledì","wo.wedT":"Band dal Vivo","wo.wedD":"Musica dal vivo per tutta la serata.",
+    "wo.thu":"Giovedì","wo.thuT":"Karaoke & Tombola","wo.thuD":"Prendi il microfono e gioca a tombola per vincere premi.",
+    "wo.fri":"Venerdì","wo.friT":"Band dal Vivo","wo.friD":"Musica dal vivo per iniziare il weekend.",
+    "wo.sat":"Sabato","wo.satT":"Shot Gratis","wo.satD":"Uno shot gratis per tutto il tavolo dopo cena.",
     "hero.badge1":"N. 1 a Port Ghalib","hero.badge2":"recensioni",
     "hero.title":"Anima Mediterranea,<br><em>sulla Marina di Port Ghalib.</em>",
     "hero.sub":"Bistecche e burger alla griglia, tapas da condividere, pizza italiana e i migliori cocktail della città — direttamente sul lungomare di Port Ghalib.",
