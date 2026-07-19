@@ -320,6 +320,10 @@ header.hero::after{
 .reel-sound:hover{background:rgba(0,0,0,.8)}
 .reels-cta{margin-top:30px}
 
+/* ── Instagram ── */
+.ig-grid{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;margin-top:44px}
+.ig-grid .instagram-media{margin:0 !important;min-width:300px !important;max-width:360px !important;flex:1 1 320px}
+
 /* ── Reviews ── */
 #reviews{background:var(--bg-2)}
 .scoreboard{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin:40px 0 46px}
@@ -571,6 +575,20 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
   </div>
 </section>
 
+<section id="instagram">
+  <div class="container center">
+    <span class="kicker" data-i18n="ig.kicker">@sohobarandgrill</span>
+    <h2 class="section-title" data-i18n="ig.title">Follow us on Instagram</h2>
+    <p class="section-lead" data-i18n="ig.lead">Food, cocktails and unforgettable nights — see the latest from Soho Bar.</p>
+  </div>
+  <div class="container ig-grid">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DJMxed_CUh-/" data-instgrm-version="14"></blockquote>
+  </div>
+  <div class="center" style="margin-top:26px">
+    <a class="btn btn-gold" href="https://www.instagram.com/sohobarandgrill/" target="_blank" rel="noopener" data-i18n="ig.cta">Open Instagram</a>
+  </div>
+</section>
+
 <section id="services">
   <div class="container">
     <div class="center">
@@ -772,6 +790,7 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
   <svg viewBox="0 0 32 32"><path d="M16 2.9C8.8 2.9 3 8.7 3 15.9c0 2.3.6 4.5 1.7 6.5L3 29.1l6.9-1.8c1.9 1 4 1.6 6.1 1.6 7.2 0 13-5.8 13-13S23.2 2.9 16 2.9zm5.9 17.7c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2s0-.5.1-.7c.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5s.1-.4 0-.5c-.1-.2-.7-1.7-1-2.4-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1.1 1.1-1.1 2.6 1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.8.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5s-.3-.2-.6-.4z"/></svg>
 </a>
 
+<script async src="//www.instagram.com/embed.js"></script>
 <script>
 
 /* ── full menu (from the official Soho Bar menu) ── */
@@ -982,6 +1001,7 @@ const I18N = {
   de: {
     "nav.story":"Unsere Story","nav.menu":"Speisekarte","nav.gallery":"Galerie","nav.services":"Service","nav.whatson":"Programm","nav.reviews":"Bewertungen","nav.find":"Anfahrt","nav.reserve":"Reservieren",
     "gl.kicker":"Ein Vorgeschmack auf Soho","gl.title":"Galerie","gl.lead":"Pizza aus dem Holzofen, frische Gerichte und die Aromen, für die unsere Gäste wiederkommen — einfach wischen.",
+    "ig.title":"Folge uns auf Instagram","ig.lead":"Essen, Cocktails und unvergessliche Nächte — sieh die neuesten Eindrücke aus der Soho Bar.","ig.cta":"Instagram öffnen",
     "rl.kicker":"Ansehen","rl.title":"Reels","rl.lead":"Ein Blick hinter die Kulissen — wischen und ein Reel antippen, um den Ton einzuschalten.","rl.ig":"Folge uns auf Instagram",
     "wo.kicker":"Live-Musik · Happy Hour · Wochenangebote","wo.title":"Diese Woche bei Soho","wo.lead":"Jeden Abend ein guter Grund vorbeizukommen — Live-Bands, Karaoke, Happy Hour und Sharing-Angebote direkt an der Marina.",
     "wo.sun":"Sonntag","wo.sunT":"Happy Hour","wo.sunD":"19–21 Uhr — zwei Stunden Getränke-Specials zum Wochenstart.",
@@ -1053,6 +1073,7 @@ const I18N = {
   it: {
     "nav.story":"La nostra storia","nav.menu":"Menù","nav.gallery":"Galleria","nav.services":"Servizi","nav.whatson":"Programma","nav.reviews":"Recensioni","nav.find":"Dove siamo","nav.reserve":"Prenota",
     "gl.kicker":"Un assaggio del Soho","gl.title":"Galleria","gl.lead":"Pizze cotte a legna, piatti freschi e i sapori che fanno tornare i nostri ospiti — scorri le foto.",
+    "ig.title":"Seguici su Instagram","ig.lead":"Cibo, cocktail e serate indimenticabili — guarda le ultime novità del Soho Bar.","ig.cta":"Apri Instagram",
     "rl.kicker":"Guarda","rl.title":"Reels","rl.lead":"Uno sguardo dietro le quinte — scorri e tocca un reel per attivare l'audio.","rl.ig":"Seguici su Instagram",
     "wo.kicker":"Musica dal vivo · Happy Hour · Offerte settimanali","wo.title":"Questa settimana al Soho","wo.lead":"Ogni sera un buon motivo per uscire — band dal vivo, karaoke, happy hour e offerte da condividere sulla marina.",
     "wo.sun":"Domenica","wo.sunT":"Happy Hour","wo.sunD":"19–21 — due ore di offerte sui drink per iniziare la settimana.",
@@ -1124,6 +1145,7 @@ const I18N = {
   pl: {
     "nav.story":"Nasza historia","nav.menu":"Menu","nav.gallery":"Galeria","nav.services":"Usługi","nav.whatson":"Program","nav.reviews":"Opinie","nav.find":"Znajdź nas","nav.reserve":"Rezerwuj",
     "gl.kicker":"Posmak Soho","gl.title":"Galeria","gl.lead":"Pizze z pieca opalanego drewnem, świeże dania i smaki, dla których goście wracają — przesuwaj zdjęcia.",
+    "ig.title":"Obserwuj nas na Instagramie","ig.lead":"Jedzenie, koktajle i niezapomniane wieczory — zobacz najnowsze z Soho Bar.","ig.cta":"Otwórz Instagram",
     "rl.kicker":"Zobacz","rl.title":"Reels","rl.lead":"Zajrzyj za kulisy — przesuwaj i dotknij reela, aby włączyć dźwięk.","rl.ig":"Obserwuj nas na Instagramie",
     "wo.kicker":"Muzyka na żywo · Happy Hour · Oferty tygodnia","wo.title":"W tym tygodniu w Soho","wo.lead":"Każdego wieczoru dobry powód, by wyjść — zespoły na żywo, karaoke, happy hour i oferty do dzielenia nad mariną.",
     "wo.sun":"Niedziela","wo.sunT":"Happy Hour","wo.sunD":"19–21 — dwie godziny promocji na drinki na początek tygodnia.",
@@ -1176,6 +1198,7 @@ const I18N = {
   cs: {
     "nav.story":"Náš příběh","nav.menu":"Menu","nav.gallery":"Galerie","nav.services":"Služby","nav.whatson":"Program","nav.reviews":"Recenze","nav.find":"Kde nás najdete","nav.reserve":"Rezervovat",
     "gl.kicker":"Ochutnávka Soho","gl.title":"Galerie","gl.lead":"Pizzy z pece na dřevo, čerstvé pokrmy a chutě, kvůli kterým se hosté vracejí — projeďte fotky.",
+    "ig.title":"Sledujte nás na Instagramu","ig.lead":"Jídlo, koktejly a nezapomenutelné večery — podívejte se na novinky ze Soho Bar.","ig.cta":"Otevřít Instagram",
     "rl.kicker":"Podívejte se","rl.title":"Reels","rl.lead":"Nahlédněte do zákulisí — posouvejte a klepnutím na reel zapněte zvuk.","rl.ig":"Sledujte nás na Instagramu",
     "wo.kicker":"Živá hudba · Happy Hour · Týdenní nabídky","wo.title":"Tento týden v Soho","wo.lead":"Každý večer důvod vyrazit — živé kapely, karaoke, happy hour a nabídky ke sdílení přímo u mariny.",
     "wo.sun":"Neděle","wo.sunT":"Happy Hour","wo.sunD":"19–21 — dvě hodiny akcí na nápoje na začátek týdne.",
@@ -1228,6 +1251,7 @@ const I18N = {
   nl: {
     "nav.story":"Ons verhaal","nav.menu":"Menu","nav.gallery":"Galerij","nav.services":"Diensten","nav.whatson":"Programma","nav.reviews":"Reviews","nav.find":"Vind ons","nav.reserve":"Reserveren",
     "gl.kicker":"Een voorproefje van Soho","gl.title":"Galerij","gl.lead":"Houtgestookte pizza's, verse gerechten en de smaken waarvoor gasten terugkomen — veeg door de foto's.",
+    "ig.title":"Volg ons op Instagram","ig.lead":"Eten, cocktails en onvergetelijke avonden — bekijk het laatste van Soho Bar.","ig.cta":"Instagram openen",
     "rl.kicker":"Bekijk","rl.title":"Reels","rl.lead":"Een kijkje achter de schermen — veeg en tik op een reel om het geluid aan te zetten.","rl.ig":"Volg ons op Instagram",
     "wo.kicker":"Live muziek · Happy hour · Weekaanbiedingen","wo.title":"Deze week bij Soho","wo.lead":"Elke avond een reden om uit te gaan — livebands, karaoke, happy hour en deelaanbiedingen aan de jachthaven.",
     "wo.sun":"Zondag","wo.sunT":"Happy Hour","wo.sunD":"19–21 uur — twee uur drankacties om de week te beginnen.",
