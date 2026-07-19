@@ -321,8 +321,25 @@ header.hero::after{
 .reels-cta{margin-top:30px}
 
 /* ── Instagram ── */
-.ig-grid{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;margin-top:44px}
-.ig-grid .instagram-media{margin:0 !important;min-width:300px !important;max-width:360px !important;flex:1 1 320px}
+.ig-card{max-width:720px;margin:44px auto 0;background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.28)}
+.ig-head{display:flex;align-items:center;gap:16px;padding:22px 24px;flex-wrap:wrap}
+.ig-avatar{width:66px;height:66px;border-radius:50%;flex:none;padding:3px;background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);display:block}
+.ig-avatar img{width:100%;height:100%;border-radius:50%;background:var(--bg);object-fit:contain;padding:9px;display:block}
+.ig-meta{flex:1;min-width:170px}
+.ig-handle{display:inline-block;font-weight:700;font-size:1.15rem;color:var(--ink)}
+.ig-name{font-size:.88rem;color:var(--muted);margin-top:2px}
+.ig-stats{display:flex;gap:24px;margin-top:9px;font-size:.9rem;color:var(--muted)}
+.ig-stats b{color:var(--ink);font-weight:700}
+.ig-follow{flex:none;padding:11px 28px;font-size:.9rem}
+.ig-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.ig-thumbs a{position:relative;aspect-ratio:1;overflow:hidden;display:block}
+.ig-thumbs img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.ig-thumbs a:hover img{transform:scale(1.07)}
+.ig-thumbs a::before{content:"";position:absolute;inset:0;background:rgba(11,9,7,0);transition:background .25s;z-index:1}
+.ig-thumbs a:hover::before{background:rgba(11,9,7,.4)}
+.ig-thumbs a::after{content:"";position:absolute;top:50%;left:50%;width:32px;height:32px;transform:translate(-50%,-50%) scale(.7);opacity:0;transition:.25s;z-index:2;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'%3E%3Crect x='2' y='2' width='20' height='20' rx='5.5'/%3E%3Ccircle cx='12' cy='12' r='4.4'/%3E%3Ccircle cx='17.6' cy='6.4' r='1.1' fill='white' stroke='none'/%3E%3C/svg%3E") center/contain no-repeat}
+.ig-thumbs a:hover::after{opacity:1;transform:translate(-50%,-50%) scale(1)}
+@media(max-width:520px){.ig-head{justify-content:center;text-align:center}.ig-meta{text-align:center}.ig-stats{justify-content:center}.ig-follow{width:100%}}
 
 /* ── Reviews ── */
 #reviews{background:var(--bg-2)}
@@ -581,11 +598,24 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
     <h2 class="section-title" data-i18n="ig.title">Follow us on Instagram</h2>
     <p class="section-lead" data-i18n="ig.lead">Food, cocktails and unforgettable nights — see the latest from Soho Bar.</p>
   </div>
-  <div class="container ig-grid">
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DJMxed_CUh-/" data-instgrm-version="14"></blockquote>
-  </div>
-  <div class="center" style="margin-top:26px">
-    <a class="btn btn-gold" href="https://www.instagram.com/sohobarandgrill/" target="_blank" rel="noopener" data-i18n="ig.cta">Open Instagram</a>
+  <div class="ig-card">
+    <div class="ig-head">
+      <a class="ig-avatar" href="https://www.instagram.com/sohobarandgrill/" target="_blank" rel="noopener"><img src="logo-mark.png" alt="Soho Bar"></a>
+      <div class="ig-meta">
+        <a class="ig-handle" href="https://www.instagram.com/sohobarandgrill/" target="_blank" rel="noopener">@sohobarandgrill</a>
+        <div class="ig-name">SOHO BAR · Marsa Alam</div>
+        <div class="ig-stats"><span><b>225</b> <span data-i18n="ig.posts">Posts</span></span><span><b>3K</b> <span data-i18n="ig.followers">Followers</span></span></div>
+      </div>
+      <a class="btn btn-gold ig-follow" href="https://www.instagram.com/sohobarandgrill/" target="_blank" rel="noopener" data-i18n="ig.follow">Follow</a>
+    </div>
+    <div class="ig-thumbs">
+      <a href="https://www.instagram.com/sohobarandgrill/" target="_blank" rel="noopener"><img src="g6.jpg" loading="lazy" alt="Soho Bar Instagram"></a>
+      <a href="https://www.instagram.com/sohobarandgrill/" target="_blank" rel="noopener"><img src="g16.jpg" loading="lazy" alt="Soho Bar Instagram"></a>
+      <a href="https://www.instagram.com/sohobarandgrill/" target="_blank" rel="noopener"><img src="g3.jpg" loading="lazy" alt="Soho Bar Instagram"></a>
+      <a href="https://www.instagram.com/sohobarandgrill/" target="_blank" rel="noopener"><img src="g14.jpg" loading="lazy" alt="Soho Bar Instagram"></a>
+      <a href="https://www.instagram.com/sohobarandgrill/" target="_blank" rel="noopener"><img src="g11.jpg" loading="lazy" alt="Soho Bar Instagram"></a>
+      <a href="https://www.instagram.com/sohobarandgrill/" target="_blank" rel="noopener"><img src="g17.jpg" loading="lazy" alt="Soho Bar Instagram"></a>
+    </div>
   </div>
 </section>
 
@@ -790,7 +820,6 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
   <svg viewBox="0 0 32 32"><path d="M16 2.9C8.8 2.9 3 8.7 3 15.9c0 2.3.6 4.5 1.7 6.5L3 29.1l6.9-1.8c1.9 1 4 1.6 6.1 1.6 7.2 0 13-5.8 13-13S23.2 2.9 16 2.9zm5.9 17.7c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2s0-.5.1-.7c.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5s.1-.4 0-.5c-.1-.2-.7-1.7-1-2.4-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1.1 1.1-1.1 2.6 1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.8.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5s-.3-.2-.6-.4z"/></svg>
 </a>
 
-<script async src="//www.instagram.com/embed.js"></script>
 <script>
 
 /* ── full menu (from the official Soho Bar menu) ── */
@@ -1001,6 +1030,7 @@ const I18N = {
   de: {
     "nav.story":"Unsere Story","nav.menu":"Speisekarte","nav.gallery":"Galerie","nav.services":"Service","nav.whatson":"Programm","nav.reviews":"Bewertungen","nav.find":"Anfahrt","nav.reserve":"Reservieren",
     "gl.kicker":"Ein Vorgeschmack auf Soho","gl.title":"Galerie","gl.lead":"Pizza aus dem Holzofen, frische Gerichte und die Aromen, für die unsere Gäste wiederkommen — einfach wischen.",
+    "ig.posts":"Beiträge","ig.followers":"Follower","ig.follow":"Folgen",
     "ig.title":"Folge uns auf Instagram","ig.lead":"Essen, Cocktails und unvergessliche Nächte — sieh die neuesten Eindrücke aus der Soho Bar.","ig.cta":"Instagram öffnen",
     "rl.kicker":"Ansehen","rl.title":"Reels","rl.lead":"Ein Blick hinter die Kulissen — wischen und ein Reel antippen, um den Ton einzuschalten.","rl.ig":"Folge uns auf Instagram",
     "wo.kicker":"Live-Musik · Happy Hour · Wochenangebote","wo.title":"Diese Woche bei Soho","wo.lead":"Jeden Abend ein guter Grund vorbeizukommen — Live-Bands, Karaoke, Happy Hour und Sharing-Angebote direkt an der Marina.",
@@ -1073,6 +1103,7 @@ const I18N = {
   it: {
     "nav.story":"La nostra storia","nav.menu":"Menù","nav.gallery":"Galleria","nav.services":"Servizi","nav.whatson":"Programma","nav.reviews":"Recensioni","nav.find":"Dove siamo","nav.reserve":"Prenota",
     "gl.kicker":"Un assaggio del Soho","gl.title":"Galleria","gl.lead":"Pizze cotte a legna, piatti freschi e i sapori che fanno tornare i nostri ospiti — scorri le foto.",
+    "ig.posts":"Post","ig.followers":"Follower","ig.follow":"Segui",
     "ig.title":"Seguici su Instagram","ig.lead":"Cibo, cocktail e serate indimenticabili — guarda le ultime novità del Soho Bar.","ig.cta":"Apri Instagram",
     "rl.kicker":"Guarda","rl.title":"Reels","rl.lead":"Uno sguardo dietro le quinte — scorri e tocca un reel per attivare l'audio.","rl.ig":"Seguici su Instagram",
     "wo.kicker":"Musica dal vivo · Happy Hour · Offerte settimanali","wo.title":"Questa settimana al Soho","wo.lead":"Ogni sera un buon motivo per uscire — band dal vivo, karaoke, happy hour e offerte da condividere sulla marina.",
@@ -1145,6 +1176,7 @@ const I18N = {
   pl: {
     "nav.story":"Nasza historia","nav.menu":"Menu","nav.gallery":"Galeria","nav.services":"Usługi","nav.whatson":"Program","nav.reviews":"Opinie","nav.find":"Znajdź nas","nav.reserve":"Rezerwuj",
     "gl.kicker":"Posmak Soho","gl.title":"Galeria","gl.lead":"Pizze z pieca opalanego drewnem, świeże dania i smaki, dla których goście wracają — przesuwaj zdjęcia.",
+    "ig.posts":"Posty","ig.followers":"Obserwujący","ig.follow":"Obserwuj",
     "ig.title":"Obserwuj nas na Instagramie","ig.lead":"Jedzenie, koktajle i niezapomniane wieczory — zobacz najnowsze z Soho Bar.","ig.cta":"Otwórz Instagram",
     "rl.kicker":"Zobacz","rl.title":"Reels","rl.lead":"Zajrzyj za kulisy — przesuwaj i dotknij reela, aby włączyć dźwięk.","rl.ig":"Obserwuj nas na Instagramie",
     "wo.kicker":"Muzyka na żywo · Happy Hour · Oferty tygodnia","wo.title":"W tym tygodniu w Soho","wo.lead":"Każdego wieczoru dobry powód, by wyjść — zespoły na żywo, karaoke, happy hour i oferty do dzielenia nad mariną.",
@@ -1198,6 +1230,7 @@ const I18N = {
   cs: {
     "nav.story":"Náš příběh","nav.menu":"Menu","nav.gallery":"Galerie","nav.services":"Služby","nav.whatson":"Program","nav.reviews":"Recenze","nav.find":"Kde nás najdete","nav.reserve":"Rezervovat",
     "gl.kicker":"Ochutnávka Soho","gl.title":"Galerie","gl.lead":"Pizzy z pece na dřevo, čerstvé pokrmy a chutě, kvůli kterým se hosté vracejí — projeďte fotky.",
+    "ig.posts":"Příspěvky","ig.followers":"Sledující","ig.follow":"Sledovat",
     "ig.title":"Sledujte nás na Instagramu","ig.lead":"Jídlo, koktejly a nezapomenutelné večery — podívejte se na novinky ze Soho Bar.","ig.cta":"Otevřít Instagram",
     "rl.kicker":"Podívejte se","rl.title":"Reels","rl.lead":"Nahlédněte do zákulisí — posouvejte a klepnutím na reel zapněte zvuk.","rl.ig":"Sledujte nás na Instagramu",
     "wo.kicker":"Živá hudba · Happy Hour · Týdenní nabídky","wo.title":"Tento týden v Soho","wo.lead":"Každý večer důvod vyrazit — živé kapely, karaoke, happy hour a nabídky ke sdílení přímo u mariny.",
@@ -1251,6 +1284,7 @@ const I18N = {
   nl: {
     "nav.story":"Ons verhaal","nav.menu":"Menu","nav.gallery":"Galerij","nav.services":"Diensten","nav.whatson":"Programma","nav.reviews":"Reviews","nav.find":"Vind ons","nav.reserve":"Reserveren",
     "gl.kicker":"Een voorproefje van Soho","gl.title":"Galerij","gl.lead":"Houtgestookte pizza's, verse gerechten en de smaken waarvoor gasten terugkomen — veeg door de foto's.",
+    "ig.posts":"Posts","ig.followers":"Volgers","ig.follow":"Volgen",
     "ig.title":"Volg ons op Instagram","ig.lead":"Eten, cocktails en onvergetelijke avonden — bekijk het laatste van Soho Bar.","ig.cta":"Instagram openen",
     "rl.kicker":"Bekijk","rl.title":"Reels","rl.lead":"Een kijkje achter de schermen — veeg en tik op een reel om het geluid aan te zetten.","rl.ig":"Volg ons op Instagram",
     "wo.kicker":"Live muziek · Happy hour · Weekaanbiedingen","wo.title":"Deze week bij Soho","wo.lead":"Elke avond een reden om uit te gaan — livebands, karaoke, happy hour en deelaanbiedingen aan de jachthaven.",
