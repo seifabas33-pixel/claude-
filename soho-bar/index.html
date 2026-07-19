@@ -344,20 +344,26 @@ header.hero::after{
 
 /* ── Reviews ── */
 #reviews{background:var(--bg-2)}
-.scoreboard{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin:40px 0 46px}
+.scoreboard{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin:40px 0 40px}
 .score{
   background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
-  padding:22px 34px;text-align:center;min-width:200px;
+  padding:22px 34px;text-align:center;min-width:200px;display:block;text-decoration:none;color:inherit;
+  transition:transform .2s, border-color .2s, box-shadow .2s;
 }
+.score:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 12px 30px rgba(0,0,0,.25)}
 .score .v{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:900;color:var(--gold-bright)}
 .score .stars{color:var(--gold);letter-spacing:2px;font-size:.85rem}
 .score .p{font-size:.8rem;color:var(--muted);margin-top:5px}
+.score .p b{color:var(--gold-bright);font-weight:700}
 .quotes{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
 .quote{
   background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px;
+  display:block;text-decoration:none;color:inherit;transition:transform .2s, border-color .2s, box-shadow .2s;
 }
+.quote:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 12px 30px rgba(0,0,0,.25)}
 .quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:1.02rem;color:var(--cream);margin-bottom:14px}
-.quote .src{font-size:.76rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.quote .src{font-size:.76rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.rv-cta{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
 /* ── Reserve ── */
 #reserve .wrap{
@@ -756,14 +762,24 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
       <h2 class="section-title" data-i18n="rv.title">Rated #1 in Port Ghalib</h2>
     </div>
     <div class="scoreboard">
-      <div class="score"><div class="v">5.0</div><div class="stars">★★★★★</div><div class="p">TripAdvisor · 220+ <span data-i18n="rv.rev">reviews</span></div></div>
-      <div class="score"><div class="v">4.9</div><div class="stars">★★★★★</div><div class="p">Google · 950+ <span data-i18n="rv.rev2">reviews</span></div></div>
-      <div class="score"><div class="v">5.0</div><div class="stars">★★★★★</div><div class="p">Restaurant Guru · 340+ <span data-i18n="rv.rev3">reviews</span></div></div>
+      <a class="score" href="https://www.tripadvisor.com/Restaurant_Review-g10837810-d28527972-Reviews-Soho_Bar_Tapas_Grill-Port_Ghalib_Marsa_Alam_Red_Sea_and_Sinai.html" target="_blank" rel="noopener">
+        <div class="v">5.0</div><div class="stars">★★★★★</div><div class="p">TripAdvisor · <b data-i18n="rv.ta1">#1 in Port Ghalib</b></div></a>
+      <a class="score" href="https://www.google.com/maps/search/?api=1&query=Soho%20Bar%20Tapas%20%26%20Grill%20Port%20Ghalib" target="_blank" rel="noopener">
+        <div class="v">4.9</div><div class="stars">★★★★★</div><div class="p">Google · 966 <span data-i18n="rv.rev2">reviews</span></div></a>
+      <a class="score" href="https://restaurantguru.com/SoHo-Bar-Tapas-and-Grill-Egypt" target="_blank" rel="noopener">
+        <div class="v">5.0</div><div class="stars">★★★★★</div><div class="p">Restaurant Guru · 347 <span data-i18n="rv.rev3">reviews</span></div></a>
     </div>
     <div class="quotes">
-      <div class="quote"><p data-i18n="rv.q1">"Wonderful place, wonderful staff, wonderful food and wonderful atmosphere."</p><div class="src">— TripAdvisor</div></div>
-      <div class="quote"><p data-i18n="rv.q2">"The quality of the food is really excellent and the value for money is very appealing."</p><div class="src">— TripAdvisor</div></div>
-      <div class="quote"><p data-i18n="rv.q3">"Standout dishes like the camel steak, excellent Neapolitan pizza — and staff that are all friendly and super helpful."</p><div class="src">— Restaurant Guru</div></div>
+      <a class="quote" href="https://www.tripadvisor.com/Restaurant_Review-g10837810-d28527972-Reviews-Soho_Bar_Tapas_Grill-Port_Ghalib_Marsa_Alam_Red_Sea_and_Sinai.html" target="_blank" rel="noopener">
+        <p>"Wonderful place, wonderful staff, wonderful food and wonderful atmosphere!"</p><div class="src">★★★★★ · TripAdvisor ↗</div></a>
+      <a class="quote" href="https://www.tripadvisor.com/Restaurant_Review-g10837810-d28527972-Reviews-Soho_Bar_Tapas_Grill-Port_Ghalib_Marsa_Alam_Red_Sea_and_Sinai.html" target="_blank" rel="noopener">
+        <p>"I had a great evening at Soho! The quality of the food is really excellent and the value for money is very appealing."</p><div class="src">★★★★★ · TripAdvisor ↗</div></a>
+      <a class="quote" href="https://www.google.com/maps/search/?api=1&query=Soho%20Bar%20Tapas%20%26%20Grill%20Port%20Ghalib" target="_blank" rel="noopener">
+        <p>"Great food, specially the camel steak. Great vibes, great times!"</p><div class="src">★★★★★ · Google ↗</div></a>
+    </div>
+    <div class="center rv-cta">
+      <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&query=Soho%20Bar%20Tapas%20%26%20Grill%20Port%20Ghalib" target="_blank" rel="noopener" data-i18n="rv.google">★ Read our Google reviews</a>
+      <a class="btn btn-outline" href="https://www.tripadvisor.com/Restaurant_Review-g10837810-d28527972-Reviews-Soho_Bar_Tapas_Grill-Port_Ghalib_Marsa_Alam_Red_Sea_and_Sinai.html" target="_blank" rel="noopener" data-i18n="rv.ta">Read on TripAdvisor</a>
     </div>
   </div>
 </section>
@@ -1123,6 +1139,7 @@ const I18N = {
     "sv.c4":"Lounge-Atmosphäre","sv.c4d":"Die Musik bleibt angenehm leise — das Gespräch steht an erster Stelle.",
     "sv.c5":"Direkt am Wasser","sv.c5d":"Malerische Plätze an der Promenade von Port Ghalib — Sonnenuntergang inklusive.",
     "sv.c6":"Brunch & Tastings","sv.c6d":"Vom Bottomless Brunch bis zum Tapas-Tasting zu zweit — fragen Sie, was gerade läuft.",
+    "rv.ta1":"Nr. 1 in Port Ghalib","rv.google":"★ Google-Bewertungen lesen","rv.ta":"Auf TripAdvisor lesen",
     "rv.kicker":"Gästebewertungen","rv.title":"Die Nr. 1 in Port Ghalib","rv.rev":"Bewertungen","rv.rev2":"Bewertungen","rv.rev3":"Bewertungen",
     "rv.q1":"„Wunderbarer Ort, wunderbares Personal, wunderbares Essen und wunderbare Atmosphäre.“",
     "rv.q2":"„Die Qualität des Essens ist wirklich exzellent und das Preis-Leistungs-Verhältnis sehr attraktiv.“",
@@ -1196,6 +1213,7 @@ const I18N = {
     "sv.c4":"Atmosfera lounge","sv.c4d":"Musica soft e di sottofondo: la conversazione viene prima di tutto.",
     "sv.c5":"Sul lungomare","sv.c5d":"Tavoli panoramici sull'acqua, sulla passeggiata di Port Ghalib — tramonti inclusi.",
     "sv.c6":"Brunch e degustazioni","sv.c6d":"Dal bottomless brunch alle degustazioni di tapas per due — chiedici il programma.",
+    "rv.ta1":"N. 1 a Port Ghalib","rv.google":"★ Leggi le recensioni Google","rv.ta":"Leggi su TripAdvisor",
     "rv.kicker":"Recensioni degli ospiti","rv.title":"Il numero 1 di Port Ghalib","rv.rev":"recensioni","rv.rev2":"recensioni","rv.rev3":"recensioni",
     "rv.q1":"«Posto meraviglioso, staff meraviglioso, cibo meraviglioso e atmosfera meravigliosa.»",
     "rv.q2":"«La qualità del cibo è davvero eccellente e il rapporto qualità-prezzo molto interessante.»",
@@ -1250,6 +1268,7 @@ const I18N = {
     "sv.c4":"Klimat lounge","sv.c4d":"Muzyka cicha i przyjemna, by rozmowa była na pierwszym miejscu.",
     "sv.c5":"Nabrzeże mariny","sv.c5d":"Malownicze miejsca nad wodą na promenadzie Port Ghalib — zachody słońca w cenie.",
     "sv.c6":"Brunch i degustacje","sv.c6d":"Od bottomless brunchu po degustacje tapas we dwoje — zapytaj, co dziś gramy.",
+    "rv.ta1":"Nr 1 w Port Ghalib","rv.google":"★ Zobacz opinie Google","rv.ta":"Zobacz na TripAdvisor",
     "rv.kicker":"Opinie gości","rv.title":"Nr 1 w Port Ghalib","rv.rev":"opinii","rv.rev2":"opinii","rv.rev3":"opinii",
     "rv.q1":"„Cudowne miejsce, cudowna obsługa, cudowne jedzenie i cudowna atmosfera.”",
     "rv.q2":"„Jakość jedzenia jest naprawdę znakomita, a stosunek jakości do ceny bardzo atrakcyjny.”",
@@ -1304,6 +1323,7 @@ const I18N = {
     "sv.c4":"Lounge atmosféra","sv.c4d":"Hudba tichá a příjemná, aby byl na prvním místě rozhovor.",
     "sv.c5":"Nábřeží mariny","sv.c5d":"Malebná místa u vody na promenádě Port Ghalib — západy slunce v ceně.",
     "sv.c6":"Brunch a degustace","sv.c6d":"Od bottomless brunche po degustace tapas ve dvou — zeptejte se, co se dnes koná.",
+    "rv.ta1":"Č. 1 v Port Ghalib","rv.google":"★ Přečíst recenze Google","rv.ta":"Zobrazit na TripAdvisoru",
     "rv.kicker":"Recenze hostů","rv.title":"Č. 1 v Port Ghalib","rv.rev":"recenzí","rv.rev2":"recenzí","rv.rev3":"recenzí",
     "rv.q1":"„Nádherné místo, nádherný personál, nádherné jídlo a nádherná atmosféra.”",
     "rv.q2":"„Kvalita jídla je opravdu vynikající a poměr cena/výkon velmi příznivý.”",
@@ -1358,6 +1378,7 @@ const I18N = {
     "sv.c4":"Lounge-sfeer","sv.c4d":"Muziek zacht en rustig, zodat het gesprek altijd voorop staat.",
     "sv.c5":"Waterkant jachthaven","sv.c5d":"Sfeervolle plekjes aan het water op de promenade van Port Ghalib — zonsondergangen inbegrepen.",
     "sv.c6":"Brunch & proeverijen","sv.c6d":"Van bottomless brunch tot tapas-proeverijen voor twee — vraag ons wat er speelt.",
+    "rv.ta1":"Nr. 1 in Port Ghalib","rv.google":"★ Lees onze Google-reviews","rv.ta":"Lees op TripAdvisor",
     "rv.kicker":"Gastenreviews","rv.title":"Nr. 1 in Port Ghalib","rv.rev":"reviews","rv.rev2":"reviews","rv.rev3":"reviews",
     "rv.q1":"„Prachtige plek, prachtig personeel, prachtig eten en een prachtige sfeer.”",
     "rv.q2":"„De kwaliteit van het eten is echt uitstekend en de prijs-kwaliteitverhouding zeer aantrekkelijk.”",
