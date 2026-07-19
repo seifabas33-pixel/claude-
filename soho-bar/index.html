@@ -293,6 +293,33 @@ header.hero::after{
   .slide figcaption{font-size:1.15rem}
 }
 
+/* ── Reels ── */
+#reels{background:var(--bg-2)}
+.reels-wrap{position:relative;margin-top:44px}
+.reels{
+  display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:6px max((100% - 1120px)/2, 4%) 22px;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}
+.reels::-webkit-scrollbar{display:none}
+.reel{
+  position:relative;flex:none;width:min(280px,72vw);aspect-ratio:9/16;scroll-snap-align:center;margin:0;
+  border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#000;cursor:pointer;
+}
+.reel video{width:100%;height:100%;object-fit:cover;display:block}
+.reel figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:36px 16px 15px;pointer-events:none;
+  font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.78));
+}
+.reel-sound{
+  position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:none;
+  background:rgba(0,0,0,.55);color:#fff;font-size:1.05rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:background .2s;
+}
+.reel-sound:hover{background:rgba(0,0,0,.8)}
+.reels-cta{margin-top:30px}
+
 /* ── Reviews ── */
 #reviews{background:var(--bg-2)}
 .scoreboard{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin:40px 0 46px}
@@ -399,6 +426,7 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
         <li><a href="#story" data-i18n="nav.story">Our Story</a></li>
         <li><a href="#menu" data-i18n="nav.menu">Menu</a></li>
         <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+        <li><a href="#reels" data-i18n="nav.reels">Reels</a></li>
         <li><a href="#services" data-i18n="nav.services">Services</a></li>
         <li><a href="#whatson" data-i18n="nav.whatson">What's On</a></li>
         <li><a href="#reviews" data-i18n="nav.reviews">Reviews</a></li>
@@ -504,6 +532,43 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
     <button class="gal-nav next" aria-label="Next">›</button>
   </div>
   <div class="gal-dots" id="galDots"></div>
+</section>
+
+<section id="reels">
+  <div class="container center">
+    <span class="kicker" data-i18n="rl.kicker">Watch</span>
+    <h2 class="section-title" data-i18n="rl.title">Reels</h2>
+    <p class="section-lead" data-i18n="rl.lead">A peek behind the scenes — swipe through, and tap a reel to turn the sound on.</p>
+  </div>
+  <div class="reels-wrap">
+    <button class="gal-nav prev reels-prev" aria-label="Previous">‹</button>
+    <div class="reels" id="reelsTrack">
+      <figure class="reel">
+        <video loop muted playsinline preload="none" poster="reel1-poster.jpg" data-src="reel1.mp4"></video>
+        <button class="reel-sound" aria-label="Toggle sound">🔇</button>
+        <figcaption>Behind the Scenes</figcaption>
+      </figure>
+      <figure class="reel">
+        <video loop muted playsinline preload="none" poster="reel2-poster.jpg" data-src="reel2.mp4"></video>
+        <button class="reel-sound" aria-label="Toggle sound">🔇</button>
+        <figcaption>Golden Hour</figcaption>
+      </figure>
+      <figure class="reel">
+        <video loop muted playsinline preload="none" poster="reel3-poster.jpg" data-src="reel3.mp4"></video>
+        <button class="reel-sound" aria-label="Toggle sound">🔇</button>
+        <figcaption>Handmade Dough</figcaption>
+      </figure>
+      <figure class="reel">
+        <video loop muted playsinline preload="none" poster="reel4-poster.jpg" data-src="reel4.mp4"></video>
+        <button class="reel-sound" aria-label="Toggle sound">🔇</button>
+        <figcaption>Live Music Nights</figcaption>
+      </figure>
+    </div>
+    <button class="gal-nav next reels-next" aria-label="Next">›</button>
+  </div>
+  <div class="center reels-cta">
+    <a class="btn btn-outline" href="https://www.instagram.com/sohobarandgrill/" target="_blank" rel="noopener" data-i18n="rl.ig">Follow us on Instagram</a>
+  </div>
 </section>
 
 <section id="services">
@@ -917,6 +982,7 @@ const I18N = {
   de: {
     "nav.story":"Unsere Story","nav.menu":"Speisekarte","nav.gallery":"Galerie","nav.services":"Service","nav.whatson":"Programm","nav.reviews":"Bewertungen","nav.find":"Anfahrt","nav.reserve":"Reservieren",
     "gl.kicker":"Ein Vorgeschmack auf Soho","gl.title":"Galerie","gl.lead":"Pizza aus dem Holzofen, frische Gerichte und die Aromen, für die unsere Gäste wiederkommen — einfach wischen.",
+    "rl.kicker":"Ansehen","rl.title":"Reels","rl.lead":"Ein Blick hinter die Kulissen — wischen und ein Reel antippen, um den Ton einzuschalten.","rl.ig":"Folge uns auf Instagram",
     "wo.kicker":"Live-Musik · Happy Hour · Wochenangebote","wo.title":"Diese Woche bei Soho","wo.lead":"Jeden Abend ein guter Grund vorbeizukommen — Live-Bands, Karaoke, Happy Hour und Sharing-Angebote direkt an der Marina.",
     "wo.sun":"Sonntag","wo.sunT":"Happy Hour","wo.sunD":"19–21 Uhr — zwei Stunden Getränke-Specials zum Wochenstart.",
     "wo.mon":"Montag","wo.monT":"Sharing-Dinner","wo.monD":"2 Pizzen oder 2 Burger + 2 Cocktails — perfekt zu zweit.",
@@ -987,6 +1053,7 @@ const I18N = {
   it: {
     "nav.story":"La nostra storia","nav.menu":"Menù","nav.gallery":"Galleria","nav.services":"Servizi","nav.whatson":"Programma","nav.reviews":"Recensioni","nav.find":"Dove siamo","nav.reserve":"Prenota",
     "gl.kicker":"Un assaggio del Soho","gl.title":"Galleria","gl.lead":"Pizze cotte a legna, piatti freschi e i sapori che fanno tornare i nostri ospiti — scorri le foto.",
+    "rl.kicker":"Guarda","rl.title":"Reels","rl.lead":"Uno sguardo dietro le quinte — scorri e tocca un reel per attivare l'audio.","rl.ig":"Seguici su Instagram",
     "wo.kicker":"Musica dal vivo · Happy Hour · Offerte settimanali","wo.title":"Questa settimana al Soho","wo.lead":"Ogni sera un buon motivo per uscire — band dal vivo, karaoke, happy hour e offerte da condividere sulla marina.",
     "wo.sun":"Domenica","wo.sunT":"Happy Hour","wo.sunD":"19–21 — due ore di offerte sui drink per iniziare la settimana.",
     "wo.mon":"Lunedì","wo.monT":"Cena da Condividere","wo.monD":"2 pizze o 2 burger + 2 cocktail — perfetto per due.",
@@ -1057,6 +1124,7 @@ const I18N = {
   pl: {
     "nav.story":"Nasza historia","nav.menu":"Menu","nav.gallery":"Galeria","nav.services":"Usługi","nav.whatson":"Program","nav.reviews":"Opinie","nav.find":"Znajdź nas","nav.reserve":"Rezerwuj",
     "gl.kicker":"Posmak Soho","gl.title":"Galeria","gl.lead":"Pizze z pieca opalanego drewnem, świeże dania i smaki, dla których goście wracają — przesuwaj zdjęcia.",
+    "rl.kicker":"Zobacz","rl.title":"Reels","rl.lead":"Zajrzyj za kulisy — przesuwaj i dotknij reela, aby włączyć dźwięk.","rl.ig":"Obserwuj nas na Instagramie",
     "wo.kicker":"Muzyka na żywo · Happy Hour · Oferty tygodnia","wo.title":"W tym tygodniu w Soho","wo.lead":"Każdego wieczoru dobry powód, by wyjść — zespoły na żywo, karaoke, happy hour i oferty do dzielenia nad mariną.",
     "wo.sun":"Niedziela","wo.sunT":"Happy Hour","wo.sunD":"19–21 — dwie godziny promocji na drinki na początek tygodnia.",
     "wo.mon":"Poniedziałek","wo.monT":"Kolacja do dzielenia","wo.monD":"2 pizze lub 2 burgery + 2 koktajle — idealne dla dwojga.",
@@ -1108,6 +1176,7 @@ const I18N = {
   cs: {
     "nav.story":"Náš příběh","nav.menu":"Menu","nav.gallery":"Galerie","nav.services":"Služby","nav.whatson":"Program","nav.reviews":"Recenze","nav.find":"Kde nás najdete","nav.reserve":"Rezervovat",
     "gl.kicker":"Ochutnávka Soho","gl.title":"Galerie","gl.lead":"Pizzy z pece na dřevo, čerstvé pokrmy a chutě, kvůli kterým se hosté vracejí — projeďte fotky.",
+    "rl.kicker":"Podívejte se","rl.title":"Reels","rl.lead":"Nahlédněte do zákulisí — posouvejte a klepnutím na reel zapněte zvuk.","rl.ig":"Sledujte nás na Instagramu",
     "wo.kicker":"Živá hudba · Happy Hour · Týdenní nabídky","wo.title":"Tento týden v Soho","wo.lead":"Každý večer důvod vyrazit — živé kapely, karaoke, happy hour a nabídky ke sdílení přímo u mariny.",
     "wo.sun":"Neděle","wo.sunT":"Happy Hour","wo.sunD":"19–21 — dvě hodiny akcí na nápoje na začátek týdne.",
     "wo.mon":"Pondělí","wo.monT":"Večeře ke sdílení","wo.monD":"2 pizzy nebo 2 burgery + 2 koktejly — ideální pro dva.",
@@ -1159,6 +1228,7 @@ const I18N = {
   nl: {
     "nav.story":"Ons verhaal","nav.menu":"Menu","nav.gallery":"Galerij","nav.services":"Diensten","nav.whatson":"Programma","nav.reviews":"Reviews","nav.find":"Vind ons","nav.reserve":"Reserveren",
     "gl.kicker":"Een voorproefje van Soho","gl.title":"Galerij","gl.lead":"Houtgestookte pizza's, verse gerechten en de smaken waarvoor gasten terugkomen — veeg door de foto's.",
+    "rl.kicker":"Bekijk","rl.title":"Reels","rl.lead":"Een kijkje achter de schermen — veeg en tik op een reel om het geluid aan te zetten.","rl.ig":"Volg ons op Instagram",
     "wo.kicker":"Live muziek · Happy hour · Weekaanbiedingen","wo.title":"Deze week bij Soho","wo.lead":"Elke avond een reden om uit te gaan — livebands, karaoke, happy hour en deelaanbiedingen aan de jachthaven.",
     "wo.sun":"Zondag","wo.sunT":"Happy Hour","wo.sunD":"19–21 uur — twee uur drankacties om de week te beginnen.",
     "wo.mon":"Maandag","wo.monT":"Deeldiner","wo.monD":"2 pizza's of 2 burgers + 2 cocktails — perfect voor twee.",
@@ -1340,6 +1410,44 @@ navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLink
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
+})();
+
+/* ── Reels: lazy-load, autoplay muted in view, tap to unmute ── */
+(function(){
+  const track=document.getElementById('reelsTrack');
+  if(!track) return;
+  const reels=[...track.querySelectorAll('.reel')];
+  const step=()=>reels[0].getBoundingClientRect().width+18;
+  document.querySelector('.reels-prev')&&document.querySelector('.reels-prev').addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));
+  document.querySelector('.reels-next')&&document.querySelector('.reels-next').addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
+  reels.forEach(r=>{
+    const v=r.querySelector('video'), btn=r.querySelector('.reel-sound');
+    function toggle(){
+      const unmute=v.muted;
+      if(unmute){ // mute every other reel first
+        reels.forEach(o=>{ if(o!==r){ const ov=o.querySelector('video'); ov.muted=true; o.querySelector('.reel-sound').textContent='🔇'; } });
+      }
+      v.muted=!v.muted;
+      btn.textContent=v.muted?'🔇':'🔊';
+      if(!v.muted){ v.play().catch(()=>{}); }
+    }
+    v.addEventListener('click',toggle);
+    btn.addEventListener('click',e=>{e.stopPropagation();toggle();});
+  });
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(en=>{
+        const v=en.target.querySelector('video');
+        if(en.isIntersecting){
+          if(!v.src && v.dataset.src) v.src=v.dataset.src;
+          v.play().catch(()=>{});
+        } else { v.pause(); }
+      });
+    },{threshold:0.55});
+    reels.forEach(r=>io.observe(r));
+  } else {
+    reels.forEach(r=>{ const v=r.querySelector('video'); if(v.dataset.src) v.src=v.dataset.src; v.play().catch(()=>{}); });
+  }
 })();
 
 /* ── Reservation → WhatsApp ── */
