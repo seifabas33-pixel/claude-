@@ -1565,21 +1565,32 @@ navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLink
   ['pointerdown','touchstart','scroll'].forEach(ev=>window.addEventListener(ev,tryPlay,{once:true,passive:true}));
 })();
 
-/* ── Ambient music toggle ── */
+/* ── Ambient music toggle (with fade in / out) ── */
 (function(){
   const audio=document.getElementById('bgm'), btn=document.getElementById('musicBtn');
   if(!audio||!btn) return;
-  audio.volume=0.32;
-  let want=false;
+  const TARGET=0.32; audio.volume=0;
+  let want=false, fadeTimer=null;
   try{ want = localStorage.getItem('soho-music')==='on'; }catch(e){}
   const reelLoud=()=>[...document.querySelectorAll('#reelsTrack video')].some(v=>!v.muted && !v.paused);
   function show(on){ btn.classList.toggle('playing',on); btn.setAttribute('aria-label', on?'Pause music':'Play ambient music'); }
-  function play(){ if(reelLoud()||document.hidden) return; audio.play().then(()=>show(true)).catch(()=>{}); }
-  function stop(){ audio.pause(); show(false); }
+  function fade(to, ms, done){
+    clearInterval(fadeTimer);
+    const from=audio.volume, steps=Math.max(1,Math.round(ms/50)); let i=0;
+    fadeTimer=setInterval(()=>{
+      i++; audio.volume=Math.max(0,Math.min(1, from+(to-from)*(i/steps)));
+      if(i>=steps){ clearInterval(fadeTimer); if(done) done(); }
+    },50);
+  }
+  function play(){
+    if(reelLoud()||document.hidden) return;
+    audio.play().then(()=>{ show(true); fade(TARGET,1600); }).catch(()=>{});
+  }
+  function fadeOutPause(ms){ show(false); fade(0, ms, ()=>audio.pause()); }
   btn.addEventListener('click',()=>{
     want=!want;
     try{ localStorage.setItem('soho-music', want?'on':'off'); }catch(e){}
-    want ? play() : stop();
+    want ? play() : fadeOutPause(1100);
   });
   // resume on first interaction if it was on last visit (browsers block autoplay)
   if(want){
@@ -1587,14 +1598,14 @@ navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLink
     const resume=()=>{ if(want) play(); };
     ['pointerdown','touchstart','keydown'].forEach(ev=>document.addEventListener(ev,resume,{once:true}));
   }
-  // pause on hidden tab; resume if wanted
-  document.addEventListener('visibilitychange',()=>{ if(document.hidden){audio.pause();btn.classList.remove('playing');} else if(want) play(); });
-  // don't clash with reel audio: pause music when a reel plays with sound
+  // pause on hidden tab; resume (fade in) if wanted
+  document.addEventListener('visibilitychange',()=>{ if(document.hidden){ show(false); fade(0,200,()=>audio.pause()); } else if(want) play(); });
+  // don't clash with reel audio: fade music out when a reel plays with sound
   document.addEventListener('play', e=>{
-    if(e.target.tagName==='VIDEO' && e.target.closest('#reelsTrack') && !e.target.muted){ audio.pause(); btn.classList.remove('playing'); }
+    if(e.target.tagName==='VIDEO' && e.target.closest('#reelsTrack') && !e.target.muted){ fadeOutPause(500); }
   }, true);
   document.addEventListener('volumechange', e=>{
-    if(e.target.tagName==='VIDEO' && e.target.closest('#reelsTrack')){ setTimeout(()=>{ if(want && !reelLoud()) play(); }, 250); }
+    if(e.target.tagName==='VIDEO' && e.target.closest('#reelsTrack')){ setTimeout(()=>{ if(want && !reelLoud()) play(); }, 300); }
   }, true);
 })();
 
