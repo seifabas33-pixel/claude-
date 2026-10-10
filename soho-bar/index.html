@@ -214,6 +214,12 @@ header.hero::after{
 .dish h3{font-size:1.28rem;color:var(--ink);margin-bottom:5px;font-family:'Playfair Display',serif;font-weight:700;display:flex;align-items:center;gap:9px;flex-wrap:wrap;line-height:1.2}
 .dish p{font-size:1rem;color:var(--ink-soft);line-height:1.55}
 .dish .price{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold-bright);font-weight:800;white-space:nowrap;flex:none;text-shadow:0 1px 10px rgba(212,162,76,.25)}
+.dish.has-opts{align-items:flex-start}
+.dish.has-opts .dish-main{flex:1}
+.opts{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:5px}
+.opts li{display:flex;align-items:baseline;gap:10px;font-size:.98rem;color:var(--ink-soft)}
+.opts li i{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px)}
+.opts li b{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold-bright);font-weight:800;white-space:nowrap}
 .veg{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(74,168,86,.22);border:1px solid rgba(74,168,86,.6);color:#6fd67e;font-size:.72rem;font-weight:800;flex:none}
 .star{
   display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
@@ -552,7 +558,7 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
       <h2 class="section-title" data-i18n="story.title">Where Italian tradition meets Egyptian soul</h2>
       <p class="section-lead" data-i18n="story.lead1">Our kitchen is born from the meeting of two worlds — Italian tradition and Egyptian authenticity — united in one identity that tells our story.</p>
       <div class="story-quote" data-i18n="story.quote">"Every day we craft our bread by hand for our tapas and our burgers, using selected ingredients and techniques that honour every detail."</div>
-      <p class="section-lead" data-i18n="story.lead2">From the long-risen dough of our Neapolitan pizza to high-quality Italian ingredients, every plate is made to offer an authentic experience. Fresh pasta, creamy risottos, prime Angus fillets and our local specialty — the Camel Steak — complete a menu that blends tradition, craft and the flavours of the Mediterranean.</p>
+      <p class="section-lead" data-i18n="story.lead2">From the long-risen dough of our Neapolitan pizza to high-quality Italian ingredients, every plate is made to offer an authentic experience. Fresh pasta, creamy risottos, prime beef fillets and our local specialty — the Camel Steak — complete a menu that blends tradition, craft and the flavours of the Mediterranean.</p>
     </div>
     <div class="story-art"><span class="tag" data-i18n="story.art">Port Ghalib Marina · Waterfront Terrace</span></div>
   </div>
@@ -563,7 +569,7 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
     <div class="center">
       <span class="kicker" data-i18n="menu.kicker">The Menu</span>
       <h2 class="section-title" data-i18n="menu.title">From the grill, the oven &amp; the bar</h2>
-      <p class="section-lead" data-i18n="menu.lead">Spanish tapas, Italian pizzas and serious grilling — with great vegan options and a bar that knows what it's doing.</p>
+      <p class="section-lead" data-i18n="menu.lead">Italian pasta &amp; risotto, pizza and serious grilling — with great vegan options and a bar that knows what it's doing.</p>
     </div>
     <div class="menu-tabs" id="menuTabs"></div>
     <div id="menuBody"></div>
@@ -584,54 +590,25 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
     <button class="gal-nav prev" aria-label="Previous">‹</button>
     <div class="gallery" id="galleryTrack">
       <figure class="slide"><img src="g1.jpg" loading="lazy" alt="Quinoa salad"><figcaption>Quinoa Salad</figcaption></figure>
-      <figure class="slide"><img src="g36.jpg" loading="lazy" alt="Grilled peach and burrata salad"><figcaption>Peach &amp; Burrata</figcaption></figure>
-      <figure class="slide"><img src="g38.jpg" loading="lazy" alt="Classic Caesar salad with grilled chicken"><figcaption>Classic Caesar Salad</figcaption></figure>
-      <figure class="slide"><img src="g57.jpg" loading="lazy" alt="Cobb salad"><figcaption>Cobb Salad</figcaption></figure>
-      <figure class="slide"><img src="g58.jpg" loading="lazy" alt="Beef carpaccio"><figcaption>Beef Carpaccio</figcaption></figure>
-      <figure class="slide"><img src="g2.jpg" loading="lazy" alt="Wood-fired pizza"><figcaption>Verdure Pizza</figcaption></figure>
-      <figure class="slide"><img src="g3.jpg" loading="lazy" alt="Diavola pizza"><figcaption>Diavola Pizza</figcaption></figure>
+      <figure class="slide"><img src="g58.jpg" loading="lazy" alt="Beef carpaccio with rocket and parmesan"><figcaption>Carpaccio</figcaption></figure>
+      <figure class="slide"><img src="g33.jpg" loading="lazy" alt="Pil-pil prawns with toasted bread"><figcaption>Pil-Pil</figcaption></figure>
+      <figure class="slide"><img src="g39.jpg" loading="lazy" alt="Tagliolini with truffle sauce"><figcaption>Tagliolini al Tartufo</figcaption></figure>
+      <figure class="slide"><img src="g44.jpg" loading="lazy" alt="Grilled camel steak"><figcaption>Grilled Camel Steak</figcaption></figure>
+      <figure class="slide"><img src="g45.jpg" loading="lazy" alt="Beef tenderloin fillet"><figcaption>Filetto di Manzo</figcaption></figure>
+      <figure class="slide"><img src="g37.jpg" loading="lazy" alt="Chicken Milanese with rocket and parmesan"><figcaption>Milanese (Chicken)</figcaption></figure>
+      <figure class="slide"><img src="g50.jpg" loading="lazy" alt="Veal Milanese"><figcaption>Milanese (Veal)</figcaption></figure>
       <figure class="slide"><img src="g29.jpg" loading="lazy" alt="Margherita pizza"><figcaption>Margherita Pizza</figcaption></figure>
-      <figure class="slide"><img src="g30.jpg" loading="lazy" alt="Truffle and mushroom white pizza"><figcaption>Tartufa Pizza</figcaption></figure>
-      <figure class="slide"><img src="g35.jpg" loading="lazy" alt="Eggplant parmigiana pizza"><figcaption>Parmigiana Pizza</figcaption></figure>
+      <figure class="slide"><img src="g51.jpg" loading="lazy" alt="Quattro formaggi pizza"><figcaption>Quattro Formaggi</figcaption></figure>
+      <figure class="slide"><img src="g3.jpg" loading="lazy" alt="Diavola pizza"><figcaption>Diavola Pizza</figcaption></figure>
+      <figure class="slide"><img src="g2.jpg" loading="lazy" alt="Vegetariana pizza"><figcaption>Vegetariana Pizza</figcaption></figure>
       <figure class="slide"><img src="g52.jpg" loading="lazy" alt="Burrata pizza"><figcaption>Burrata Pizza</figcaption></figure>
-      <figure class="slide"><img src="g51.jpg" loading="lazy" alt="Quattro formaggio pizza"><figcaption>Quattro Formaggio</figcaption></figure>
-      <figure class="slide"><img src="g53.jpg" loading="lazy" alt="Frutti di mare seafood pizza"><figcaption>Frutti di Mare</figcaption></figure>
-      <figure class="slide"><img src="g54.jpg" loading="lazy" alt="Pannuozzo al salmone"><figcaption>Pannuozzo al Salmone</figcaption></figure>
-      <figure class="slide"><img src="g5.jpg" loading="lazy" alt="Grilled chicken wings"><figcaption>Chicken Wings</figcaption></figure>
-      <figure class="slide"><img src="g7.jpg" loading="lazy" alt="Tapas sharing board"><figcaption>SoHo Mix Tapas</figcaption></figure>
-      <figure class="slide"><img src="g10.jpg" loading="lazy" alt="Fried calamari with tzatziki"><figcaption>Calamares Fritos</figcaption></figure>
-      <figure class="slide"><img src="g41.jpg" loading="lazy" alt="Patatas bravas"><figcaption>Patatas Bravas</figcaption></figure>
-      <figure class="slide"><img src="g59.jpg" loading="lazy" alt="Garlic cheese bread"><figcaption>Pan de Ajo y Queso</figcaption></figure>
-      <figure class="slide"><img src="g60.jpg" loading="lazy" alt="Trio of bruschetta"><figcaption>Trio Bruschetta</figcaption></figure>
-      <figure class="slide"><img src="g62.jpg" loading="lazy" alt="Beef nachos supreme"><figcaption>Beef Nachos Supreme</figcaption></figure>
-      <figure class="slide"><img src="g63.jpg" loading="lazy" alt="Fried cheese balls"><figcaption>Cheese Balls</figcaption></figure>
-      <figure class="slide"><img src="g61.jpg" loading="lazy" alt="French fries"><figcaption>French Fries</figcaption></figure>
-      <figure class="slide"><img src="g11.jpg" loading="lazy" alt="Hummus"><figcaption>Hummus</figcaption></figure>
-      <figure class="slide"><img src="g12.jpg" loading="lazy" alt="Creamy dip"><figcaption>Tzatziki</figcaption></figure>
-      <figure class="slide"><img src="g13.jpg" loading="lazy" alt="Tomato bruschetta"><figcaption>Bruschetta</figcaption></figure>
-      <figure class="slide"><img src="g14.jpg" loading="lazy" alt="Fresh mussels"><figcaption>Mejillones a la Marinera</figcaption></figure>
-      <figure class="slide"><img src="g28.jpg" loading="lazy" alt="Tagliatelle with prawns and zucchini"><figcaption>Tagliatelle con Gamberi e Zucchine</figcaption></figure>
-      <figure class="slide"><img src="g31.jpg" loading="lazy" alt="Linguine with tomato and burrata"><figcaption>Linguine Tomate Burrata</figcaption></figure>
-      <figure class="slide"><img src="g32.jpg" loading="lazy" alt="Spaghetti with lobster"><figcaption>Spaghetti all'Aragosta</figcaption></figure>
-      <figure class="slide"><img src="g34.jpg" loading="lazy" alt="Truffle risotto with mushrooms and parmesan"><figcaption>Risotto al Tartufo</figcaption></figure>
-      <figure class="slide"><img src="g39.jpg" loading="lazy" alt="Truffle cream spaghetti"><figcaption>Spaghetti al Tartufo</figcaption></figure>
-      <figure class="slide"><img src="g44.jpg" loading="lazy" alt="Egyptian camel steak"><figcaption>Egyptian Camel Steak</figcaption></figure>
-      <figure class="slide"><img src="g42.jpg" loading="lazy" alt="Young Angus ribeye steak"><figcaption>Young Angus Ribeye Steak</figcaption></figure>
-      <figure class="slide"><img src="g45.jpg" loading="lazy" alt="Young Angus beef fillet"><figcaption>Young Angus Beef Fillet</figcaption></figure>
-      <figure class="slide"><img src="g46.jpg" loading="lazy" alt="Young Angus sirloin steak"><figcaption>Young Angus Sirloin Steak</figcaption></figure>
-      <figure class="slide"><img src="g47.jpg" loading="lazy" alt="Grilled salmon teriyaki"><figcaption>Grilled Salmon Teriyaki</figcaption></figure>
-      <figure class="slide"><img src="g48.jpg" loading="lazy" alt="Roasted shrimp"><figcaption>Roasted Shrimp</figcaption></figure>
-      <figure class="slide"><img src="g49.jpg" loading="lazy" alt="Creamy thyme pan-seared chicken"><figcaption>Creamy Thyme Pan-Seared Chicken</figcaption></figure>
-      <figure class="slide"><img src="g50.jpg" loading="lazy" alt="Escalope Milanese"><figcaption>Escalope Milanese</figcaption></figure>
-      <figure class="slide"><img src="g37.jpg" loading="lazy" alt="Chicken Milanese with rocket and parmesan"><figcaption>Chicken Milanese</figcaption></figure>
-      <figure class="slide"><img src="g40.jpg" loading="lazy" alt="Classic beef burger with fries"><figcaption>Classic Beef Burger</figcaption></figure>
-      <figure class="slide"><img src="g43.jpg" loading="lazy" alt="Mushroom Swiss burger on the terrace"><figcaption>Mushroom Swiss Burger</figcaption></figure>
-      <figure class="slide"><img src="g55.jpg" loading="lazy" alt="BBQ burger"><figcaption>BBQ Burger</figcaption></figure>
-      <figure class="slide"><img src="g56.jpg" loading="lazy" alt="Veggie Delight sandwich"><figcaption>Veggie Delight</figcaption></figure>
-      <figure class="slide"><img src="g33.jpg" loading="lazy" alt="Gambas al ajillo with toasted bread"><figcaption>Gambas al Ajillo</figcaption></figure>
-      <figure class="slide"><img src="g64.jpg" loading="lazy" alt="Cheesecake with berries"><figcaption>Cheesecake</figcaption></figure>
-      <figure class="slide"><img src="g65.jpg" loading="lazy" alt="Warm chocolate fondant with ice cream"><figcaption>Warm Chocolate Fondant</figcaption></figure>
-      <figure class="slide"><img src="g66.jpg" loading="lazy" alt="Ice cream scoops with wafer"><figcaption>Ice Cream</figcaption></figure>
+      <figure class="slide"><img src="g53.jpg" loading="lazy" alt="Seafood pizza"><figcaption>Seafood Pizza</figcaption></figure>
+      <figure class="slide"><img src="g30.jpg" loading="lazy" alt="Tartufo pizza"><figcaption>Tartufo Pizza</figcaption></figure>
+      <figure class="slide"><img src="g54.jpg" loading="lazy" alt="Panuozzo with smoked salmon"><figcaption>Panuozzo Salmon</figcaption></figure>
+      <figure class="slide"><img src="g40.jpg" loading="lazy" alt="Soho signature burger"><figcaption>Soho Signature Burger</figcaption></figure>
+      <figure class="slide"><img src="g64.jpg" loading="lazy" alt="Basque cheesecake"><figcaption>Basque Cheesecake</figcaption></figure>
+      <figure class="slide"><img src="g65.jpg" loading="lazy" alt="Chocolate soufflé with ice cream"><figcaption>Chocolate Soufflé</figcaption></figure>
+      <figure class="slide"><img src="g66.jpg" loading="lazy" alt="Ice cream scoops with wafer"><figcaption>Selection of 3 Ice Creams</figcaption></figure>
     </div>
     <button class="gal-nav next" aria-label="Next">›</button>
   </div>
@@ -952,79 +929,102 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
 /* ── full menu (from the official Soho Bar menu) ── */
 const STAR={sig:{en:'Signature',de:'Spezialität',it:'Specialità',pl:'Specjalność',cs:'Specialita',nl:'Specialiteit'}};
 const MENU=[
- {key:'tapas', label:{en:'Tapas',de:'Tapas',it:'Tapas',pl:'Tapas',cs:'Tapas',nl:'Tapas'}, items:[
-   {n:'Patatas Bravas', d:'Spanish fried potatoes with spicy tomato sauce', p:'€5', veg:1},
-   {n:'Pan de Ajo / y Queso', d:'Homemade garlic bread, with or without cheese', p:'€3.5 / €5', veg:1},
-   {n:'Bruschetta', d:'Grilled garlic bread with tomato, olive oil, pesto & cracked pepper', p:'€6', veg:1},
-   {n:'Trio Bruschetta', d:'Mix of bruschetta including smoked salmon & avocado', p:'€10'},
-   {n:'Hummus', d:'Chickpea & sesame dip, olive oil, tahini & garlic, with fresh bread', p:'€4', veg:1},
-   {n:'French Fries', d:'Hand-cut fries with mayo or garlic mayo', p:'€3', veg:1},
-   {n:'Tzatziki', d:'Greek yoghurt, cucumber, fresh mint & garlic, with fresh bread', p:'€4', veg:1},
-   {n:'Beef Nachos Supreme', d:'Tortilla chips, ground beef, melted cheese, salsa, guacamole, sour cream & jalapeños', p:'€11'},
-   {n:'Gambas al Ajillo', d:'Juicy shrimp in garlic olive-oil sauce with garlic bread', p:'€11'},
-   {n:'Cheese Balls', d:'Deep-fried balls of four kinds of cheese', p:'€6', veg:1},
-   {n:'Calamares Fritos', d:'Fresh calamari deep-fried, served with tzatziki', p:'€9'},
-   {n:'SoHo Mix Tapas', d:'Fried shrimp, calamari, bruschetta & garlic bread with garlic mayo', p:'€19'},
-   {n:'Honey & Mustard Chicken Wings', d:'Chicken wings in a honey & mustard glaze', p:'€8'},
-   {n:'Mejillones a la Marinera', d:'Steamed greenlip mussels in a cream lemon-garlic sauce', p:'€8'},
- ]},
  {key:'salads', label:{en:'Salads',de:'Salate',it:'Insalate',pl:'Sałatki',cs:'Saláty',nl:'Salades'}, items:[
-   {n:'Quinoa Salad', d:'Quinoa, mixed vegetables, herbs & lemon vinaigrette', p:'€11', veg:1},
-   {n:'Classic Caesar Salad', d:'Romaine, parmesan, croutons & Caesar dressing · add chicken €3', p:'€12'},
-   {n:'Cobb Salad', d:'Mixed greens, avocado, boiled eggs, grilled chicken, tomatoes, parmesan & blue cheese', p:'€14'},
-   {n:'Beef Carpaccio', d:'Raw tenderloin, olive oil, lemon mustard, truffle mayo, rucola & parmesan', p:'€16'},
-   {n:'Peach & Burrata', d:'Grilled peach, creamy burrata, rocket, parmesan & aged balsamic', p:'€14', veg:1},
+   {n:'Burrata', d:'With a selection of tomatoes, fresh basil, red onion, dried oregano & pesto sauce', p:'€13', veg:1},
+   {n:'Quinoa', d:'Mixed salad leaves with quinoa, avocado, sweet corn, cherry tomatoes & raspberry vinaigrette', veg:1, opts:[['Base','€10.5'],['With smoked salmon','€12.5'],['With shrimps','€14.5']]},
+   {n:'Soho', d:'Mixed salad leaves, cucumber, carrots, cherry tomatoes, black olives, mini buffalo mozzarella, roasted bell peppers, capers, walnuts & balsamic dressing', veg:1, opts:[['Base','€10.5'],['With chicken','€12.5'],['With beef tenderloin','€14.5']]},
  ]},
- {key:'pizza', label:{en:'Pizza',de:'Pizza',it:'Pizza',pl:'Pizza',cs:'Pizza',nl:'Pizza'}, intro:{en:'Slow, long-risen Neapolitan dough.',de:'Langgeführter neapolitanischer Teig.',it:'Impasto napoletano a lunga lievitazione.'}, items:[
-   {n:'Margherita', d:'Tomato, mozzarella & basil', p:'€10', veg:1},
-   {n:'Quattro Formaggio', d:'Fresh cream & four kinds of cheese', p:'€13', veg:1},
-   {n:'Diavola', d:'Tomato, mozzarella, salami, jalapeño & basil', p:'€15'},
-   {n:'Burrata', d:'Tomato, burrata cheese & basil', p:'€14', veg:1},
-   {n:'Frutti di Mare', d:'Tomato, mozzarella, mixed seafood, garlic & oregano', p:'€16'},
-   {n:'Verdure', d:'Tomato, mozzarella & seasonal vegetables', p:'€12', veg:1},
-   {n:'Tartufa', d:'Truffle paste, fresh mushroom, mozzarella, truffle oil & parmesan', p:'€16', veg:1},
-   {n:'Parmigiana', d:'Tomato, mozzarella, grilled aubergine, ricotta, parmesan & basil', p:'€14', veg:1},
-   {n:'Pannuozzo al Salmone', d:'Folded pizza bread, cream cheese, avocado, rucola & smoked salmon, with fries', p:'€17'},
+ {key:'starters', label:{en:'Starters',de:'Vorspeisen',it:'Antipasti',pl:'Przystawki',cs:'Předkrmy',nl:'Voorgerechten'}, items:[
+   {n:'Imported Cheese & Cold Cuts', d:'For 2 to share — served with tomato jam, grapes & toasted nuts', p:'€28'},
+   {n:'Pil-Pil', d:'Roasted prawns with green peas, garlic, rosemary, cherry tomatoes & bisque sauce', p:'€13'},
+   {n:'Vitello Tonnato', d:'Slow-cooked veal eye round served with capers & tuna sauce', p:'€12'},
+   {n:'Bresaola & Burrata', d:'For sharing — thinly sliced air-dried beef with fresh burrata, rucola, cherry tomatoes & balsamic glaze', p:'€18'},
+   {n:'Tartare', d:'Imported premium raw beef tenderloin or salmon, marinated with capers, chives, shallots, mustard & ketchup, on a guacamole velouté', p:'€16'},
+   {n:'Carpaccio', d:'South African raw beef with arugula, Parmesan cheese, roasted pine nuts & balsamic dressing', p:'€16'},
+   {n:'Bruschetta Special', d:'Imported beef tartare on homemade toasted focaccia with Parmesan cheese fondue & truffle oil', p:'€18'},
+   {n:'Rape Rosse', d:'Beetroot carpaccio with grilled goat cheese, mixed salad leaves, green apple & lemon vinaigrette', p:'€12', veg:1},
+   {n:'Melanzane alla Parmigiana', d:'Traditional Italian baked eggplant layered with tomato sauce, mozzarella & Parmesan cheese', p:'€12', veg:1},
  ]},
- {key:'burgers', label:{en:'Burgers',de:'Burger',it:'Burger',pl:'Burgery',cs:'Burgery',nl:'Burgers'}, intro:{en:'All burgers served with hand-cut fries & coleslaw.',de:'Alle Burger mit handgeschnittenen Pommes & Krautsalat.',it:'Tutti i burger con patatine tagliate a mano e coleslaw.'}, items:[
-   {n:'Classic Beef Burger', d:'Beef patty, lettuce, tomato, onion rings & pickles', p:'€13'},
-   {n:'Mushroom Swiss Burger', d:'Beef patty, grilled mushrooms & melted Swiss cheese', p:'€16'},
-   {n:'BBQ Burger', d:'Beef patty, BBQ sauce, cheddar, crispy onion rings & pickles', p:'€14'},
-   {n:'Veggie Delight', d:'Grilled zucchini, roasted pepper, caramelised onions & avocado in multigrain bread', p:'€11', veg:1},
+ {key:'pasta', label:{en:'Pasta & Risotto',de:'Pasta & Risotto',it:'Pasta e Risotti',pl:'Makarony i risotto',cs:'Těstoviny a rizota',nl:'Pasta & risotto'}, items:[
+   {n:'Tagliatelle al Ragù', d:'Homemade tagliatelle with a slow-cooked traditional Bolognese ragù of minced beef, tomatoes, herbs & Parmesan cheese', p:'€16'},
+   {n:'Linguine ai Frutti di Mare', d:'Linguine with a selection of fresh seafood, garlic, olive oil, cherry tomatoes, parsley & a light tomato sauce', p:'€18'},
+   {n:"Risotto all'Astice", d:'Creamy Arborio rice with lobster, spring onions & bisque sauce', p:'€25'},
+   {n:"Penne all'Arrabbiata", d:'Penne in a spicy tomato sauce with garlic, chili peppers, olive oil & fresh parsley', p:'€14', veg:1},
+   {n:'Spaghetti ai Gamberi e Zafferano', d:'Spaghetti with shrimp, garlic, olive oil, cherry tomatoes, parsley, crustacean bisque, saffron & chili peppers', p:'€18'},
+   {n:'Risotto ai Porcini', d:'Arborio rice with porcini mushrooms, sun-dried tomatoes, chives & Parmesan cheese', p:'€22', veg:1},
+   {n:'Tagliolini al Tartufo', d:'Homemade tagliolini with butter truffle sauce', p:'€22', veg:1},
+   {n:'Spaghetti Carbonara', d:'Crispy guanciale, egg yolk & pecorino Romano in a rich, silky traditional Roman sauce', p:'€19'},
  ]},
- {key:'mains', label:{en:'Steaks & Mains',de:'Steaks & Hauptgerichte',it:'Bistecche e Secondi',pl:'Steki i dania główne',cs:'Steaky a hlavní jídla',nl:'Steaks & hoofdgerechten'}, intro:{en:'All steaks & mains come with 2 sides: sautéed vegetables, garlic-rosemary potatoes, hand-cut fries, rice, mashed potatoes or salad.',de:'Alle Steaks & Hauptgerichte mit 2 Beilagen nach Wahl: sautiertes Gemüse, Rosmarinkartoffeln, Pommes, Reis, Kartoffelpüree oder Salat.',it:'Tutte le bistecche e i secondi con 2 contorni a scelta: verdure saltate, patate al rosmarino, patatine, riso, purè o insalata.'}, items:[
-   {n:'Young Angus Beef Fillet', d:'Tender, juicy Angus fillet, expertly grilled', p:'€27'},
-   {n:'Young Angus Ribeye Steak', d:'Richly marbled Angus ribeye, full of flavour', p:'€35'},
-   {n:'Young Angus Sirloin Steak', d:'Classic Angus sirloin, bold & beefy', p:'€30'},
-   {n:'Egyptian Camel Steak', d:'Unique & succulent Egyptian camel steak, a true local delicacy', p:'€29', star:'sig'},
-   {n:'Grilled Salmon Teriyaki', d:'Salmon fillet glazed in rich teriyaki, grilled to perfection', p:'€28'},
-   {n:'Roasted Shrimp', d:'Butterflied & roasted with herbs and a zesty citrus glaze', p:'€27'},
-   {n:'Creamy Thyme Pan-Seared Chicken', d:'Chicken in a garlic & thyme creamy sauce', p:'€17'},
-   {n:'Escalope Milanese', d:'Veal cutlet, breaded & fried', p:'€24'},
-   {n:'Chicken Milanese', d:'Chicken fillet, breaded & fried', p:'€19'},
+ {key:'mains', label:{en:'Main Courses',de:'Hauptgerichte',it:'Secondi Piatti',pl:'Dania główne',cs:'Hlavní jídla',nl:'Hoofdgerechten'}, items:[
+   {n:'Ossobuco alla Milanese', d:'Slow-braised veal shank, meltingly tender in a rich aromatic reduction, with creamy risotto, fragrant gremolata & extra virgin olive oil', p:'€32'},
+   {n:'Grilled Camel Steak', d:'Tender premium camel steak, charcoal-grilled to perfection, with herbed rosemary potatoes or grilled vegetables & your choice of sauce', p:'€30', star:'sig'},
+   {n:'Filetto di Manzo', d:'South African beef tenderloin with sweet potato cream, sous-vide red onion, green beans, bell peppers & porcini mushroom sauce', p:'€25'},
+   {n:'Petto di Pollo', d:"Farmer's chicken breast with smoked eggplant velouté, mushrooms, grilled corn, thyme & pepper sauce", p:'€16'},
+   {n:'Milanese', d:'Breaded, golden-fried cutlet with fresh arugula, cherry tomatoes & a balsamic reduction', opts:[['With chicken','€16'],['With veal','€22']]},
+   {n:'Salmone', d:'Grilled salmon steak with beetroot purée, seasonal vegetables, peas & lemon-caper sauce', p:'€22'},
+   {n:'Gamberoni alla Livornese', d:'Pan-seared king prawns with tomato sauce, garlic, Kalamata olives, capers, white wine, parsley & chili, served with potato velouté', p:'€25'},
+   {n:'Polipo', d:'Grilled octopus leg with ginger velouté, carrots, zucchini, coriander & a spicy tomato-caper sauce', p:'€26'},
+   {n:'Chateaubriand', d:'600g South African beef tenderloin — ideal for 2–3 guests — served on porcini mushroom risotto', p:'€42'},
+   {n:'Frutti di Mare Royale', d:'A generous selection of butter shrimp, golden fried calamari, mussels, fresh lobster & grilled octopus, with two signature dips', p:'€50'},
  ]},
- {key:'pasta', label:{en:'Pasta',de:'Pasta',it:'Pasta',pl:'Makarony',cs:'Těstoviny',nl:'Pasta'}, items:[
-   {n:'Linguine allo Scoglio', d:'Fresh linguine with a medley of seafood in a rich savoury sauce', p:'€21'},
-   {n:'Tagliatelle al Ragù Beef', d:'Ribboned tagliatelle in a hearty slow-cooked beef ragù', p:'€18'},
-   {n:"Spaghetti all'Aragosta", d:'Spaghetti with succulent lobster in a luscious tomato sauce', p:'€25'},
-   {n:'Linguine Tomate Burrata', d:'Delicate linguine, vibrant tomato sauce & creamy burrata', p:'€16', veg:1},
-   {n:'Tagliatelle con Gamberi e Zucchine', d:'Prawns, zucchini, garlic & olive oil — light & flavourful', p:'€21'},
-   {n:'Risotto al Tartufo', d:'Creamy truffle risotto with mushrooms & parmesan', p:'€19'},
-   {n:'Spaghetti al Tartufo', d:'Spaghetti in a creamy truffle sauce with parmesan', p:'€18'},
+ {key:'pizza', label:{en:'Pizza',de:'Pizza',it:'Pizza',pl:'Pizza',cs:'Pizza',nl:'Pizza'}, items:[
+   {sub:{en:'Classic Pizzas',de:'Klassische Pizzen',it:'Pizze Classiche',pl:'Pizze klasyczne',cs:'Klasické pizzy',nl:"Klassieke pizza's"}},
+   {n:'Marinara', d:'San Marzano tomato sauce, garlic oil & oregano', p:'€8', veg:1},
+   {n:'Margherita', d:'San Marzano tomato sauce, buffalo mozzarella, extra virgin olive oil & basil', p:'€10', veg:1},
+   {n:'Napoli', d:'San Marzano tomato sauce, buffalo mozzarella, cherry tomatoes, olives, anchovies, basil, garlic & extra virgin olive oil', p:'€10'},
+   {n:'Verace', d:'Homemade pesto Genovese, buffalo mozzarella, cherry tomatoes, basil & extra virgin olive oil', p:'€12', veg:1},
+   {n:'Quattro Formaggi', d:'Buffalo mozzarella, gorgonzola, scamorza & Parmesan cheese', p:'€12', veg:1},
+   {n:'Diavola', d:'San Marzano tomato sauce, buffalo mozzarella, pepperoni, chili peppers, spicy honey, extra virgin olive oil & basil', p:'€14'},
+   {n:'Vegetariana', d:'San Marzano tomato sauce, buffalo mozzarella, extra virgin olive oil, grilled vegetables & basil', p:'€12', veg:1},
+   {sub:{en:'Special Pizzas',de:'Spezialpizzen',it:'Pizze Speciali',pl:'Pizze specjalne',cs:'Speciální pizzy',nl:"Speciale pizza's"}},
+   {n:'Soho', d:'San Marzano tomato sauce, buffalo mozzarella, extra virgin olive oil, shrimps, lobster tail & basil pesto', p:'€22'},
+   {n:'Burrata', d:'San Marzano tomato sauce, buffalo mozzarella, extra virgin olive oil, burrata cheese, cherry tomatoes & basil', p:'€12', veg:1},
+   {n:'Seafood', d:'San Marzano tomato sauce, buffalo mozzarella, extra virgin olive oil, mixed seafood, dried oregano & roasted garlic', p:'€16'},
+   {n:'Bresaola', d:'San Marzano tomato sauce, buffalo mozzarella, extra virgin olive oil, bresaola, rucola & Parmesan flakes', p:'€16'},
+   {n:'Tartufo', d:'Truffle sauce, buffalo mozzarella, fresh mushrooms, rucola, extra virgin olive oil, basil & Parmesan cheese', p:'€16', veg:1},
+   {n:"Pinsa Mediterranean all'Acciuga", d:'Stracciatella, anchovies, capers, dill & pistachio', p:'€10'},
+   {n:'Pinsa Pomodoro & Miele Piccante', d:'Tomato jam, stracciatella, spicy honey, basil & pangrattato', p:'€8', veg:1},
+   {n:'Pinsa Brasato di Manzo', d:'Braised beef, stracciatella, caramelized onion, sautéed mushrooms & Parmesan cheese', p:'€14'},
+   {n:'Panuozzo Pollo Piccante', d:'Grilled chicken, spicy sauce, roasted peppers, jalapeños, rucola & Parmesan cheese', p:'€15'},
+   {n:'Panuozzo Salmon', d:'Cream cheese, smoked salmon, capers, cherry tomatoes, rucola, Parmesan cheese & dill', p:'€15'},
+   {n:'Calzone alla Nutella', d:'Nutella, roasted hazelnuts, powdered sugar & dark chocolate crumble', p:'€12', veg:1},
+ ]},
+ {key:'burgers', label:{en:'Burgers & Sliders',de:'Burger & Sliders',it:'Burger e Sliders',pl:'Burgery i slidery',cs:'Burgery a slidery',nl:'Burgers & sliders'}, items:[
+   {n:'Soho Signature Burger', d:'A juicy 180g beef burger with melted cheddar, caramelized onions, lettuce, tomato, pickles & Soho signature truffle sauce on a toasted brioche bun, served with French fries', p:'€15'},
+   {n:'Spicy Crispy Chicken Burger', d:'Crispy marinated chicken breast with melted cheddar, jalapeños, lettuce, tomato, pickles & spicy mayo on a toasted brioche bun, served with French fries', p:'€13'},
+   {n:"Burger Vegetariano dell'Orto", d:'Mixed vegetables, rucola, pesto mayo & balsamic glaze, served with roasted rosemary potatoes', p:'€12', veg:1},
+   {n:'Soho Trio Burger', d:'A trio of sliders — crispy chicken, juicy beef & grilled veg — served with French fries', p:'€14'},
+   {n:'The Camel Burger', d:'A refined take on the classic burger, crafted with premium camel beef — rich, distinctive flavour and an exceptionally tender finish', p:'€17'},
  ]},
  {key:'desserts', label:{en:'Desserts',de:'Desserts',it:'Dolci',pl:'Desery',cs:'Dezerty',nl:'Desserts'}, items:[
-   {n:'Cheesecake', d:'Strawberry, chocolate, caramel or blueberry', p:'€7'},
-   {n:'Warm Chocolate Fondant', d:'Dark chocolate fondant, vanilla ice cream & pistachios', p:'€9'},
-   {n:'Ice Cream', d:'Vanilla, chocolate, strawberry or mango — per scoop', p:'€2'},
+   {n:'Basque Cheesecake', d:'Soho creamy baked cheesecake with your favourite sauce', p:'€7'},
+   {n:'Duo of Chocolate', d:'White & dark chocolate mousse with chocolate crumble & ice cream', p:'€7'},
+   {n:'Chocolate Soufflé', d:'With vanilla ice cream', p:'€9'},
+   {n:'Crème Brûlée', d:'Vanilla custard with a caramelized sugar crust, citrus crumble & ice cream', p:'€8'},
+   {n:'Tiramisù', d:'Espresso-soaked ladyfingers with mascarpone cream & cacao powder', p:'€7'},
+   {n:'Selection of 3 Ice Creams', d:'', p:'€6'},
+ ]},
+ {key:'mocktails', label:{en:'Mocktails & Smoothies',de:'Alkoholfrei & Smoothies',it:'Mocktail & Smoothie',pl:'Mocktaile i smoothie',cs:'Mocktaily a smoothie',nl:'Mocktails & smoothies'}, intro:{en:'Every mocktail & smoothie €6.',de:'Jeder Mocktail & Smoothie €6.',it:'Ogni mocktail e smoothie €6.'}, items:[
+   {n:'Saturn', d:'Passion fruit, vanilla, lemon & pineapple', p:'€6'},
+   {n:'Summer Breeze', d:'Mixed berries, basil, cranberry & lemon', p:'€6'},
+   {n:'Super Solero', d:'Strawberry, coconut cream & vanilla', p:'€6'},
+   {n:'Virgin Bellini', d:'Peach or mango, strawberry & soda', p:'€6'},
+   {n:'Virgin Amalfi', d:'Basil, fresh ginger, lemon & Sprite', p:'€6'},
+   {n:'Virgin Mojito', d:'Lime, mint, mojito syrup, brown sugar & soda', p:'€6'},
+   {n:'Watermelon Refresher', d:'Fresh local watermelon & mint', p:'€6'},
+   {n:'Mango Madness', d:'Mango blended with guava & strawberry', p:'€6'},
+   {n:'Yogo Berry', d:'Strawberry & blueberry blended with creamy milk', p:'€6'},
+   {n:'Virgin Raspberry Colada', d:'Pineapple, coconut & raspberry purée', p:'€6'},
+   {n:'Homemade Ice Tea', d:'Peach or lemon', p:'€6'},
  ]},
  {key:'cocktails', label:{en:'Cocktails',de:'Cocktails',it:'Cocktail',pl:'Koktajle',cs:'Koktejly',nl:'Cocktails'}, items:[
    {sub:{en:'Vodka',de:'Vodka',it:'Vodka',pl:'Wódka',cs:'Vodka',nl:'Wodka'}},
    {n:'Mango Crush', d:'Vodka, vanilla, mango, peach cordial, fresh mint & lemon', p:'€10.5'},
    {n:'Passion Martini', d:'Vodka, homemade passion-fruit purée, orange juice & lemon', p:'€11'},
-   {n:'Pornstar Martini', d:'Vodka, vanilla, passion-fruit purée, lemon & a shot of sparkling wine', p:'€10.5'},
+   {n:'Pornstar Martini', d:'Vodka, vanilla, passion-fruit purée & fresh lemon, with a double shot of Le Baron sparkling wine', p:'€12'},
    {n:'Espresso Martini', d:'Vodka, vanilla, kahlúa & cold espresso', p:'€10.5'},
    {n:'Soho Mule', d:'Vodka, ginger cordial, fresh lemon, vanilla & soda', p:'€10'},
-   {n:'Caramel White Russian', d:'Vodka, coffee liqueur, fresh cream & caramel', p:'€11'},
+   {n:'Caramel White Russian', d:'Vodka, coffee liqueur, fresh cream & caramel sauce', p:'€11'},
    {n:'Bloody Mary', d:'Vodka, wasabi, tomato juice, Worcestershire, BBQ, mixed salt & black pepper', p:'€12'},
    {sub:{en:'Rum',de:'Rum',it:'Rum',pl:'Rum',cs:'Rum',nl:'Rum'}},
    {n:'Raspberry Daiquiri', d:'Rum, raspberry, homemade raspberry purée & fresh lime', p:'€11'},
@@ -1049,34 +1049,20 @@ const MENU=[
    {n:'New York Sour', d:'Whiskey, lemon, bitters, hummus foam & red wine', p:'€11'},
    {n:'Manhattan', d:'Whiskey, red vermouth & a dash of angostura', p:'€12'},
    {sub:{en:'Spritz & Classics',de:'Spritz & Klassiker',it:'Spritz e Classici',pl:'Spritz i klasyki',cs:'Spritz a klasika',nl:'Spritz & klassiekers'}},
-   {n:'Aperol Spritz', d:'', p:'€10'},
-   {n:'Campari Spritz', d:'', p:'€10'},
-   {n:'Lemon Chillo Spritz', d:'', p:'€10'},
-   {n:'Hugo', d:'', p:'€10'},
-   {n:'Sangria', d:'Choose white, red or rosé', p:'€10'},
-   {n:'Negroni', d:'Gin, red vermouth & campari', p:'€10'},
- ]},
- {key:'mocktails', label:{en:'Mocktails & Smoothies',de:'Alkoholfrei & Smoothies',it:'Mocktail & Smoothie',pl:'Mocktaile i smoothie',cs:'Mocktaily a smoothie',nl:'Mocktails & smoothies'}, intro:{en:'Every mocktail & smoothie €6.',de:'Jeder Mocktail & Smoothie €6.',it:'Ogni mocktail e smoothie €6.'}, items:[
-   {n:'Saturn', d:'Passion fruit, vanilla, lemon & pineapple', p:'€6'},
-   {n:'Summer Breeze', d:'Mixed berries, basil, cranberry & lemon', p:'€6'},
-   {n:'Super Solero', d:'Strawberry, coconut cream & vanilla', p:'€6'},
-   {n:'Virgin Bellini', d:'Peach or mango, strawberry & soda', p:'€6'},
-   {n:'Virgin Amalfi', d:'Basil, fresh ginger, lemon & Sprite', p:'€6'},
-   {n:'Virgin Mojito', d:'Lime, mint, mojito syrup, brown sugar & soda', p:'€6'},
-   {n:'Watermelon Refresher', d:'Fresh local watermelon & mint', p:'€6'},
-   {n:'Mango Madness', d:'Mango blended with guava & strawberry', p:'€6'},
-   {n:'Yogo Berry', d:'Strawberry & blueberry blended with creamy milk', p:'€6'},
-   {n:'Virgin Raspberry Colada', d:'Pineapple, coconut & raspberry purée', p:'€6'},
-   {n:'Homemade Ice Tea', d:'Peach or lemon', p:'€6'},
+   {n:'Aperol Spritz', d:'', p:'€8'},
+   {n:'Campari Spritz', d:'', p:'€8'},
+   {n:'Lemon Chillo Spritz', d:'', p:'€8'},
+   {n:'Hugo', d:'', p:'€8'},
+   {n:'Sangria', d:'Choose white, red or rosé', p:'€8'},
+   {n:'Negroni', d:'Gin, red vermouth & Campari', p:'€8'},
  ]},
  {key:'beer', label:{en:'Beer & Spirits',de:'Bier & Spirituosen',it:'Birra & Distillati',pl:'Piwo i alkohole',cs:'Pivo a lihoviny',nl:'Bier & sterke drank'}, items:[
    {sub:{en:'Beers',de:'Biere',it:'Birre',pl:'Piwa',cs:'Piva',nl:'Bieren'}},
-   {n:'Draft Heineken', d:'330ml / 500ml · 5%', p:'€3.5 / €5'},
    {n:'Heineken', d:'330ml bottle · 5%', p:'€4'},
    {n:'Stella', d:'500ml bottle · 4.5%', p:'€4.5'},
    {n:'Sakara', d:'500ml bottle · 4%', p:'€4.5'},
-   {n:'Meister Max', d:'330ml bottle · 8%', p:'€4'},
-   {n:'Radler / Diesel', d:'Lager with lemon soda or cola · 500ml', p:'€5'},
+   {n:'Meister Max', d:'330ml bottle · 8%', p:'€4.5'},
+   {n:'Radler / Diesel', d:'Lager with lemon soda or cola · 500ml glass', p:'€5'},
    {sub:{en:'Shots',de:'Shots',it:'Shot',pl:'Shoty',cs:'Panáky',nl:'Shots'}},
    {n:'House Shots', d:'Mastiha · Sambuca · Baileys · Coffee Liqueur · Limoncello', p:'€4'},
    {sub:{en:'Shot Cocktails',de:'Shot-Cocktails',it:'Shot Cocktail',pl:'Shoty koktajlowe',cs:'Panákové koktejly',nl:'Shotcocktails'}},
@@ -1093,11 +1079,11 @@ const MENU=[
    {n:'Cape Bay', d:'South African merlot & syrah · 13% · glass / bottle', p:'€8 / €30'},
    {n:'Château de Granville', d:'French merlot & cabernet sauvignon · 13% · glass / bottle', p:'€9 / €35'},
    {n:'Beausoleil', d:'Egyptian syrah · 12.5% · bottle', p:'€29'},
-   {n:'Jardin du Nil', d:'Egyptian cabernet, petit verdot & syrah · 12.5% · bottle', p:'€29'},
+   {n:'Jardin du Nil', d:'Egyptian cabernet sauvignon, petit verdot & syrah · 12.5% · bottle', p:'€29'},
+   {n:'XO', d:'Egyptian grenache & montepulciano · 12.5% · bottle', p:'€24'},
    {sub:{en:'Rosé',de:'Rosé',it:'Rosati',pl:'Rosé',cs:'Rosé',nl:'Rosé'}},
    {n:'Omar Khayyam · House', d:'Egyptian bobal & sultanine blanche · 12.5% · glass / bottle', p:'€5.5 / €24'},
    {n:'Beausoleil', d:'Egyptian rosé merlot · 12.5% · bottle', p:'€29'},
-   {n:'XO', d:'Egyptian grenache & montepulciano · 12.5% · bottle', p:'€24'},
    {sub:{en:'White',de:'Weißwein',it:'Bianchi',pl:'Białe',cs:'Bílé',nl:'Wit'}},
    {n:'Omar Khayyam · House', d:'Egyptian sultanine blanche · 12.5% · glass / bottle', p:'€5.5 / €24'},
    {n:'Cape Bay', d:'South African chardonnay · 12.5% · glass / bottle', p:'€8 / €30'},
@@ -1110,10 +1096,12 @@ const MENU=[
    {n:'Le Baron', d:'Egyptian viognier · glass / bottle', p:'€10 / €38'},
  ]},
  {key:'soft', label:{en:'Soft & Hot Drinks',de:'Softdrinks & Heiß',it:'Bibite & Caldi',pl:'Napoje zimne i gorące',cs:'Nealko a teplé nápoje',nl:'Fris & warme dranken'}, items:[
+   {sub:{en:'Soft Drinks',de:'Softdrinks',it:'Bibite',pl:'Napoje zimne',cs:'Nealkoholické nápoje',nl:'Frisdranken'}},
    {n:'San Benedetto', d:'Still water · 0.5l / 1l', p:'€3 / €4.5'},
    {n:'San Benedetto Sparkling', d:'0.3l', p:'€3.5'},
    {n:'Soda', d:'Coca-Cola, Cola Light, Sprite, Fanta or Schweppes Tonic', p:'€3'},
    {n:'Red Bull', d:'Standard or sugar-free', p:'€4'},
+   {sub:{en:'Hot Drinks',de:'Heißgetränke',it:'Bevande calde',pl:'Napoje gorące',cs:'Teplé nápoje',nl:'Warme dranken'}},
    {n:'Tea', d:'Ginger, mint, lemon, cinnamon, black, green or Earl Grey', p:'€2'},
    {n:'Espresso', d:'Single / double', p:'€2 / €3'},
    {n:'Americano', d:'Espresso & hot water, white or black', p:'€3.5'},
@@ -1149,7 +1137,8 @@ function renderMenu(){
     if(it.sub){ flush(); html+='<h3 class="sub-head">'+(it.sub[L]||it.sub.en)+'</h3>'; return; }
     const veg=it.veg?' <span class="veg" title="Vegetarian">✓</span>':'';
     const star=it.star?' <span class="star">'+(STAR[it.star][L]||STAR[it.star].en)+'</span>':'';
-    buf.push('<div class="dish"><div class="dish-main"><h3>'+it.n+veg+star+'</h3>'+(it.d?'<p>'+it.d+'</p>':'')+'</div>'+(it.p?'<div class="price">'+it.p+'</div>':'')+'</div>');
+    const opts=it.opts?'<ul class="opts">'+it.opts.map(o=>'<li><span>'+o[0]+'</span><i></i><b>'+o[1]+'</b></li>').join('')+'</ul>':'';
+    buf.push('<div class="dish'+(it.opts?' has-opts':'')+'"><div class="dish-main"><h3>'+it.n+veg+star+'</h3>'+(it.d?'<p>'+it.d+'</p>':'')+opts+'</div>'+(it.p?'<div class="price">'+it.p+'</div>':'')+'</div>');
   });
   flush();
   body.innerHTML=html;
@@ -1181,11 +1170,11 @@ const I18N = {
     "story.kicker":"Unsere Story","story.title":"Wo italienische Tradition auf ägyptische Seele trifft",
     "story.lead1":"Unsere Küche entsteht aus der Begegnung zweier Welten — italienischer Tradition und ägyptischer Authentizität — vereint in einer einzigartigen Identität, die unsere Geschichte erzählt.",
     "story.quote":"„Jeden Tag backen wir unser Brot von Hand für unsere Tapas und Burger — mit ausgewählten Zutaten und Techniken, die jedes Detail zur Geltung bringen.“",
-    "story.lead2":"Vom langgeführten Teig unserer neapolitanischen Pizza bis zu hochwertigen italienischen Zutaten ist jedes Gericht auf ein authentisches Erlebnis ausgelegt. Frische Pasta, cremige Risottos, edle Angus-Filets und unsere lokale Spezialität — das Kamelsteak — vervollständigen eine Karte, die Tradition, Handwerk und die Aromen des Mittelmeers vereint.",
+    "story.lead2":"Vom langgeführten Teig unserer neapolitanischen Pizza bis zu hochwertigen italienischen Zutaten ist jedes Gericht auf ein authentisches Erlebnis ausgelegt. Frische Pasta, cremige Risottos, edle Rinderfilets und unsere lokale Spezialität — das Kamelsteak — vervollständigen eine Karte, die Tradition, Handwerk und die Aromen des Mittelmeers vereint.",
     "story.art":"Port Ghalib Marina · Terrasse am Wasser",
     "menu.dl":"⬇  Ganze Speisekarte herunterladen (PDF)",
     "menu.kicker":"Die Karte","menu.title":"Vom Grill, aus dem Ofen & von der Bar",
-    "menu.lead":"Italienische Pasta und Pizza, spanische Tapas und ernsthaftes Grillen — mit tollen veganen Optionen und einer Bar, die ihr Handwerk versteht.",
+    "menu.lead":"Italienische Pasta & Risotto, Pizza und ernsthaftes Grillen — mit tollen veganen Optionen und einer Bar, die ihr Handwerk versteht.",
     "menu.t1":"Vom Grill","menu.t2":"Tapas","menu.t3":"Italienische Pizza","menu.t4":"Vegan","menu.t5":"Bar & Cocktails","menu.t6":"Pasta & Risotto",
     "menu.sig":"Spezialität","menu.fav":"Gästeliebling","menu.it":"Italienisch",
     "menu.g1":"Kamelsteak","menu.g1d":"Unsere berühmte lokale Spezialität — zart, mager und unvergesslich. Dafür reisen Gäste an.",
@@ -1256,11 +1245,11 @@ const I18N = {
     "story.kicker":"La nostra storia","story.title":"Dove la tradizione italiana incontra l'anima egiziana",
     "story.lead1":"La nostra cucina nasce dall'incontro di due mondi: la tradizione italiana e l'autenticità egiziana, unite in un'identità unica che racconta la nostra storia.",
     "story.quote":"«Ogni giorno prepariamo artigianalmente il pane per le nostre tapas e i nostri hamburger, utilizzando ingredienti selezionati e tecniche che valorizzano ogni dettaglio.»",
-    "story.lead2":"Dall'impasto a lunga lievitazione della nostra pizza napoletana agli ingredienti italiani di alta qualità, ogni piatto è pensato per offrire un'esperienza autentica. Pasta fresca, risotti cremosi, pregiati filetti di Angus e la nostra specialità locale, la Camel Steak, completano un menu che unisce tradizione, ricerca e sapori del Mediterraneo.",
+    "story.lead2":"Dall'impasto a lunga lievitazione della nostra pizza napoletana agli ingredienti italiani di alta qualità, ogni piatto è pensato per offrire un'esperienza autentica. Pasta fresca, risotti cremosi, pregiati filetti di manzo e la nostra specialità locale, la Camel Steak, completano un menu che unisce tradizione, ricerca e sapori del Mediterraneo.",
     "story.art":"Marina di Port Ghalib · Terrazza sull'acqua",
     "menu.dl":"⬇  Scarica il menù completo (PDF)",
     "menu.kicker":"Il menù","menu.title":"Dalla griglia, dal forno e dal bar",
-    "menu.lead":"Pasta e pizza italiane, tapas spagnole e vere grigliate — con ottime opzioni vegane e un bar che sa il fatto suo.",
+    "menu.lead":"Pasta e risotti italiani, pizza e vere grigliate — con ottime opzioni vegane e un bar che sa il fatto suo.",
     "menu.t1":"Dalla griglia","menu.t2":"Tapas","menu.t3":"Pizza italiana","menu.t4":"Vegano","menu.t5":"Bar & Cocktail","menu.t6":"Pasta & Risotto",
     "menu.sig":"Specialità","menu.fav":"Preferito dagli ospiti","menu.it":"Italiano",
     "menu.g1":"Camel Steak","menu.g1d":"La nostra celebre specialità locale — tenera, magra e indimenticabile. Il piatto per cui gli ospiti arrivano fin qui.",
@@ -1331,10 +1320,10 @@ const I18N = {
     "story.kicker":"Nasza historia","story.title":"Gdzie włoska tradycja spotyka egipską duszę",
     "story.lead1":"Nasza kuchnia rodzi się ze spotkania dwóch światów — włoskiej tradycji i egipskiej autentyczności — połączonych w jednej tożsamości, która opowiada naszą historię.",
     "story.quote":"„Każdego dnia własnoręcznie wypiekamy chleb do naszych tapas i burgerów, używając wyselekcjonowanych składników i technik, które podkreślają każdy detal.”",
-    "story.lead2":"Od długo wyrastającego ciasta naszej neapolitańskiej pizzy po wysokiej jakości włoskie składniki — każde danie ma zapewnić autentyczne doznania. Świeży makaron, kremowe risotto, wyśmienite polędwice Angus i nasza lokalna specjalność — Camel Steak — dopełniają menu łączące tradycję, dbałość i smaki Morza Śródziemnego.",
+    "story.lead2":"Od długo wyrastającego ciasta naszej neapolitańskiej pizzy po wysokiej jakości włoskie składniki — każde danie ma zapewnić autentyczne doznania. Świeży makaron, kremowe risotto, wyśmienite polędwice wołowe i nasza lokalna specjalność — Camel Steak — dopełniają menu łączące tradycję, dbałość i smaki Morza Śródziemnego.",
     "story.art":"Marina Port Ghalib · Taras nad wodą",
     "menu.dl":"⬇  Pobierz pełne menu (PDF)","menu.kicker":"Menu","menu.title":"Z grilla, z pieca i z baru",
-    "menu.lead":"Włoski makaron i pizza, hiszpańskie tapas i prawdziwe grillowanie — z doskonałymi opcjami wegańskimi i barem, który zna się na rzeczy.",
+    "menu.lead":"Włoski makaron i risotto, pizza i prawdziwe grillowanie — z doskonałymi opcjami wegańskimi i barem, który zna się na rzeczy.",
     "sv.kicker":"Usługi i rozrywka","sv.title":"Więcej niż świetny posiłek",
     "sv.c1":"Darmowy odbiór z hotelu","sv.c1d":"Zarezerwuj stolik, a zorganizujemy darmowy transport z Twojego hotelu — od drzwi po marinę.",
     "sv.c2":"Piłka i F1 na żywo","sv.c2d":"Każdy ważny mecz i wyścig na wielu ekranach — nie przegapisz swojej drużyny.",
@@ -1387,10 +1376,10 @@ const I18N = {
     "story.kicker":"Náš příběh","story.title":"Kde se italská tradice potkává s egyptskou duší",
     "story.lead1":"Naše kuchyně se rodí ze setkání dvou světů — italské tradice a egyptské autenticity — spojených v jedinečné identitě, která vypráví náš příběh.",
     "story.quote":"„Každý den ručně pečeme chléb pro naše tapas a burgery, s vybranými surovinami a postupy, které vyzdvihnou každý detail.”",
-    "story.lead2":"Od dlouho kynutého těsta naší neapolské pizzy až po kvalitní italské suroviny — každý pokrm nabízí autentický zážitek. Čerstvé těstoviny, krémová rizota, prvotřídní steaky Angus a naše místní specialita — Camel Steak — dotvářejí menu spojující tradici, péči a chutě Středomoří.",
+    "story.lead2":"Od dlouho kynutého těsta naší neapolské pizzy až po kvalitní italské suroviny — každý pokrm nabízí autentický zážitek. Čerstvé těstoviny, krémová rizota, prvotřídní hovězí steaky a naše místní specialita — Camel Steak — dotvářejí menu spojující tradici, péči a chutě Středomoří.",
     "story.art":"Marina Port Ghalib · Terasa u vody",
     "menu.dl":"⬇  Stáhnout kompletní menu (PDF)","menu.kicker":"Menu","menu.title":"Z grilu, z pece a z baru",
-    "menu.lead":"Italské těstoviny a pizza, španělské tapas a poctivé grilování — se skvělými veganskými volbami a barem, který svému řemeslu rozumí.",
+    "menu.lead":"Italské těstoviny a rizota, pizza a poctivé grilování — se skvělými veganskými volbami a barem, který svému řemeslu rozumí.",
     "sv.kicker":"Služby a zábava","sv.title":"Víc než skvělé jídlo",
     "sv.c1":"Odvoz z hotelu zdarma","sv.c1d":"Zarezervujte stůl a zajistíme bezplatný odvoz z vašeho hotelu — od dveří až k marině.",
     "sv.c2":"Fotbal a F1 živě","sv.c2d":"Každý velký zápas i závod na více obrazovkách — o svůj tým nikdy nepřijdete.",
@@ -1443,10 +1432,10 @@ const I18N = {
     "story.kicker":"Ons verhaal","story.title":"Waar Italiaanse traditie de Egyptische ziel ontmoet",
     "story.lead1":"Onze keuken ontstaat uit de ontmoeting van twee werelden — Italiaanse traditie en Egyptische authenticiteit — verenigd in één identiteit die ons verhaal vertelt.",
     "story.quote":"„Elke dag bakken we ons brood met de hand voor onze tapas en burgers, met geselecteerde ingrediënten en technieken die elk detail tot hun recht laten komen.”",
-    "story.lead2":"Van het langgerezen deeg van onze Napolitaanse pizza tot hoogwaardige Italiaanse ingrediënten — elk gerecht biedt een authentieke ervaring. Verse pasta, romige risotto's, eersteklas Angus-filets en onze lokale specialiteit — de Camel Steak — maken een menu compleet dat traditie, vakmanschap en de smaken van de Middellandse Zee verenigt.",
+    "story.lead2":"Van het langgerezen deeg van onze Napolitaanse pizza tot hoogwaardige Italiaanse ingrediënten — elk gerecht biedt een authentieke ervaring. Verse pasta, romige risotto's, eersteklas runderfilets en onze lokale specialiteit — de Camel Steak — maken een menu compleet dat traditie, vakmanschap en de smaken van de Middellandse Zee verenigt.",
     "story.art":"Port Ghalib Marina · Terras aan het water",
     "menu.dl":"⬇  Download het volledige menu (PDF)","menu.kicker":"Het menu","menu.title":"Van de grill, de oven en de bar",
-    "menu.lead":"Italiaanse pasta en pizza, Spaanse tapas en echt grillwerk — met heerlijke veganistische opties en een bar die zijn vak verstaat.",
+    "menu.lead":"Italiaanse pasta en risotto, pizza en echt grillwerk — met heerlijke veganistische opties en een bar die zijn vak verstaat.",
     "sv.kicker":"Diensten & entertainment","sv.title":"Meer dan een geweldige maaltijd",
     "sv.c1":"Gratis ophalen bij hotel","sv.c1d":"Reserveer een tafel en wij regelen gratis vervoer vanaf je hotel — van deur tot jachthaven.",
     "sv.c2":"Live voetbal & F1","sv.c2d":"Elke grote wedstrijd en race op meerdere schermen — je mist je team nooit.",
