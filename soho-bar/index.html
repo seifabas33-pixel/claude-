@@ -968,6 +968,35 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-2)}
 /* ── full menu (from the official Soho Bar menu) ── */
 const STAR={sig:{en:'Signature',de:'Spezialität',it:'Specialità',pl:'Specjalność',cs:'Specialita',nl:'Specialiteit'}};
 const MENU=[
+ {key:'breakfast', label:{en:'Breakfast',de:'Frühstück',it:'Colazione',pl:'Śniadanie',cs:'Snídaně',nl:'Ontbijt'}, items:[
+   {sub:{en:'Eggs & Specialties',de:'Eier & Spezialitäten',it:'Uova e specialità',pl:'Jajka i specjały',cs:'Vejce a speciality',nl:'Eieren & specialiteiten'}},
+   {n:'Avo & Poached Eggs on Focaccia', d:'Soft poached eggs & crushed avocado on toasted homemade focaccia, topped with cherry tomatoes, microgreens & extra virgin olive oil', veg:1},
+   {n:'Eggs Benedict Salmon on Focaccia', d:'Soft poached eggs & smoked salmon on toasted homemade focaccia, finished with baby spinach & warm Hollandaise sauce'},
+   {n:'Shakshuka Mediterranean Style', d:'Poached eggs in a slow-cooked tomato & roasted pepper sauce, topped with feta cheese & fresh basil, served with toasted focaccia', veg:1},
+   {n:'Soho Omelette', d:'Three-egg omelette stuffed with fresh burrata, cherry tomatoes & basil pesto, served with roasted rosemary potatoes & wild arugula', veg:1},
+   {n:'Mushroom & Cheese Omelette', d:'Fluffy three-egg omelette filled with sautéed porcini mushrooms & melted buffalo mozzarella, served with roasted potatoes', veg:1},
+   {sub:{en:'Breakfast Pinsas — from our oven',de:'Frühstücks-Pinsas — aus unserem Ofen',it:'Pinse per la colazione — dal nostro forno',pl:'Śniadaniowe pinsy — z naszego pieca',cs:'Snídaňové pinsy — z naší pece',nl:"Ontbijtpinsa's — uit onze oven"}},
+   {n:'Pinsa Pomodoro & Miele', d:'Warm crispy pinsa base topped with tomato jam, stracciatella cheese, spicy honey, fresh basil & pangrattato', veg:1},
+   {n:'Pinsa Salmon & Stracciatella', d:'Crispy pinsa topped with creamy stracciatella, smoked salmon, capers, fresh dill & extra virgin olive oil'},
+   {n:'Pinsa Bresaola & Egg', d:'Pinsa baked with a sunny-side-up egg, thin slices of bresaola, wild arugula & Parmesan flakes'},
+   {sub:{en:'Fresh Bowls & Dips',de:'Frische Bowls & Dips',it:'Bowl fresche e salse',pl:'Świeże miski i dipy',cs:'Čerstvé misky a dipy',nl:'Verse bowls & dips'}},
+   {n:'Soho Yogurt Bowl', d:'Rich Greek yogurt layered with toasted granola, wild berry compote, honey & fresh seasonal fruit', veg:1},
+   {n:'Tzatziki Dip & Toasted Focaccia', d:'Authentic Greek yogurt dip with cucumber, garlic, dill & extra virgin olive oil, served with warm focaccia', veg:1},
+ ]},
+ {key:'tapas', label:{en:'Bites & Tapas',de:'Häppchen & Tapas',it:'Stuzzichini e Tapas',pl:'Przekąski i tapas',cs:'Pochutiny a tapas',nl:'Hapjes & tapas'}, intro:{en:'Designed for sharing & pairing.',de:'Zum Teilen und Kombinieren gedacht.',it:'Pensati per essere condivisi e abbinati.',pl:'Stworzone do dzielenia się i łączenia.',cs:'Určeno ke sdílení a kombinování.',nl:'Bedoeld om te delen en te combineren.'}, items:[
+   {n:'Pan con Tomate', d:'Grilled artisan bread topped with fresh tomato & garlic, finished with oregano & extra virgin olive oil', p:'€5', veg:1},
+   {n:'Pan de Ajo', d:'Warm homemade garlic bread, served plain or topped with melted cheese', p:'€3', veg:1},
+   {n:'Patatas "Soho Style"', d:'Crispy herbed baby potatoes with roasted garlic, rosemary, onions & chili', p:'€5', veg:1},
+   {n:'Gambas Pil-Pil', d:'Sautéed king prawns with garlic, chili, basil, black olives, cherry tomatoes, peas & sun-dried tomatoes', p:'€13'},
+   {n:'Calamares Fritos', d:'Lightly fried calamari served with roasted garlic aioli & fresh lemon', p:'€8'},
+   {n:'Croquetas de Arroz', d:'Golden crispy rice croquettes filled with mozzarella, served with smoked tomato salsa', p:'€5', veg:1},
+   {n:'Queso Bombas', d:'Crispy golden cheese balls with roasted garlic aioli', p:'€6', veg:1},
+   {n:'Alitas Ahumadas', d:'Smoked paprika & garlic-marinated chicken wings with BBQ sauce', p:'€8'},
+   {n:'Beef Nachos', d:'Crispy tortilla chips topped with slow-cooked beef, melted cheese, guacamole, sour cream, jalapeños & fresh salsa', p:'€10'},
+   {n:'Brochetas de Carne', d:'Homemade juicy grilled beef skewers served with sweet chili sauce', p:'€10'},
+   {n:'Brochetas de Pollo', d:'Grilled juicy chicken skewers served with salsa verde', p:'€8'},
+   {n:'Crudités', d:'Fresh carrots, cucumber, celery & marinated black olives with gazpacho dip', p:'€5', veg:1},
+ ]},
  {key:'salads', label:{en:'Salads',de:'Salate',it:'Insalate',pl:'Sałatki',cs:'Saláty',nl:'Salades'}, items:[
    {n:'Burrata', d:'With a selection of tomatoes, fresh basil, red onion, dried oregano & pesto sauce', p:'€13', veg:1},
    {n:'Quinoa', d:'Mixed salad leaves with quinoa, avocado, sweet corn, cherry tomatoes & raspberry vinaigrette', veg:1, opts:[['Base','€10.5'],['With smoked salmon','€12.5'],['With shrimps','€14.5']]},
